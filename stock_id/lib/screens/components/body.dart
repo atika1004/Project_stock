@@ -27,6 +27,7 @@ class Body extends StatelessWidget {
                 right: 0,
                 child: Container(
                   margin: EdgeInsets.symmetric(horizontal: stockPadding),
+                  padding: EdgeInsets.symmetric(horizontal: stockPadding),
                   height: 54,
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -38,6 +39,13 @@ class Body extends StatelessWidget {
                         color: stockPrimary.withOpacity(0.30),
                       )
                     ],
+                  ),
+                  child: Text(
+                    'Selamat datang di aplikasi stock.id',
+                    style: TextStyle(
+                      color: stockText,
+                      fontSize: 20,
+                    ),
                   ),
                 ),
               ),
