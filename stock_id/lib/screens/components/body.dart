@@ -46,6 +46,7 @@ class Body extends StatelessWidget {
                       color: stockText,
                       fontSize: 20,
                     ),
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ),
