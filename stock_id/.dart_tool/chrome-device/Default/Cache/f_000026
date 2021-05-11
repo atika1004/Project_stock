@@ -1,37 +1,39 @@
-define(['dart_sdk', 'packages/vector_math/vector_math_64.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/foundation/collections.dart', 'packages/flutter/src/foundation/object.dart'], (function load__packages__flutter__src__painting__gradient_dart(dart_sdk, packages__vector_math__vector_math_64$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__foundation__collections$46dart, packages__flutter__src__foundation__object$46dart) {
+define(['dart_sdk', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/rendering/layout_helper.dart'], (function load__packages__flutter__src__rendering__stack_dart(dart_sdk, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__rendering__layout_helper$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const ui = dart_sdk.ui;
   const math = dart_sdk.math;
-  const typed_data = dart_sdk.typed_data;
-  const collection = dart_sdk.collection;
+  const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
+  const _internal = dart_sdk._internal;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const vector_math_64 = packages__vector_math__vector_math_64$46dart.vector_math_64;
+  const debug = packages__flutter__src__foundation__debug$46dart.src__foundation__debug;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
+  const layer = packages__flutter__src__rendering__layer$46dart.src__rendering__layer;
   const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
-  const collections = packages__flutter__src__foundation__collections$46dart.src__foundation__collections;
-  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
-  var gradient = Object.create(dart.library);
-  var $length = dartx.length;
-  var $map = dartx.map;
-  var $toList = dartx.toList;
-  var $runtimeType = dartx.runtimeType;
-  var $isNotEmpty = dartx.isNotEmpty;
-  var $first = dartx.first;
-  var $last = dartx.last;
-  var $lastIndexWhere = dartx.lastIndexWhere;
-  var $_get = dartx._get;
+  const layout_helper = packages__flutter__src__rendering__layout_helper$46dart.src__rendering__layout_helper;
+  var stack = Object.create(dart.library);
+  var $toStringAsFixed = dartx.toStringAsFixed;
+  var $add = dartx.add;
+  var $isEmpty = dartx.isEmpty;
+  var $join = dartx.join;
   dart._checkModuleNullSafetyMode(false);
   var T = {
-    ListOfdouble: () => (T.ListOfdouble = dart.constFn(core.List$(core.double)))(),
-    intTodouble: () => (T.intTodouble = dart.constFn(dart.fnType(core.double, [core.int])))(),
-    ColorToColor: () => (T.ColorToColor = dart.constFn(dart.fnType(ui.Color, [ui.Color])))(),
-    LinearGradientN: () => (T.LinearGradientN = dart.constFn(dart.nullable(gradient.LinearGradient)))(),
-    RadialGradientN: () => (T.RadialGradientN = dart.constFn(dart.nullable(gradient.RadialGradient)))(),
-    SweepGradientN: () => (T.SweepGradientN = dart.constFn(dart.nullable(gradient.SweepGradient)))(),
-    doubleTobool: () => (T.doubleTobool = dart.constFn(dart.fnType(core.bool, [core.double])))(),
-    SplayTreeSetOfdouble: () => (T.SplayTreeSetOfdouble = dart.constFn(collection.SplayTreeSet$(core.double)))(),
-    doubleToColor: () => (T.doubleToColor = dart.constFn(dart.fnType(ui.Color, [core.double])))()
+    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))(),
+    StackFitL: () => (T.StackFitL = dart.constFn(dart.legacy(stack.StackFit)))(),
+    OverflowL: () => (T.OverflowL = dart.constFn(dart.legacy(stack.Overflow)))(),
+    RenderBoxTodouble: () => (T.RenderBoxTodouble = dart.constFn(dart.fnType(core.double, [box.RenderBox])))(),
+    VoidTodouble: () => (T.VoidTodouble = dart.constFn(dart.fnType(core.double, [])))(),
+    doubleTodynamic: () => (T.doubleTodynamic = dart.constFn(dart.fnType(dart.dynamic, [core.double])))(),
+    RenderBoxAndBoxConstraintsToSize: () => (T.RenderBoxAndBoxConstraintsToSize = dart.constFn(dart.fnType(ui.Size, [box.RenderBox, box.BoxConstraints])))(),
+    DiagnosticsPropertyOfAlignmentGeometry: () => (T.DiagnosticsPropertyOfAlignmentGeometry = dart.constFn(diagnostics.DiagnosticsProperty$(alignment.AlignmentGeometry)))(),
+    EnumPropertyOfTextDirection: () => (T.EnumPropertyOfTextDirection = dart.constFn(diagnostics.EnumProperty$(ui.TextDirection)))(),
+    EnumPropertyOfStackFit: () => (T.EnumPropertyOfStackFit = dart.constFn(diagnostics.EnumProperty$(stack.StackFit)))(),
+    EnumPropertyOfClip: () => (T.EnumPropertyOfClip = dart.constFn(diagnostics.EnumProperty$(ui.Clip)))(),
+    OffsetN: () => (T.OffsetN = dart.constFn(dart.nullable(ui.Offset)))(),
+    BoxHitTestResultAndOffsetNTobool: () => (T.BoxHitTestResultAndOffsetNTobool = dart.constFn(dart.fnType(core.bool, [box.BoxHitTestResult, T.OffsetN()])))()
   };
   var T$Eval = Object.assign({
     _: () => T$Eval
@@ -48,584 +50,835 @@ define(['dart_sdk', 'packages/vector_math/vector_math_64.dart', 'packages/flutte
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: alignment.Alignment.prototype,
-        [Alignment_y]: 0,
-        [Alignment_x]: -1
+        __proto__: stack.RelativeRect.prototype,
+        [bottom$]: 0,
+        [right$]: 0,
+        [top$]: 0,
+        [left$]: 0
       });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: alignment.Alignment.prototype,
-        [Alignment_y]: 0,
-        [Alignment_x]: 1
+        __proto__: stack.StackFit.prototype,
+        [_name$]: "StackFit.loose",
+        index: 0
       });
     },
     get C2() {
       return C[2] = dart.const({
-        __proto__: ui.TileMode.prototype,
-        [_name]: "TileMode.clamp",
-        index: 0
+        __proto__: stack.StackFit.prototype,
+        [_name$]: "StackFit.expand",
+        index: 1
       });
     },
     get C3() {
       return C[3] = dart.const({
-        __proto__: alignment.Alignment.prototype,
-        [Alignment_y]: 0,
-        [Alignment_x]: 0
+        __proto__: stack.StackFit.prototype,
+        [_name$]: "StackFit.passthrough",
+        index: 2
       });
+    },
+    get C4() {
+      return C[4] = dart.constList([C[1] || CT.C1, C[2] || CT.C2, C[3] || CT.C3], T.StackFitL());
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: stack.Overflow.prototype,
+        [_name$]: "Overflow.visible",
+        index: 0
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: stack.Overflow.prototype,
+        [_name$]: "Overflow.clip",
+        index: 1
+      });
+    },
+    get C7() {
+      return C[7] = dart.constList([C[5] || CT.C5, C[6] || CT.C6], T.OverflowL());
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: alignment.AlignmentDirectional.prototype,
+        [AlignmentDirectional_y]: -1,
+        [AlignmentDirectional_start]: -1
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: ui.Clip.prototype,
+        [_name]: "Clip.hardEdge",
+        index: 1
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: box.BoxConstraints.prototype,
+        [BoxConstraints_maxHeight]: 1 / 0,
+        [BoxConstraints_minHeight]: 0,
+        [BoxConstraints_maxWidth]: 1 / 0,
+        [BoxConstraints_minWidth]: 0
+      });
+    },
+    get C11() {
+      return C[11] = dart.fn(layout_helper.ChildLayoutHelper.dryLayoutChild, T.RenderBoxAndBoxConstraintsToSize());
+    },
+    get C12() {
+      return C[12] = dart.fn(layout_helper.ChildLayoutHelper.layoutChild, T.RenderBoxAndBoxConstraintsToSize());
     }
   }, false);
-  var C = Array(4).fill(void 0);
+  var C = Array(13).fill(void 0);
   var I = [
-    "file:///C:/src/flutter/packages/flutter/lib/src/painting/gradient.dart",
-    "package:flutter/src/painting/gradient.dart"
+    "file:///C:/src/flutter/packages/flutter/lib/src/rendering/stack.dart",
+    "package:flutter/src/rendering/stack.dart"
   ];
-  gradient._ColorsAndStops = class _ColorsAndStops extends core.Object {};
-  (gradient._ColorsAndStops.new = function(colors, stops) {
-    if (colors == null) dart.nullFailed(I[0], 18, 24, "colors");
-    if (stops == null) dart.nullFailed(I[0], 18, 37, "stops");
-    this.colors = colors;
-    this.stops = stops;
+  var left$ = dart.privateName(stack, "RelativeRect.left");
+  var top$ = dart.privateName(stack, "RelativeRect.top");
+  var right$ = dart.privateName(stack, "RelativeRect.right");
+  var bottom$ = dart.privateName(stack, "RelativeRect.bottom");
+  stack.RelativeRect = class RelativeRect extends core.Object {
+    get left() {
+      return this[left$];
+    }
+    set left(value) {
+      super.left = value;
+    }
+    get top() {
+      return this[top$];
+    }
+    set top(value) {
+      super.top = value;
+    }
+    get right() {
+      return this[right$];
+    }
+    set right(value) {
+      super.right = value;
+    }
+    get bottom() {
+      return this[bottom$];
+    }
+    set bottom(value) {
+      super.bottom = value;
+    }
+    static fromSize(rect, container) {
+      if (rect == null) dart.nullFailed(I[0], 34, 38, "rect");
+      if (container == null) dart.nullFailed(I[0], 34, 49, "container");
+      return new stack.RelativeRect.fromLTRB(rect.left, rect.top, dart.notNull(container.width) - dart.notNull(rect.right), dart.notNull(container.height) - dart.notNull(rect.bottom));
+    }
+    static fromRect(rect, container) {
+      if (rect == null) dart.nullFailed(I[0], 50, 38, "rect");
+      if (container == null) dart.nullFailed(I[0], 50, 49, "container");
+      return new stack.RelativeRect.fromLTRB(dart.notNull(rect.left) - dart.notNull(container.left), dart.notNull(rect.top) - dart.notNull(container.top), dart.notNull(container.right) - dart.notNull(rect.right), dart.notNull(container.bottom) - dart.notNull(rect.bottom));
+    }
+    get hasInsets() {
+      return dart.notNull(this.left) > 0.0 || dart.notNull(this.top) > 0.0 || dart.notNull(this.right) > 0.0 || dart.notNull(this.bottom) > 0.0;
+    }
+    shift(offset) {
+      if (offset == null) dart.nullFailed(I[0], 89, 29, "offset");
+      return new stack.RelativeRect.fromLTRB(dart.notNull(this.left) + dart.notNull(offset.dx), dart.notNull(this.top) + dart.notNull(offset.dy), dart.notNull(this.right) - dart.notNull(offset.dx), dart.notNull(this.bottom) - dart.notNull(offset.dy));
+    }
+    inflate(delta) {
+      if (delta == null) dart.nullFailed(I[0], 94, 31, "delta");
+      return new stack.RelativeRect.fromLTRB(dart.notNull(this.left) - dart.notNull(delta), dart.notNull(this.top) - dart.notNull(delta), dart.notNull(this.right) - dart.notNull(delta), dart.notNull(this.bottom) - dart.notNull(delta));
+    }
+    deflate(delta) {
+      if (delta == null) dart.nullFailed(I[0], 99, 31, "delta");
+      return this.inflate(-dart.notNull(delta));
+    }
+    intersect(other) {
+      if (other == null) dart.nullFailed(I[0], 104, 39, "other");
+      return new stack.RelativeRect.fromLTRB(math.max(core.double, this.left, other.left), math.max(core.double, this.top, other.top), math.max(core.double, this.right, other.right), math.max(core.double, this.bottom, other.bottom));
+    }
+    toRect(container) {
+      if (container == null) dart.nullFailed(I[0], 119, 20, "container");
+      return new ui.Rect.fromLTRB(this.left, this.top, dart.notNull(container.width) - dart.notNull(this.right), dart.notNull(container.height) - dart.notNull(this.bottom));
+    }
+    toSize(container) {
+      if (container == null) dart.nullFailed(I[0], 128, 20, "container");
+      return new ui.Size.new(dart.notNull(container.width) - dart.notNull(this.left) - dart.notNull(this.right), dart.notNull(container.height) - dart.notNull(this.top) - dart.notNull(this.bottom));
+    }
+    static lerp(a, b, t) {
+      if (t == null) dart.nullFailed(I[0], 137, 70, "t");
+      if (!(t != null)) dart.assertFailed(null, I[0], 138, 12, "t != null");
+      if (a == null && b == null) return null;
+      if (a == null) return new stack.RelativeRect.fromLTRB(dart.notNull(dart.nullCheck(b).left) * dart.notNull(t), dart.notNull(b.top) * dart.notNull(t), dart.notNull(b.right) * dart.notNull(t), dart.notNull(b.bottom) * dart.notNull(t));
+      if (b == null) {
+        let k = 1.0 - dart.notNull(t);
+        return new stack.RelativeRect.fromLTRB(dart.notNull(dart.nullCheck(b).left) * k, dart.notNull(b.top) * k, dart.notNull(b.right) * k, dart.notNull(b.bottom) * k);
+      }
+      return new stack.RelativeRect.fromLTRB(dart.nullCheck(ui.lerpDouble(a.left, b.left, t)), dart.nullCheck(ui.lerpDouble(a.top, b.top, t)), dart.nullCheck(ui.lerpDouble(a.right, b.right, t)), dart.nullCheck(ui.lerpDouble(a.bottom, b.bottom, t)));
+    }
+    _equals(other) {
+      if (other == null) return false;
+      if (this === other) return true;
+      return stack.RelativeRect.is(other) && other.left == this.left && other.top == this.top && other.right == this.right && other.bottom == this.bottom;
+    }
+    get hashCode() {
+      return ui.hashValues(this.left, this.top, this.right, this.bottom);
+    }
+    toString() {
+      return "RelativeRect.fromLTRB(" + this.left[$toStringAsFixed](1) + ", " + this.top[$toStringAsFixed](1) + ", " + this.right[$toStringAsFixed](1) + ", " + this.bottom[$toStringAsFixed](1) + ")";
+    }
+  };
+  (stack.RelativeRect.fromLTRB = function(left, top, right, bottom) {
+    if (left == null) dart.nullFailed(I[0], 28, 36, "left");
+    if (top == null) dart.nullFailed(I[0], 28, 47, "top");
+    if (right == null) dart.nullFailed(I[0], 28, 57, "right");
+    if (bottom == null) dart.nullFailed(I[0], 28, 69, "bottom");
+    this[left$] = left;
+    this[top$] = top;
+    this[right$] = right;
+    this[bottom$] = bottom;
+    if (!(left != null && top != null && right != null && bottom != null)) dart.assertFailed(null, I[0], 29, 14, "left != null && top != null && right != null && bottom != null");
     ;
-  }).prototype = gradient._ColorsAndStops.prototype;
-  dart.addTypeTests(gradient._ColorsAndStops);
-  dart.addTypeCaches(gradient._ColorsAndStops);
-  dart.setLibraryUri(gradient._ColorsAndStops, I[1]);
-  dart.setFieldSignature(gradient._ColorsAndStops, () => ({
-    __proto__: dart.getFields(gradient._ColorsAndStops.__proto__),
-    colors: dart.finalFieldType(core.List$(ui.Color)),
-    stops: dart.finalFieldType(core.List$(core.double))
+  }).prototype = stack.RelativeRect.prototype;
+  dart.addTypeTests(stack.RelativeRect);
+  dart.addTypeCaches(stack.RelativeRect);
+  dart.setMethodSignature(stack.RelativeRect, () => ({
+    __proto__: dart.getMethods(stack.RelativeRect.__proto__),
+    shift: dart.fnType(stack.RelativeRect, [ui.Offset]),
+    inflate: dart.fnType(stack.RelativeRect, [core.double]),
+    deflate: dart.fnType(stack.RelativeRect, [core.double]),
+    intersect: dart.fnType(stack.RelativeRect, [stack.RelativeRect]),
+    toRect: dart.fnType(ui.Rect, [ui.Rect]),
+    toSize: dart.fnType(ui.Size, [ui.Size])
   }));
-  gradient.GradientTransform = class GradientTransform extends core.Object {};
-  (gradient.GradientTransform.new = function() {
-    ;
-  }).prototype = gradient.GradientTransform.prototype;
-  dart.addTypeTests(gradient.GradientTransform);
-  dart.addTypeCaches(gradient.GradientTransform);
-  dart.setLibraryUri(gradient.GradientTransform, I[1]);
-  var radians$ = dart.privateName(gradient, "GradientRotation.radians");
-  gradient.GradientRotation = class GradientRotation extends gradient.GradientTransform {
-    get radians() {
-      return this[radians$];
+  dart.setGetterSignature(stack.RelativeRect, () => ({
+    __proto__: dart.getGetters(stack.RelativeRect.__proto__),
+    hasInsets: core.bool
+  }));
+  dart.setLibraryUri(stack.RelativeRect, I[1]);
+  dart.setFieldSignature(stack.RelativeRect, () => ({
+    __proto__: dart.getFields(stack.RelativeRect.__proto__),
+    left: dart.finalFieldType(core.double),
+    top: dart.finalFieldType(core.double),
+    right: dart.finalFieldType(core.double),
+    bottom: dart.finalFieldType(core.double)
+  }));
+  dart.defineExtensionMethods(stack.RelativeRect, ['_equals', 'toString']);
+  dart.defineExtensionAccessors(stack.RelativeRect, ['hashCode']);
+  dart.defineLazy(stack.RelativeRect, {
+    /*stack.RelativeRect.fill*/get fill() {
+      return C[0] || CT.C0;
     }
-    set radians(value) {
-      super.radians = value;
+  }, false);
+  var top = dart.privateName(stack, "StackParentData.top");
+  var right = dart.privateName(stack, "StackParentData.right");
+  var bottom = dart.privateName(stack, "StackParentData.bottom");
+  var left = dart.privateName(stack, "StackParentData.left");
+  var width = dart.privateName(stack, "StackParentData.width");
+  var height = dart.privateName(stack, "StackParentData.height");
+  stack.StackParentData = class StackParentData extends box.ContainerBoxParentData$(box.RenderBox) {
+    get top() {
+      return this[top];
     }
-    transform(bounds, opts) {
-      let t0;
-      if (bounds == null) dart.nullFailed(I[0], 108, 26, "bounds");
-      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
-      if (!(bounds != null)) dart.assertFailed(null, I[0], 109, 12, "bounds != null");
-      let sinRadians = math.sin(this.radians);
-      let oneMinusCosRadians = 1 - math.cos(this.radians);
-      let center = bounds.center;
-      let originX = sinRadians * dart.notNull(center.dy) + oneMinusCosRadians * dart.notNull(center.dx);
-      let originY = -sinRadians * dart.notNull(center.dx) + oneMinusCosRadians * dart.notNull(center.dy);
-      t0 = vector_math_64.Matrix4.identity();
-      return (() => {
-        t0.translate(originX, originY);
-        t0.rotateZ(this.radians);
+    set top(value) {
+      this[top] = value;
+    }
+    get right() {
+      return this[right];
+    }
+    set right(value) {
+      this[right] = value;
+    }
+    get bottom() {
+      return this[bottom];
+    }
+    set bottom(value) {
+      this[bottom] = value;
+    }
+    get left() {
+      return this[left];
+    }
+    set left(value) {
+      this[left] = value;
+    }
+    get width() {
+      return this[width];
+    }
+    set width(value) {
+      this[width] = value;
+    }
+    get height() {
+      return this[height];
+    }
+    set height(value) {
+      this[height] = value;
+    }
+    get rect() {
+      return new stack.RelativeRect.fromLTRB(dart.nullCheck(this.left), dart.nullCheck(this.top), dart.nullCheck(this.right), dart.nullCheck(this.bottom));
+    }
+    set rect(value) {
+      if (value == null) dart.nullFailed(I[0], 199, 25, "value");
+      this.top = value.top;
+      this.right = value.right;
+      this.bottom = value.bottom;
+      this.left = value.left;
+    }
+    get isPositioned() {
+      return this.top != null || this.right != null || this.bottom != null || this.left != null || this.width != null || this.height != null;
+    }
+    toString() {
+      let values = (() => {
+        let t0 = T.JSArrayOfString().of([]);
+        if (this.top != null) t0[$add]("top=" + dart.str(debug.debugFormatDouble(this.top)));
+        if (this.right != null) t0[$add]("right=" + dart.str(debug.debugFormatDouble(this.right)));
+        if (this.bottom != null) t0[$add]("bottom=" + dart.str(debug.debugFormatDouble(this.bottom)));
+        if (this.left != null) t0[$add]("left=" + dart.str(debug.debugFormatDouble(this.left)));
+        if (this.width != null) t0[$add]("width=" + dart.str(debug.debugFormatDouble(this.width)));
+        if (this.height != null) t0[$add]("height=" + dart.str(debug.debugFormatDouble(this.height)));
         return t0;
       })();
+      if (dart.test(values[$isEmpty])) values[$add]("not positioned");
+      values[$add](super.toString());
+      return values[$join]("; ");
     }
   };
-  (gradient.GradientRotation.new = function(radians) {
-    if (radians == null) dart.nullFailed(I[0], 102, 31, "radians");
-    this[radians$] = radians;
-    gradient.GradientRotation.__proto__.new.call(this);
+  (stack.StackParentData.new = function() {
+    this[top] = null;
+    this[right] = null;
+    this[bottom] = null;
+    this[left] = null;
+    this[width] = null;
+    this[height] = null;
+    stack.StackParentData.__proto__.new.call(this);
     ;
-  }).prototype = gradient.GradientRotation.prototype;
-  dart.addTypeTests(gradient.GradientRotation);
-  dart.addTypeCaches(gradient.GradientRotation);
-  dart.setMethodSignature(gradient.GradientRotation, () => ({
-    __proto__: dart.getMethods(gradient.GradientRotation.__proto__),
-    transform: dart.fnType(vector_math_64.Matrix4, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {})
+  }).prototype = stack.StackParentData.prototype;
+  dart.addTypeTests(stack.StackParentData);
+  dart.addTypeCaches(stack.StackParentData);
+  dart.setGetterSignature(stack.StackParentData, () => ({
+    __proto__: dart.getGetters(stack.StackParentData.__proto__),
+    rect: stack.RelativeRect,
+    isPositioned: core.bool
   }));
-  dart.setLibraryUri(gradient.GradientRotation, I[1]);
-  dart.setFieldSignature(gradient.GradientRotation, () => ({
-    __proto__: dart.getFields(gradient.GradientRotation.__proto__),
-    radians: dart.finalFieldType(core.double)
+  dart.setSetterSignature(stack.StackParentData, () => ({
+    __proto__: dart.getSetters(stack.StackParentData.__proto__),
+    rect: stack.RelativeRect
   }));
-  var colors$ = dart.privateName(gradient, "Gradient.colors");
-  var stops$ = dart.privateName(gradient, "Gradient.stops");
-  var transform$ = dart.privateName(gradient, "Gradient.transform");
-  var _impliedStops = dart.privateName(gradient, "_impliedStops");
-  var _resolveTransform = dart.privateName(gradient, "_resolveTransform");
-  gradient.Gradient = class Gradient extends core.Object {
-    get colors() {
-      return this[colors$];
-    }
-    set colors(value) {
-      super.colors = value;
-    }
-    get stops() {
-      return this[stops$];
-    }
-    set stops(value) {
-      super.stops = value;
-    }
-    get transform() {
-      return this[transform$];
-    }
-    set transform(value) {
-      super.transform = value;
-    }
-    [_impliedStops]() {
-      if (this.stops != null) return dart.nullCheck(this.stops);
-      if (!(dart.notNull(this.colors[$length]) >= 2)) dart.assertFailed("colors list must have at least two colors", I[0], 189, 12, "colors.length >= 2");
-      let separation = 1.0 / (dart.notNull(this.colors[$length]) - 1);
-      return T.ListOfdouble().generate(this.colors[$length], dart.fn(index => {
-        if (index == null) dart.nullFailed(I[0], 193, 12, "index");
-        return dart.notNull(index) * separation;
-      }, T.intTodouble()), {growable: false});
-    }
-    lerpFrom(a, t) {
-      if (t == null) dart.nullFailed(I[0], 244, 42, "t");
-      if (a == null) return this.scale(t);
-      return null;
-    }
-    lerpTo(b, t) {
-      if (t == null) dart.nullFailed(I[0], 275, 40, "t");
-      if (b == null) return this.scale(1.0 - dart.notNull(t));
-      return null;
-    }
-    static lerp(a, b, t) {
-      if (t == null) dart.nullFailed(I[0], 289, 58, "t");
-      if (!(t != null)) dart.assertFailed(null, I[0], 290, 12, "t != null");
-      let result = null;
-      if (b != null) result = b.lerpFrom(a, t);
-      if (result == null && a != null) result = a.lerpTo(b, t);
-      if (result != null) return result;
-      if (a == null && b == null) return null;
-      if (!(a != null && b != null)) dart.assertFailed(null, I[0], 300, 12, "a != null && b != null");
-      return dart.notNull(t) < 0.5 ? dart.nullCheck(a).scale(1.0 - dart.notNull(t) * 2.0) : dart.nullCheck(b).scale((dart.notNull(t) - 0.5) * 2.0);
-    }
-    [_resolveTransform](bounds, textDirection) {
-      let t1, t0;
-      if (bounds == null) dart.nullFailed(I[0], 304, 39, "bounds");
-      t0 = this.transform;
-      return t0 == null ? null : (t1 = t0.transform(bounds, {textDirection: textDirection}), t1 == null ? null : t1.storage);
+  dart.setLibraryUri(stack.StackParentData, I[1]);
+  dart.setFieldSignature(stack.StackParentData, () => ({
+    __proto__: dart.getFields(stack.StackParentData.__proto__),
+    top: dart.fieldType(dart.nullable(core.double)),
+    right: dart.fieldType(dart.nullable(core.double)),
+    bottom: dart.fieldType(dart.nullable(core.double)),
+    left: dart.fieldType(dart.nullable(core.double)),
+    width: dart.fieldType(dart.nullable(core.double)),
+    height: dart.fieldType(dart.nullable(core.double))
+  }));
+  dart.defineExtensionMethods(stack.StackParentData, ['toString']);
+  var _name$ = dart.privateName(stack, "_name");
+  stack.StackFit = class StackFit extends core.Object {
+    toString() {
+      return this[_name$];
     }
   };
-  (gradient.Gradient.new = function(opts) {
-    let colors = opts && 'colors' in opts ? opts.colors : null;
-    if (colors == null) dart.nullFailed(I[0], 149, 19, "colors");
-    let stops = opts && 'stops' in opts ? opts.stops : null;
-    let transform = opts && 'transform' in opts ? opts.transform : null;
-    this[colors$] = colors;
-    this[stops$] = stops;
-    this[transform$] = transform;
-    if (!(colors != null)) dart.assertFailed(null, I[0], 152, 15, "colors != null");
+  (stack.StackFit.new = function(index, _name) {
+    if (index == null) dart.nullFailed(I[0], 241, 6, "index");
+    if (_name == null) dart.nullFailed(I[0], 241, 6, "_name");
+    this.index = index;
+    this[_name$] = _name;
     ;
-  }).prototype = gradient.Gradient.prototype;
-  dart.addTypeTests(gradient.Gradient);
-  dart.addTypeCaches(gradient.Gradient);
-  dart.setMethodSignature(gradient.Gradient, () => ({
-    __proto__: dart.getMethods(gradient.Gradient.__proto__),
-    [_impliedStops]: dart.fnType(core.List$(core.double), []),
-    lerpFrom: dart.fnType(dart.nullable(gradient.Gradient), [dart.nullable(gradient.Gradient), core.double]),
-    lerpTo: dart.fnType(dart.nullable(gradient.Gradient), [dart.nullable(gradient.Gradient), core.double]),
-    [_resolveTransform]: dart.fnType(dart.nullable(typed_data.Float64List), [ui.Rect, dart.nullable(ui.TextDirection)])
+  }).prototype = stack.StackFit.prototype;
+  dart.addTypeTests(stack.StackFit);
+  dart.addTypeCaches(stack.StackFit);
+  dart.setLibraryUri(stack.StackFit, I[1]);
+  dart.setFieldSignature(stack.StackFit, () => ({
+    __proto__: dart.getFields(stack.StackFit.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
   }));
-  dart.setLibraryUri(gradient.Gradient, I[1]);
-  dart.setFieldSignature(gradient.Gradient, () => ({
-    __proto__: dart.getFields(gradient.Gradient.__proto__),
-    colors: dart.finalFieldType(core.List$(ui.Color)),
-    stops: dart.finalFieldType(dart.nullable(core.List$(core.double))),
-    transform: dart.finalFieldType(dart.nullable(gradient.GradientTransform))
+  dart.defineExtensionMethods(stack.StackFit, ['toString']);
+  stack.StackFit.loose = C[1] || CT.C1;
+  stack.StackFit.expand = C[2] || CT.C2;
+  stack.StackFit.passthrough = C[3] || CT.C3;
+  stack.StackFit.values = C[4] || CT.C4;
+  stack.Overflow = class Overflow extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (stack.Overflow.new = function(index, _name) {
+    if (index == null) dart.nullFailed(I[0], 281, 6, "index");
+    if (_name == null) dart.nullFailed(I[0], 281, 6, "_name");
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = stack.Overflow.prototype;
+  dart.addTypeTests(stack.Overflow);
+  dart.addTypeCaches(stack.Overflow);
+  dart.setLibraryUri(stack.Overflow, I[1]);
+  dart.setFieldSignature(stack.Overflow, () => ({
+    __proto__: dart.getFields(stack.Overflow.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
   }));
-  var begin$ = dart.privateName(gradient, "LinearGradient.begin");
-  var end$ = dart.privateName(gradient, "LinearGradient.end");
-  var tileMode$ = dart.privateName(gradient, "LinearGradient.tileMode");
-  var Alignment_y = dart.privateName(alignment, "Alignment.y");
-  var Alignment_x = dart.privateName(alignment, "Alignment.x");
+  dart.defineExtensionMethods(stack.Overflow, ['toString']);
+  stack.Overflow.visible = C[5] || CT.C5;
+  stack.Overflow.clip = C[6] || CT.C6;
+  stack.Overflow.values = C[7] || CT.C7;
+  var AlignmentDirectional_y = dart.privateName(alignment, "AlignmentDirectional.y");
+  var AlignmentDirectional_start = dart.privateName(alignment, "AlignmentDirectional.start");
   var _name = dart.privateName(ui, "_name");
-  gradient.LinearGradient = class LinearGradient extends gradient.Gradient {
-    get begin() {
-      return this[begin$];
+  var _hasVisualOverflow = dart.privateName(stack, "_hasVisualOverflow");
+  var _resolvedAlignment = dart.privateName(stack, "_resolvedAlignment");
+  var _clipBehavior = dart.privateName(stack, "_clipBehavior");
+  var _clipRectLayer = dart.privateName(stack, "_clipRectLayer");
+  var _alignment = dart.privateName(stack, "_alignment");
+  var _textDirection = dart.privateName(stack, "_textDirection");
+  var _fit = dart.privateName(stack, "_fit");
+  var _resolve = dart.privateName(stack, "_resolve");
+  var _markNeedResolution = dart.privateName(stack, "_markNeedResolution");
+  var BoxConstraints_maxHeight = dart.privateName(box, "BoxConstraints.maxHeight");
+  var BoxConstraints_minHeight = dart.privateName(box, "BoxConstraints.minHeight");
+  var BoxConstraints_maxWidth = dart.privateName(box, "BoxConstraints.maxWidth");
+  var BoxConstraints_minWidth = dart.privateName(box, "BoxConstraints.minWidth");
+  var _computeSize = dart.privateName(stack, "_computeSize");
+  const RenderBox_ContainerRenderObjectMixin$36 = class RenderBox_ContainerRenderObjectMixin extends box.RenderBox {};
+  (RenderBox_ContainerRenderObjectMixin$36.new = function() {
+    object.ContainerRenderObjectMixin$(box.RenderBox, stack.StackParentData)[dart.mixinNew].call(this);
+    RenderBox_ContainerRenderObjectMixin$36.__proto__.new.call(this);
+  }).prototype = RenderBox_ContainerRenderObjectMixin$36.prototype;
+  dart.applyMixin(RenderBox_ContainerRenderObjectMixin$36, object.ContainerRenderObjectMixin$(box.RenderBox, stack.StackParentData));
+  const RenderBox_RenderBoxContainerDefaultsMixin$36 = class RenderBox_RenderBoxContainerDefaultsMixin extends RenderBox_ContainerRenderObjectMixin$36 {};
+  (RenderBox_RenderBoxContainerDefaultsMixin$36.new = function() {
+    RenderBox_RenderBoxContainerDefaultsMixin$36.__proto__.new.call(this);
+  }).prototype = RenderBox_RenderBoxContainerDefaultsMixin$36.prototype;
+  dart.applyMixin(RenderBox_RenderBoxContainerDefaultsMixin$36, box.RenderBoxContainerDefaultsMixin$(box.RenderBox, stack.StackParentData));
+  stack.RenderStack = class RenderStack extends RenderBox_RenderBoxContainerDefaultsMixin$36 {
+    setupParentData(child) {
+      box.RenderBox.as(child);
+      if (child == null) dart.nullFailed(I[0], 353, 34, "child");
+      if (!stack.StackParentData.is(child.parentData)) child.parentData = new stack.StackParentData.new();
     }
-    set begin(value) {
-      super.begin = value;
+    [_resolve]() {
+      if (this[_resolvedAlignment] != null) return;
+      this[_resolvedAlignment] = this.alignment.resolve(this.textDirection);
     }
-    get end() {
-      return this[end$];
+    [_markNeedResolution]() {
+      this[_resolvedAlignment] = null;
+      this.markNeedsLayout();
     }
-    set end(value) {
-      super.end = value;
+    get alignment() {
+      return this[_alignment];
     }
-    get tileMode() {
-      return this[tileMode$];
+    set alignment(value) {
+      if (value == null) dart.nullFailed(I[0], 388, 35, "value");
+      if (!(value != null)) dart.assertFailed(null, I[0], 389, 12, "value != null");
+      if (dart.equals(this[_alignment], value)) return;
+      this[_alignment] = value;
+      this[_markNeedResolution]();
     }
-    set tileMode(value) {
-      super.tileMode = value;
+    get textDirection() {
+      return this[_textDirection];
     }
-    createShader(rect, opts) {
-      if (rect == null) dart.nullFailed(I[0], 419, 28, "rect");
-      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
-      return ui.Gradient.linear(this.begin.resolve(textDirection).withinRect(rect), this.end.resolve(textDirection).withinRect(rect), this.colors, this[_impliedStops](), this.tileMode, this[_resolveTransform](rect, textDirection));
+    set textDirection(value) {
+      if (this[_textDirection] == value) return;
+      this[_textDirection] = value;
+      this[_markNeedResolution]();
     }
-    scale(factor) {
-      if (factor == null) dart.nullFailed(I[0], 432, 31, "factor");
-      return new gradient.LinearGradient.new({begin: this.begin, end: this.end, colors: this.colors[$map](ui.Color, dart.fn(color => {
-          if (color == null) dart.nullFailed(I[0], 436, 40, "color");
-          return dart.nullCheck(ui.Color.lerp(null, color, factor));
-        }, T.ColorToColor()))[$toList](), stops: this.stops, tileMode: this.tileMode});
+    get fit() {
+      return this[_fit];
     }
-    lerpFrom(a, t) {
-      if (t == null) dart.nullFailed(I[0], 443, 42, "t");
-      if (a == null || gradient.LinearGradient.is(a)) return gradient.LinearGradient.lerp(T.LinearGradientN().as(a), this, t);
-      return super.lerpFrom(a, t);
+    set fit(value) {
+      if (value == null) dart.nullFailed(I[0], 416, 20, "value");
+      if (!(value != null)) dart.assertFailed(null, I[0], 417, 12, "value != null");
+      if (this[_fit] != value) {
+        this[_fit] = value;
+        this.markNeedsLayout();
+      }
     }
-    lerpTo(b, t) {
-      if (t == null) dart.nullFailed(I[0], 450, 40, "t");
-      if (b == null || gradient.LinearGradient.is(b)) return gradient.LinearGradient.lerp(this, T.LinearGradientN().as(b), t);
-      return super.lerpTo(b, t);
+    get clipBehavior() {
+      return this[_clipBehavior];
     }
-    static lerp(a, b, t) {
-      if (t == null) dart.nullFailed(I[0], 475, 76, "t");
-      if (!(t != null)) dart.assertFailed(null, I[0], 476, 12, "t != null");
-      if (a == null && b == null) return null;
-      if (a == null) return dart.nullCheck(b).scale(t);
-      if (b == null) return a.scale(1.0 - dart.notNull(t));
-      let interpolated = gradient._interpolateColorsAndStops(a.colors, a[_impliedStops](), b.colors, b[_impliedStops](), t);
-      return new gradient.LinearGradient.new({begin: dart.nullCheck(alignment.AlignmentGeometry.lerp(a.begin, b.begin, t)), end: dart.nullCheck(alignment.AlignmentGeometry.lerp(a.end, b.end, t)), colors: interpolated.colors, stops: interpolated.stops, tileMode: dart.notNull(t) < 0.5 ? a.tileMode : b.tileMode});
+    set clipBehavior(value) {
+      if (value == null) dart.nullFailed(I[0], 429, 25, "value");
+      if (!(value != null)) dart.assertFailed(null, I[0], 430, 12, "value != null");
+      if (value != this[_clipBehavior]) {
+        this[_clipBehavior] = value;
+        this.markNeedsPaint();
+        this.markNeedsSemanticsUpdate();
+      }
     }
-    _equals(other) {
-      if (other == null) return false;
-      if (this === other) return true;
-      if (!dart.equals(dart.runtimeType(other), this[$runtimeType])) return false;
-      return gradient.LinearGradient.is(other) && dart.equals(other.begin, this.begin) && dart.equals(other.end, this.end) && other.tileMode == this.tileMode && dart.test(collections.listEquals(ui.Color, other.colors, this.colors)) && dart.test(collections.listEquals(core.double, other.stops, this.stops));
+    static getIntrinsicDimension(firstChild, mainChildSizeGetter) {
+      if (mainChildSizeGetter == null) dart.nullFailed(I[0], 439, 69, "mainChildSizeGetter");
+      let extent = 0.0;
+      let child = firstChild;
+      while (child != null) {
+        let childParentData = stack.StackParentData.as(dart.nullCheck(child.parentData));
+        if (!dart.test(childParentData.isPositioned)) extent = math.max(core.double, extent, mainChildSizeGetter(child));
+        if (!dart.equals(child.parentData, childParentData)) dart.assertFailed(null, I[0], 446, 14, "child.parentData == childParentData");
+        child = childParentData.nextSibling;
+      }
+      return extent;
     }
-    get hashCode() {
-      return ui.hashValues(this.begin, this.end, this.tileMode, ui.hashList(this.colors), ui.hashList(this.stops));
+    computeMinIntrinsicWidth(height) {
+      if (height == null) dart.nullFailed(I[0], 453, 42, "height");
+      return stack.RenderStack.getIntrinsicDimension(this.firstChild, dart.fn(child => {
+        if (child == null) dart.nullFailed(I[0], 454, 57, "child");
+        return child.getMinIntrinsicWidth(height);
+      }, T.RenderBoxTodouble()));
     }
-    toString() {
-      return dart.str(object.objectRuntimeType(this, "LinearGradient")) + "(" + dart.str(this.begin) + ", " + dart.str(this.end) + ", " + dart.str(this.colors) + ", " + dart.str(this.stops) + ", " + dart.str(this.tileMode) + ")";
+    computeMaxIntrinsicWidth(height) {
+      if (height == null) dart.nullFailed(I[0], 458, 42, "height");
+      return stack.RenderStack.getIntrinsicDimension(this.firstChild, dart.fn(child => {
+        if (child == null) dart.nullFailed(I[0], 459, 57, "child");
+        return child.getMaxIntrinsicWidth(height);
+      }, T.RenderBoxTodouble()));
+    }
+    computeMinIntrinsicHeight(width) {
+      if (width == null) dart.nullFailed(I[0], 463, 43, "width");
+      return stack.RenderStack.getIntrinsicDimension(this.firstChild, dart.fn(child => {
+        if (child == null) dart.nullFailed(I[0], 464, 57, "child");
+        return child.getMinIntrinsicHeight(width);
+      }, T.RenderBoxTodouble()));
+    }
+    computeMaxIntrinsicHeight(width) {
+      if (width == null) dart.nullFailed(I[0], 468, 43, "width");
+      return stack.RenderStack.getIntrinsicDimension(this.firstChild, dart.fn(child => {
+        if (child == null) dart.nullFailed(I[0], 469, 57, "child");
+        return child.getMaxIntrinsicHeight(width);
+      }, T.RenderBoxTodouble()));
+    }
+    computeDistanceToActualBaseline(baseline) {
+      if (baseline == null) dart.nullFailed(I[0], 473, 56, "baseline");
+      return this.defaultComputeDistanceToHighestActualBaseline(baseline);
+    }
+    static layoutPositionedChild(child, childParentData, size, alignment) {
+      if (child == null) dart.nullFailed(I[0], 480, 47, "child");
+      if (childParentData == null) dart.nullFailed(I[0], 480, 70, "childParentData");
+      if (size == null) dart.nullFailed(I[0], 480, 92, "size");
+      if (alignment == null) dart.nullFailed(I[0], 480, 108, "alignment");
+      if (!dart.test(childParentData.isPositioned)) dart.assertFailed(null, I[0], 481, 12, "childParentData.isPositioned");
+      if (!dart.equals(child.parentData, childParentData)) dart.assertFailed(null, I[0], 482, 12, "child.parentData == childParentData");
+      let hasVisualOverflow = false;
+      let childConstraints = C[10] || CT.C10;
+      if (childParentData.left != null && childParentData.right != null)
+        childConstraints = childConstraints.tighten({width: dart.notNull(size.width) - dart.nullCheck(childParentData.right) - dart.nullCheck(childParentData.left)});
+      else if (childParentData.width != null) childConstraints = childConstraints.tighten({width: childParentData.width});
+      if (childParentData.top != null && childParentData.bottom != null)
+        childConstraints = childConstraints.tighten({height: dart.notNull(size.height) - dart.nullCheck(childParentData.bottom) - dart.nullCheck(childParentData.top)});
+      else if (childParentData.height != null) childConstraints = childConstraints.tighten({height: childParentData.height});
+      child.layout(childConstraints, {parentUsesSize: true});
+      let x = null;
+      let x$35isSet = false;
+      function x$35get() {
+        return x$35isSet ? x : dart.throw(new _internal.LateError.localNI("x"));
+      }
+      dart.fn(x$35get, T.VoidTodouble());
+      function x$35set(t4) {
+        if (t4 == null) dart.nullFailed(I[0], 499, 23, "null");
+        if (x$35isSet)
+          dart.throw(new _internal.LateError.localAI("x"));
+        else {
+          x$35isSet = true;
+          return x = t4;
+        }
+      }
+      dart.fn(x$35set, T.doubleTodynamic());
+      if (childParentData.left != null) {
+        x$35set(dart.nullCheck(childParentData.left));
+      } else if (childParentData.right != null) {
+        x$35set(dart.notNull(size.width) - dart.nullCheck(childParentData.right) - dart.notNull(child.size.width));
+      } else {
+        x$35set(alignment.alongOffset(ui.Offset.as(size['-'](child.size))).dx);
+      }
+      if (dart.notNull(x$35get()) < 0.0 || dart.notNull(x$35get()) + dart.notNull(child.size.width) > dart.notNull(size.width)) hasVisualOverflow = true;
+      let y = null;
+      let y$35isSet = false;
+      function y$35get() {
+        return y$35isSet ? y : dart.throw(new _internal.LateError.localNI("y"));
+      }
+      dart.fn(y$35get, T.VoidTodouble());
+      function y$35set(t9) {
+        if (t9 == null) dart.nullFailed(I[0], 511, 23, "null");
+        if (y$35isSet)
+          dart.throw(new _internal.LateError.localAI("y"));
+        else {
+          y$35isSet = true;
+          return y = t9;
+        }
+      }
+      dart.fn(y$35set, T.doubleTodynamic());
+      if (childParentData.top != null) {
+        y$35set(dart.nullCheck(childParentData.top));
+      } else if (childParentData.bottom != null) {
+        y$35set(dart.notNull(size.height) - dart.nullCheck(childParentData.bottom) - dart.notNull(child.size.height));
+      } else {
+        y$35set(alignment.alongOffset(ui.Offset.as(size['-'](child.size))).dy);
+      }
+      if (dart.notNull(y$35get()) < 0.0 || dart.notNull(y$35get()) + dart.notNull(child.size.height) > dart.notNull(size.height)) hasVisualOverflow = true;
+      childParentData.offset = new ui.Offset.new(x$35get(), y$35get());
+      return hasVisualOverflow;
+    }
+    computeDryLayout(constraints) {
+      if (constraints == null) dart.nullFailed(I[0], 529, 40, "constraints");
+      return this[_computeSize]({constraints: constraints, layoutChild: C[11] || CT.C11});
+    }
+    [_computeSize](opts) {
+      let constraints = opts && 'constraints' in opts ? opts.constraints : null;
+      if (constraints == null) dart.nullFailed(I[0], 536, 46, "constraints");
+      let layoutChild = opts && 'layoutChild' in opts ? opts.layoutChild : null;
+      if (layoutChild == null) dart.nullFailed(I[0], 536, 82, "layoutChild");
+      this[_resolve]();
+      if (!(this[_resolvedAlignment] != null)) dart.assertFailed(null, I[0], 538, 12, "_resolvedAlignment != null");
+      let hasNonPositionedChildren = false;
+      if (this.childCount === 0) {
+        if (!dart.test(constraints.biggest.isFinite)) dart.assertFailed(null, I[0], 541, 14, "constraints.biggest.isFinite");
+        return constraints.biggest;
+      }
+      let width = constraints.minWidth;
+      let height = constraints.minHeight;
+      let nonPositionedConstraints = null;
+      if (!(this.fit != null)) dart.assertFailed(null, I[0], 549, 12, "fit != null");
+      switch (this.fit) {
+        case C[1] || CT.C1:
+        {
+          nonPositionedConstraints = constraints.loosen();
+          break;
+        }
+        case C[2] || CT.C2:
+        {
+          nonPositionedConstraints = new box.BoxConstraints.tight(constraints.biggest);
+          break;
+        }
+        case C[3] || CT.C3:
+        {
+          nonPositionedConstraints = constraints;
+          break;
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+      if (!(nonPositionedConstraints != null)) dart.assertFailed(null, I[0], 561, 12, "nonPositionedConstraints != null");
+      let child = this.firstChild;
+      while (child != null) {
+        let childParentData = stack.StackParentData.as(dart.nullCheck(child.parentData));
+        if (!dart.test(childParentData.isPositioned)) {
+          hasNonPositionedChildren = true;
+          let childSize = layoutChild(child, nonPositionedConstraints);
+          width = math.max(core.double, width, childSize.width);
+          height = math.max(core.double, height, childSize.height);
+        }
+        child = childParentData.nextSibling;
+      }
+      let size = null;
+      if (hasNonPositionedChildren) {
+        size = new ui.Size.new(width, height);
+        if (!(size.width == constraints.constrainWidth(width))) dart.assertFailed(null, I[0], 582, 14, "size.width == constraints.constrainWidth(width)");
+        if (!(size.height == constraints.constrainHeight(height))) dart.assertFailed(null, I[0], 583, 14, "size.height == constraints.constrainHeight(height)");
+      } else {
+        size = constraints.biggest;
+      }
+      if (!dart.test(size.isFinite)) dart.assertFailed(null, I[0], 588, 12, "size.isFinite");
+      return size;
+    }
+    performLayout() {
+      let constraints = this.constraints;
+      this[_hasVisualOverflow] = false;
+      this.size = this[_computeSize]({constraints: constraints, layoutChild: C[12] || CT.C12});
+      if (!(this[_resolvedAlignment] != null)) dart.assertFailed(null, I[0], 602, 12, "_resolvedAlignment != null");
+      let child = this.firstChild;
+      while (child != null) {
+        let childParentData = stack.StackParentData.as(dart.nullCheck(child.parentData));
+        if (!dart.test(childParentData.isPositioned)) {
+          childParentData.offset = dart.nullCheck(this[_resolvedAlignment]).alongOffset(ui.Offset.as(this.size['-'](child.size)));
+        } else {
+          this[_hasVisualOverflow] = dart.test(stack.RenderStack.layoutPositionedChild(child, childParentData, this.size, dart.nullCheck(this[_resolvedAlignment]))) || dart.test(this[_hasVisualOverflow]);
+        }
+        if (!dart.equals(child.parentData, childParentData)) dart.assertFailed(null, I[0], 613, 14, "child.parentData == childParentData");
+        child = childParentData.nextSibling;
+      }
+    }
+    hitTestChildren(result, opts) {
+      if (result == null) dart.nullFailed(I[0], 619, 41, "result");
+      let position = opts && 'position' in opts ? opts.position : null;
+      if (position == null) dart.nullFailed(I[0], 619, 67, "position");
+      return this.defaultHitTestChildren(result, {position: position});
+    }
+    paintStack(context, offset) {
+      if (context == null) dart.nullFailed(I[0], 628, 35, "context");
+      if (offset == null) dart.nullFailed(I[0], 628, 51, "offset");
+      this.defaultPaint(context, offset);
+    }
+    paint(context, offset) {
+      if (context == null) dart.nullFailed(I[0], 633, 30, "context");
+      if (offset == null) dart.nullFailed(I[0], 633, 46, "offset");
+      if (this.clipBehavior != ui.Clip.none && dart.test(this[_hasVisualOverflow])) {
+        this[_clipRectLayer] = context.pushClipRect(this.needsCompositing, offset, ui.Offset.zero['&'](this.size), dart.bind(this, 'paintStack'), {clipBehavior: this.clipBehavior, oldLayer: this[_clipRectLayer]});
+      } else {
+        this[_clipRectLayer] = null;
+        this.paintStack(context, offset);
+      }
+    }
+    describeApproximatePaintClip(child) {
+      object.RenderObject.as(child);
+      if (child == null) dart.nullFailed(I[0], 646, 51, "child");
+      return dart.test(this[_hasVisualOverflow]) ? ui.Offset.zero['&'](this.size) : null;
+    }
+    debugFillProperties(properties) {
+      if (properties == null) dart.nullFailed(I[0], 649, 56, "properties");
+      super.debugFillProperties(properties);
+      properties.add(new (T.DiagnosticsPropertyOfAlignmentGeometry()).new("alignment", this.alignment));
+      properties.add(new (T.EnumPropertyOfTextDirection()).new("textDirection", this.textDirection));
+      properties.add(new (T.EnumPropertyOfStackFit()).new("fit", this.fit));
+      properties.add(new (T.EnumPropertyOfClip()).new("clipBehavior", this.clipBehavior, {defaultValue: ui.Clip.hardEdge}));
     }
   };
-  (gradient.LinearGradient.new = function(opts) {
-    let begin = opts && 'begin' in opts ? opts.begin : C[0] || CT.C0;
-    if (begin == null) dart.nullFailed(I[0], 367, 10, "begin");
-    let end = opts && 'end' in opts ? opts.end : C[1] || CT.C1;
-    if (end == null) dart.nullFailed(I[0], 368, 10, "end");
-    let colors = opts && 'colors' in opts ? opts.colors : null;
-    if (colors == null) dart.nullFailed(I[0], 369, 26, "colors");
-    let stops = opts && 'stops' in opts ? opts.stops : null;
-    let tileMode = opts && 'tileMode' in opts ? opts.tileMode : C[2] || CT.C2;
-    if (tileMode == null) dart.nullFailed(I[0], 371, 10, "tileMode");
-    let transform = opts && 'transform' in opts ? opts.transform : null;
-    this[begin$] = begin;
-    this[end$] = end;
-    this[tileMode$] = tileMode;
-    if (!(begin != null)) dart.assertFailed(null, I[0], 373, 15, "begin != null");
-    if (!(end != null)) dart.assertFailed(null, I[0], 374, 15, "end != null");
-    if (!(tileMode != null)) dart.assertFailed(null, I[0], 375, 15, "tileMode != null");
-    gradient.LinearGradient.__proto__.new.call(this, {colors: colors, stops: stops, transform: transform});
+  (stack.RenderStack.new = function(opts) {
+    let children = opts && 'children' in opts ? opts.children : null;
+    let alignment = opts && 'alignment' in opts ? opts.alignment : C[8] || CT.C8;
+    if (alignment == null) dart.nullFailed(I[0], 336, 23, "alignment");
+    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+    let fit = opts && 'fit' in opts ? opts.fit : C[1] || CT.C1;
+    if (fit == null) dart.nullFailed(I[0], 338, 14, "fit");
+    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[9] || CT.C9;
+    if (clipBehavior == null) dart.nullFailed(I[0], 339, 10, "clipBehavior");
+    this[_hasVisualOverflow] = false;
+    this[_resolvedAlignment] = null;
+    this[_clipBehavior] = ui.Clip.hardEdge;
+    this[_clipRectLayer] = null;
+    if (!(alignment != null)) dart.assertFailed(null, I[0], 340, 15, "alignment != null");
+    if (!(fit != null)) dart.assertFailed(null, I[0], 341, 15, "fit != null");
+    if (!(clipBehavior != null)) dart.assertFailed(null, I[0], 342, 15, "clipBehavior != null");
+    this[_alignment] = alignment;
+    this[_textDirection] = textDirection;
+    this[_fit] = fit;
+    this[_clipBehavior] = clipBehavior;
+    stack.RenderStack.__proto__.new.call(this);
+    this.addAll(children);
+  }).prototype = stack.RenderStack.prototype;
+  dart.addTypeTests(stack.RenderStack);
+  dart.addTypeCaches(stack.RenderStack);
+  dart.setMethodSignature(stack.RenderStack, () => ({
+    __proto__: dart.getMethods(stack.RenderStack.__proto__),
+    [_resolve]: dart.fnType(dart.void, []),
+    [_markNeedResolution]: dart.fnType(dart.void, []),
+    [_computeSize]: dart.fnType(ui.Size, [], {}, {constraints: box.BoxConstraints, layoutChild: dart.fnType(ui.Size, [box.RenderBox, box.BoxConstraints])}),
+    paintStack: dart.fnType(dart.void, [object.PaintingContext, ui.Offset])
+  }));
+  dart.setGetterSignature(stack.RenderStack, () => ({
+    __proto__: dart.getGetters(stack.RenderStack.__proto__),
+    alignment: alignment.AlignmentGeometry,
+    textDirection: dart.nullable(ui.TextDirection),
+    fit: stack.StackFit,
+    clipBehavior: ui.Clip
+  }));
+  dart.setSetterSignature(stack.RenderStack, () => ({
+    __proto__: dart.getSetters(stack.RenderStack.__proto__),
+    alignment: alignment.AlignmentGeometry,
+    textDirection: dart.nullable(ui.TextDirection),
+    fit: stack.StackFit,
+    clipBehavior: ui.Clip
+  }));
+  dart.setLibraryUri(stack.RenderStack, I[1]);
+  dart.setFieldSignature(stack.RenderStack, () => ({
+    __proto__: dart.getFields(stack.RenderStack.__proto__),
+    [_hasVisualOverflow]: dart.fieldType(core.bool),
+    [_resolvedAlignment]: dart.fieldType(dart.nullable(alignment.Alignment)),
+    [_alignment]: dart.fieldType(alignment.AlignmentGeometry),
+    [_textDirection]: dart.fieldType(dart.nullable(ui.TextDirection)),
+    [_fit]: dart.fieldType(stack.StackFit),
+    [_clipBehavior]: dart.fieldType(ui.Clip),
+    [_clipRectLayer]: dart.fieldType(dart.nullable(layer.ClipRectLayer))
+  }));
+  var _index = dart.privateName(stack, "_index");
+  var _childAtIndex = dart.privateName(stack, "_childAtIndex");
+  stack.RenderIndexedStack = class RenderIndexedStack extends stack.RenderStack {
+    visitChildrenForSemantics(visitor) {
+      if (visitor == null) dart.nullFailed(I[0], 680, 54, "visitor");
+      if (this.index != null && this.firstChild != null) visitor(this[_childAtIndex]());
+    }
+    get index() {
+      return this[_index];
+    }
+    set index(value) {
+      if (this[_index] != value) {
+        this[_index] = value;
+        this.markNeedsLayout();
+      }
+    }
+    [_childAtIndex]() {
+      if (!(this.index != null)) dart.assertFailed(null, I[0], 696, 12, "index != null");
+      let child = this.firstChild;
+      let i = 0;
+      while (child != null && i < dart.nullCheck(this.index)) {
+        let childParentData = stack.StackParentData.as(dart.nullCheck(child.parentData));
+        child = childParentData.nextSibling;
+        i = i + 1;
+      }
+      if (!(i === this.index)) dart.assertFailed(null, I[0], 704, 12, "i == index");
+      if (!(child != null)) dart.assertFailed(null, I[0], 705, 12, "child != null");
+      return dart.nullCheck(child);
+    }
+    hitTestChildren(result, opts) {
+      if (result == null) dart.nullFailed(I[0], 710, 41, "result");
+      let position = opts && 'position' in opts ? opts.position : null;
+      if (position == null) dart.nullFailed(I[0], 710, 67, "position");
+      if (this.firstChild == null || this.index == null) return false;
+      if (!(position != null)) dart.assertFailed(null, I[0], 713, 12, "position != null");
+      let child = this[_childAtIndex]();
+      let childParentData = stack.StackParentData.as(dart.nullCheck(child.parentData));
+      return result.addWithPaintOffset({offset: childParentData.offset, position: position, hitTest: dart.fn((result, transformed) => {
+          if (result == null) dart.nullFailed(I[0], 719, 34, "result");
+          if (!dart.equals(transformed, position['-'](childParentData.offset))) dart.assertFailed(null, I[0], 720, 16, "transformed == position - childParentData.offset");
+          return child.hitTest(result, {position: dart.nullCheck(transformed)});
+        }, T.BoxHitTestResultAndOffsetNTobool())});
+    }
+    paintStack(context, offset) {
+      if (context == null) dart.nullFailed(I[0], 727, 35, "context");
+      if (offset == null) dart.nullFailed(I[0], 727, 51, "offset");
+      if (this.firstChild == null || this.index == null) return;
+      let child = this[_childAtIndex]();
+      let childParentData = stack.StackParentData.as(dart.nullCheck(child.parentData));
+      context.paintChild(child, childParentData.offset['+'](offset));
+    }
+    debugFillProperties(properties) {
+      if (properties == null) dart.nullFailed(I[0], 736, 56, "properties");
+      super.debugFillProperties(properties);
+      properties.add(new diagnostics.IntProperty.new("index", this.index));
+    }
+  };
+  (stack.RenderIndexedStack.new = function(opts) {
+    let children = opts && 'children' in opts ? opts.children : null;
+    let alignment = opts && 'alignment' in opts ? opts.alignment : C[8] || CT.C8;
+    if (alignment == null) dart.nullFailed(I[0], 669, 23, "alignment");
+    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+    let index = opts && 'index' in opts ? opts.index : 0;
+    this[_index] = index;
+    stack.RenderIndexedStack.__proto__.new.call(this, {children: children, alignment: alignment, textDirection: textDirection});
     ;
-  }).prototype = gradient.LinearGradient.prototype;
-  dart.addTypeTests(gradient.LinearGradient);
-  dart.addTypeCaches(gradient.LinearGradient);
-  dart.setMethodSignature(gradient.LinearGradient, () => ({
-    __proto__: dart.getMethods(gradient.LinearGradient.__proto__),
-    createShader: dart.fnType(ui.Shader, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {}),
-    scale: dart.fnType(gradient.LinearGradient, [core.double])
+  }).prototype = stack.RenderIndexedStack.prototype;
+  dart.addTypeTests(stack.RenderIndexedStack);
+  dart.addTypeCaches(stack.RenderIndexedStack);
+  dart.setMethodSignature(stack.RenderIndexedStack, () => ({
+    __proto__: dart.getMethods(stack.RenderIndexedStack.__proto__),
+    [_childAtIndex]: dart.fnType(box.RenderBox, [])
   }));
-  dart.setLibraryUri(gradient.LinearGradient, I[1]);
-  dart.setFieldSignature(gradient.LinearGradient, () => ({
-    __proto__: dart.getFields(gradient.LinearGradient.__proto__),
-    begin: dart.finalFieldType(alignment.AlignmentGeometry),
-    end: dart.finalFieldType(alignment.AlignmentGeometry),
-    tileMode: dart.finalFieldType(ui.TileMode)
+  dart.setGetterSignature(stack.RenderIndexedStack, () => ({
+    __proto__: dart.getGetters(stack.RenderIndexedStack.__proto__),
+    index: dart.nullable(core.int)
   }));
-  dart.defineExtensionMethods(gradient.LinearGradient, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(gradient.LinearGradient, ['hashCode']);
-  var center$ = dart.privateName(gradient, "RadialGradient.center");
-  var radius$ = dart.privateName(gradient, "RadialGradient.radius");
-  var tileMode$0 = dart.privateName(gradient, "RadialGradient.tileMode");
-  var focal$ = dart.privateName(gradient, "RadialGradient.focal");
-  var focalRadius$ = dart.privateName(gradient, "RadialGradient.focalRadius");
-  gradient.RadialGradient = class RadialGradient extends gradient.Gradient {
-    get center() {
-      return this[center$];
-    }
-    set center(value) {
-      super.center = value;
-    }
-    get radius() {
-      return this[radius$];
-    }
-    set radius(value) {
-      super.radius = value;
-    }
-    get tileMode() {
-      return this[tileMode$0];
-    }
-    set tileMode(value) {
-      super.tileMode = value;
-    }
-    get focal() {
-      return this[focal$];
-    }
-    set focal(value) {
-      super.focal = value;
-    }
-    get focalRadius() {
-      return this[focalRadius$];
-    }
-    set focalRadius(value) {
-      super.focalRadius = value;
-    }
-    createShader(rect, opts) {
-      if (rect == null) dart.nullFailed(I[0], 672, 28, "rect");
-      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
-      return ui.Gradient.radial(this.center.resolve(textDirection).withinRect(rect), dart.notNull(this.radius) * dart.notNull(rect.shortestSide), this.colors, this[_impliedStops](), this.tileMode, this[_resolveTransform](rect, textDirection), this.focal == null ? null : dart.nullCheck(this.focal).resolve(textDirection).withinRect(rect), dart.notNull(this.focalRadius) * dart.notNull(rect.shortestSide));
-    }
-    scale(factor) {
-      if (factor == null) dart.nullFailed(I[0], 688, 31, "factor");
-      return new gradient.RadialGradient.new({center: this.center, radius: this.radius, colors: this.colors[$map](ui.Color, dart.fn(color => {
-          if (color == null) dart.nullFailed(I[0], 692, 40, "color");
-          return dart.nullCheck(ui.Color.lerp(null, color, factor));
-        }, T.ColorToColor()))[$toList](), stops: this.stops, tileMode: this.tileMode, focal: this.focal, focalRadius: this.focalRadius});
-    }
-    lerpFrom(a, t) {
-      if (t == null) dart.nullFailed(I[0], 701, 42, "t");
-      if (a == null || gradient.RadialGradient.is(a)) return gradient.RadialGradient.lerp(T.RadialGradientN().as(a), this, t);
-      return super.lerpFrom(a, t);
-    }
-    lerpTo(b, t) {
-      if (t == null) dart.nullFailed(I[0], 708, 40, "t");
-      if (b == null || gradient.RadialGradient.is(b)) return gradient.RadialGradient.lerp(this, T.RadialGradientN().as(b), t);
-      return super.lerpTo(b, t);
-    }
-    static lerp(a, b, t) {
-      if (t == null) dart.nullFailed(I[0], 733, 76, "t");
-      if (!(t != null)) dart.assertFailed(null, I[0], 734, 12, "t != null");
-      if (a == null && b == null) return null;
-      if (a == null) return dart.nullCheck(b).scale(t);
-      if (b == null) return a.scale(1.0 - dart.notNull(t));
-      let interpolated = gradient._interpolateColorsAndStops(a.colors, a[_impliedStops](), b.colors, b[_impliedStops](), t);
-      return new gradient.RadialGradient.new({center: dart.nullCheck(alignment.AlignmentGeometry.lerp(a.center, b.center, t)), radius: math.max(core.double, 0.0, dart.nullCheck(ui.lerpDouble(a.radius, b.radius, t))), colors: interpolated.colors, stops: interpolated.stops, tileMode: dart.notNull(t) < 0.5 ? a.tileMode : b.tileMode, focal: alignment.AlignmentGeometry.lerp(a.focal, b.focal, t), focalRadius: math.max(core.double, 0.0, dart.nullCheck(ui.lerpDouble(a.focalRadius, b.focalRadius, t)))});
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (this === other) return true;
-      if (!dart.equals(dart.runtimeType(other), this[$runtimeType])) return false;
-      return gradient.RadialGradient.is(other) && dart.equals(other.center, this.center) && other.radius == this.radius && other.tileMode == this.tileMode && dart.test(collections.listEquals(ui.Color, other.colors, this.colors)) && dart.test(collections.listEquals(core.double, other.stops, this.stops)) && dart.equals(other.focal, this.focal) && other.focalRadius == this.focalRadius;
-    }
-    get hashCode() {
-      return ui.hashValues(this.center, this.radius, this.tileMode, ui.hashList(this.colors), ui.hashList(this.stops), this.focal, this.focalRadius);
-    }
-    toString() {
-      return dart.str(object.objectRuntimeType(this, "RadialGradient")) + "(" + dart.str(this.center) + ", " + dart.str(this.radius) + ", " + dart.str(this.colors) + ", " + dart.str(this.stops) + ", " + dart.str(this.tileMode) + ", " + dart.str(this.focal) + ", " + dart.str(this.focalRadius) + ")";
-    }
-  };
-  (gradient.RadialGradient.new = function(opts) {
-    let center = opts && 'center' in opts ? opts.center : C[3] || CT.C3;
-    if (center == null) dart.nullFailed(I[0], 597, 10, "center");
-    let radius = opts && 'radius' in opts ? opts.radius : 0.5;
-    if (radius == null) dart.nullFailed(I[0], 598, 10, "radius");
-    let colors = opts && 'colors' in opts ? opts.colors : null;
-    if (colors == null) dart.nullFailed(I[0], 599, 26, "colors");
-    let stops = opts && 'stops' in opts ? opts.stops : null;
-    let tileMode = opts && 'tileMode' in opts ? opts.tileMode : C[2] || CT.C2;
-    if (tileMode == null) dart.nullFailed(I[0], 601, 10, "tileMode");
-    let focal = opts && 'focal' in opts ? opts.focal : null;
-    let focalRadius = opts && 'focalRadius' in opts ? opts.focalRadius : 0;
-    if (focalRadius == null) dart.nullFailed(I[0], 603, 10, "focalRadius");
-    let transform = opts && 'transform' in opts ? opts.transform : null;
-    this[center$] = center;
-    this[radius$] = radius;
-    this[tileMode$0] = tileMode;
-    this[focal$] = focal;
-    this[focalRadius$] = focalRadius;
-    if (!(center != null)) dart.assertFailed(null, I[0], 605, 15, "center != null");
-    if (!(radius != null)) dart.assertFailed(null, I[0], 606, 15, "radius != null");
-    if (!(tileMode != null)) dart.assertFailed(null, I[0], 607, 15, "tileMode != null");
-    if (!(focalRadius != null)) dart.assertFailed(null, I[0], 608, 15, "focalRadius != null");
-    gradient.RadialGradient.__proto__.new.call(this, {colors: colors, stops: stops, transform: transform});
-    ;
-  }).prototype = gradient.RadialGradient.prototype;
-  dart.addTypeTests(gradient.RadialGradient);
-  dart.addTypeCaches(gradient.RadialGradient);
-  dart.setMethodSignature(gradient.RadialGradient, () => ({
-    __proto__: dart.getMethods(gradient.RadialGradient.__proto__),
-    createShader: dart.fnType(ui.Shader, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {}),
-    scale: dart.fnType(gradient.RadialGradient, [core.double])
+  dart.setSetterSignature(stack.RenderIndexedStack, () => ({
+    __proto__: dart.getSetters(stack.RenderIndexedStack.__proto__),
+    index: dart.nullable(core.int)
   }));
-  dart.setLibraryUri(gradient.RadialGradient, I[1]);
-  dart.setFieldSignature(gradient.RadialGradient, () => ({
-    __proto__: dart.getFields(gradient.RadialGradient.__proto__),
-    center: dart.finalFieldType(alignment.AlignmentGeometry),
-    radius: dart.finalFieldType(core.double),
-    tileMode: dart.finalFieldType(ui.TileMode),
-    focal: dart.finalFieldType(dart.nullable(alignment.AlignmentGeometry)),
-    focalRadius: dart.finalFieldType(core.double)
+  dart.setLibraryUri(stack.RenderIndexedStack, I[1]);
+  dart.setFieldSignature(stack.RenderIndexedStack, () => ({
+    __proto__: dart.getFields(stack.RenderIndexedStack.__proto__),
+    [_index]: dart.fieldType(dart.nullable(core.int))
   }));
-  dart.defineExtensionMethods(gradient.RadialGradient, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(gradient.RadialGradient, ['hashCode']);
-  var center$0 = dart.privateName(gradient, "SweepGradient.center");
-  var startAngle$ = dart.privateName(gradient, "SweepGradient.startAngle");
-  var endAngle$ = dart.privateName(gradient, "SweepGradient.endAngle");
-  var tileMode$1 = dart.privateName(gradient, "SweepGradient.tileMode");
-  gradient.SweepGradient = class SweepGradient extends gradient.Gradient {
-    get center() {
-      return this[center$0];
-    }
-    set center(value) {
-      super.center = value;
-    }
-    get startAngle() {
-      return this[startAngle$];
-    }
-    set startAngle(value) {
-      super.startAngle = value;
-    }
-    get endAngle() {
-      return this[endAngle$];
-    }
-    set endAngle(value) {
-      super.endAngle = value;
-    }
-    get tileMode() {
-      return this[tileMode$1];
-    }
-    set tileMode(value) {
-      super.tileMode = value;
-    }
-    createShader(rect, opts) {
-      if (rect == null) dart.nullFailed(I[0], 922, 28, "rect");
-      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
-      return ui.Gradient.sweep(this.center.resolve(textDirection).withinRect(rect), this.colors, this[_impliedStops](), this.tileMode, this.startAngle, this.endAngle, this[_resolveTransform](rect, textDirection));
-    }
-    scale(factor) {
-      if (factor == null) dart.nullFailed(I[0], 937, 30, "factor");
-      return new gradient.SweepGradient.new({center: this.center, startAngle: this.startAngle, endAngle: this.endAngle, colors: this.colors[$map](ui.Color, dart.fn(color => {
-          if (color == null) dart.nullFailed(I[0], 942, 40, "color");
-          return dart.nullCheck(ui.Color.lerp(null, color, factor));
-        }, T.ColorToColor()))[$toList](), stops: this.stops, tileMode: this.tileMode});
-    }
-    lerpFrom(a, t) {
-      if (t == null) dart.nullFailed(I[0], 949, 42, "t");
-      if (a == null || gradient.SweepGradient.is(a)) return gradient.SweepGradient.lerp(T.SweepGradientN().as(a), this, t);
-      return super.lerpFrom(a, t);
-    }
-    lerpTo(b, t) {
-      if (t == null) dart.nullFailed(I[0], 956, 40, "t");
-      if (b == null || gradient.SweepGradient.is(b)) return gradient.SweepGradient.lerp(this, T.SweepGradientN().as(b), t);
-      return super.lerpTo(b, t);
-    }
-    static lerp(a, b, t) {
-      if (t == null) dart.nullFailed(I[0], 980, 73, "t");
-      if (!(t != null)) dart.assertFailed(null, I[0], 981, 12, "t != null");
-      if (a == null && b == null) return null;
-      if (a == null) return dart.nullCheck(b).scale(t);
-      if (b == null) return a.scale(1.0 - dart.notNull(t));
-      let interpolated = gradient._interpolateColorsAndStops(a.colors, a[_impliedStops](), b.colors, b[_impliedStops](), t);
-      return new gradient.SweepGradient.new({center: dart.nullCheck(alignment.AlignmentGeometry.lerp(a.center, b.center, t)), startAngle: math.max(core.double, 0.0, dart.nullCheck(ui.lerpDouble(a.startAngle, b.startAngle, t))), endAngle: math.max(core.double, 0.0, dart.nullCheck(ui.lerpDouble(a.endAngle, b.endAngle, t))), colors: interpolated.colors, stops: interpolated.stops, tileMode: dart.notNull(t) < 0.5 ? a.tileMode : b.tileMode});
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (this === other) return true;
-      if (!dart.equals(dart.runtimeType(other), this[$runtimeType])) return false;
-      return gradient.SweepGradient.is(other) && dart.equals(other.center, this.center) && other.startAngle == this.startAngle && other.endAngle == this.endAngle && other.tileMode == this.tileMode && dart.test(collections.listEquals(ui.Color, other.colors, this.colors)) && dart.test(collections.listEquals(core.double, other.stops, this.stops));
-    }
-    get hashCode() {
-      return ui.hashValues(this.center, this.startAngle, this.endAngle, this.tileMode, ui.hashList(this.colors), ui.hashList(this.stops));
-    }
-    toString() {
-      return dart.str(object.objectRuntimeType(this, "SweepGradient")) + "(" + dart.str(this.center) + ", " + dart.str(this.startAngle) + ", " + dart.str(this.endAngle) + ", " + dart.str(this.colors) + ", " + dart.str(this.stops) + ", " + dart.str(this.tileMode) + ")";
-    }
-  };
-  (gradient.SweepGradient.new = function(opts) {
-    let center = opts && 'center' in opts ? opts.center : C[3] || CT.C3;
-    if (center == null) dart.nullFailed(I[0], 872, 10, "center");
-    let startAngle = opts && 'startAngle' in opts ? opts.startAngle : 0;
-    if (startAngle == null) dart.nullFailed(I[0], 873, 10, "startAngle");
-    let endAngle = opts && 'endAngle' in opts ? opts.endAngle : 6.283185307179586;
-    if (endAngle == null) dart.nullFailed(I[0], 874, 10, "endAngle");
-    let colors = opts && 'colors' in opts ? opts.colors : null;
-    if (colors == null) dart.nullFailed(I[0], 875, 26, "colors");
-    let stops = opts && 'stops' in opts ? opts.stops : null;
-    let tileMode = opts && 'tileMode' in opts ? opts.tileMode : C[2] || CT.C2;
-    if (tileMode == null) dart.nullFailed(I[0], 877, 10, "tileMode");
-    let transform = opts && 'transform' in opts ? opts.transform : null;
-    this[center$0] = center;
-    this[startAngle$] = startAngle;
-    this[endAngle$] = endAngle;
-    this[tileMode$1] = tileMode;
-    if (!(center != null)) dart.assertFailed(null, I[0], 879, 15, "center != null");
-    if (!(startAngle != null)) dart.assertFailed(null, I[0], 880, 15, "startAngle != null");
-    if (!(endAngle != null)) dart.assertFailed(null, I[0], 881, 15, "endAngle != null");
-    if (!(tileMode != null)) dart.assertFailed(null, I[0], 882, 15, "tileMode != null");
-    gradient.SweepGradient.__proto__.new.call(this, {colors: colors, stops: stops, transform: transform});
-    ;
-  }).prototype = gradient.SweepGradient.prototype;
-  dart.addTypeTests(gradient.SweepGradient);
-  dart.addTypeCaches(gradient.SweepGradient);
-  dart.setMethodSignature(gradient.SweepGradient, () => ({
-    __proto__: dart.getMethods(gradient.SweepGradient.__proto__),
-    createShader: dart.fnType(ui.Shader, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {}),
-    scale: dart.fnType(gradient.SweepGradient, [core.double])
-  }));
-  dart.setLibraryUri(gradient.SweepGradient, I[1]);
-  dart.setFieldSignature(gradient.SweepGradient, () => ({
-    __proto__: dart.getFields(gradient.SweepGradient.__proto__),
-    center: dart.finalFieldType(alignment.AlignmentGeometry),
-    startAngle: dart.finalFieldType(core.double),
-    endAngle: dart.finalFieldType(core.double),
-    tileMode: dart.finalFieldType(ui.TileMode)
-  }));
-  dart.defineExtensionMethods(gradient.SweepGradient, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(gradient.SweepGradient, ['hashCode']);
-  gradient._sample = function _sample(colors, stops, t) {
-    if (colors == null) dart.nullFailed(I[0], 24, 27, "colors");
-    if (stops == null) dart.nullFailed(I[0], 24, 48, "stops");
-    if (t == null) dart.nullFailed(I[0], 24, 62, "t");
-    if (!(colors != null)) dart.assertFailed(null, I[0], 25, 10, "colors != null");
-    if (!dart.test(colors[$isNotEmpty])) dart.assertFailed(null, I[0], 26, 10, "colors.isNotEmpty");
-    if (!(stops != null)) dart.assertFailed(null, I[0], 27, 10, "stops != null");
-    if (!dart.test(stops[$isNotEmpty])) dart.assertFailed(null, I[0], 28, 10, "stops.isNotEmpty");
-    if (!(t != null)) dart.assertFailed(null, I[0], 29, 10, "t != null");
-    if (dart.notNull(t) <= dart.notNull(stops[$first])) return colors[$first];
-    if (dart.notNull(t) >= dart.notNull(stops[$last])) return colors[$last];
-    let index = stops[$lastIndexWhere](dart.fn(s => {
-      if (s == null) dart.nullFailed(I[0], 34, 50, "s");
-      return dart.notNull(s) <= dart.notNull(t);
-    }, T.doubleTobool()));
-    if (!(index !== -1)) dart.assertFailed(null, I[0], 35, 10, "index != -1");
-    return dart.nullCheck(ui.Color.lerp(colors[$_get](index), colors[$_get](dart.notNull(index) + 1), (dart.notNull(t) - dart.notNull(stops[$_get](index))) / (dart.notNull(stops[$_get](dart.notNull(index) + 1)) - dart.notNull(stops[$_get](index)))));
-  };
-  gradient._interpolateColorsAndStops = function _interpolateColorsAndStops(aColors, aStops, bColors, bStops, t) {
-    let t0;
-    if (aColors == null) dart.nullFailed(I[0], 43, 15, "aColors");
-    if (aStops == null) dart.nullFailed(I[0], 44, 16, "aStops");
-    if (bColors == null) dart.nullFailed(I[0], 45, 15, "bColors");
-    if (bStops == null) dart.nullFailed(I[0], 46, 16, "bStops");
-    if (t == null) dart.nullFailed(I[0], 47, 10, "t");
-    if (!(dart.notNull(aColors[$length]) >= 2)) dart.assertFailed(null, I[0], 49, 10, "aColors.length >= 2");
-    if (!(dart.notNull(bColors[$length]) >= 2)) dart.assertFailed(null, I[0], 50, 10, "bColors.length >= 2");
-    if (!(aStops[$length] == aColors[$length])) dart.assertFailed(null, I[0], 51, 10, "aStops.length == aColors.length");
-    if (!(bStops[$length] == bColors[$length])) dart.assertFailed(null, I[0], 52, 10, "bStops.length == bColors.length");
-    let stops = (t0 = new (T.SplayTreeSetOfdouble()).new(), (() => {
-      t0.addAll(aStops);
-      t0.addAll(bStops);
-      return t0;
-    })());
-    let interpolatedStops = stops.toList({growable: false});
-    let interpolatedColors = interpolatedStops[$map](ui.Color, dart.fn(stop => {
-      if (stop == null) dart.nullFailed(I[0], 58, 19, "stop");
-      return dart.nullCheck(ui.Color.lerp(gradient._sample(aColors, aStops, stop), gradient._sample(bColors, bStops, stop), t));
-    }, T.doubleToColor()))[$toList]({growable: false});
-    return new gradient._ColorsAndStops.new(interpolatedColors, interpolatedStops);
-  };
-  dart.trackLibraries("packages/flutter/src/painting/gradient.dart", {
-    "package:flutter/src/painting/gradient.dart": gradient
+  dart.trackLibraries("packages/flutter/src/rendering/stack.dart", {
+    "package:flutter/src/rendering/stack.dart": stack
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["gradient.dart"],"names":[],"mappings":"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","file":"../../../../../../../../E:/packages/flutter/src/painting/gradient.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["stack.dart"],"names":[],"mappings":"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","file":"../../../../../../../../E:/packages/flutter/src/rendering/stack.dart.lib.js"}');
   // Exports:
   return {
-    src__painting__gradient: gradient
+    src__rendering__stack: stack
   };
 }));
 
-//# sourceMappingURL=gradient.dart.lib.js.map
+//# sourceMappingURL=stack.dart.lib.js.map
