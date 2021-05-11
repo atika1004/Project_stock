@@ -19,15 +19,15 @@ define("main_module.bootstrap", ["web_entrypoint.dart", "dart_sdk"], function(ap
          main();
       });
     }
-    window.$dartAppId = "/EUD3Phu33MRgVWjxKDMew==";
+    window.$dartAppId = "Ub02TqvtTHFU34wm+8rcbA==";
 window.$dartReloadConfiguration = "ReloadConfiguration.none";
 window.$dartModuleStrategy = "require-js";
 window.$loadModuleConfig = require;
 window.$dwdsVersion = "7.1.1";
-window.$dwdsDevHandlerPath = "http://localhost:60558/$dwdsSseHandler";
+window.$dwdsDevHandlerPath = "http://localhost:63753/$dwdsSseHandler";
 window.$dartEntrypointPath = "main_module.bootstrap.js";
 window.$requireLoader.forceLoadModule("dwds/src/injected/client");
-window.$dartExtensionUri = "http://127.0.0.1:60560/$debug";
+window.$dartExtensionUri = "http://127.0.0.1:63755/$debug";
 
   } else {
     if(window.$dartMainExecuted){
@@ -84,6 +84,7 @@ let modulePaths = {
  "packages/stock_id/main.dart": "packages/stock_id/main.dart.lib",
  "packages/stock_id/screens/home/home_screen.dart": "packages/stock_id/screens/home/home_screen.dart.lib",
  "packages/stock_id/screens/components/body.dart": "packages/stock_id/screens/components/body.dart.lib",
+ "packages/stock_id/screens/components/header_with_box.dart": "packages/stock_id/screens/components/header_with_box.dart.lib",
  "packages/stock_id/constants.dart": "packages/stock_id/constants.dart.lib",
  "packages/flutter/material.dart": "packages/flutter/material.dart.lib",
  "packages/flutter/widgets.dart": "packages/flutter/widgets.dart.lib",
@@ -447,6 +448,7 @@ let moduleNames = {
  "packages/stock_id/main.dart.lib": "packages/stock_id/main.dart",
  "packages/stock_id/screens/home/home_screen.dart.lib": "packages/stock_id/screens/home/home_screen.dart",
  "packages/stock_id/screens/components/body.dart.lib": "packages/stock_id/screens/components/body.dart",
+ "packages/stock_id/screens/components/header_with_box.dart.lib": "packages/stock_id/screens/components/header_with_box.dart",
  "packages/stock_id/constants.dart.lib": "packages/stock_id/constants.dart",
  "packages/flutter/material.dart.lib": "packages/flutter/material.dart",
  "packages/flutter/widgets.dart.lib": "packages/flutter/widgets.dart",

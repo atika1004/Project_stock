@@ -9,7 +9,7 @@ class Body extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
-          HeaderBox(size: size)
+          HeaderBox(size: size),
         ],
       ),
     );
