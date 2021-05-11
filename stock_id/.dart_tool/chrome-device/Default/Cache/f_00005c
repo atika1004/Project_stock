@@ -1,26 +1,17 @@
-define(['dart_sdk', 'packages/flutter/src/services/text_input.dart', 'packages/flutter/src/foundation/_platform_web.dart', 'packages/characters/src/characters_impl.dart', 'packages/characters/src/extensions.dart', 'packages/flutter/src/services/text_editing.dart'], (function load__packages__flutter__src__services__text_formatter_dart(dart_sdk, packages__flutter__src__services__text_input$46dart, packages__flutter__src__foundation___platform_web$46dart, packages__characters__src__characters_impl$46dart, packages__characters__src__extensions$46dart, packages__flutter__src__services__text_editing$46dart) {
+define(['dart_sdk', 'packages/flutter/src/painting/borders.dart', 'packages/flutter/src/painting/colors.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__material__floating_action_button_theme_dart(dart_sdk, packages__flutter__src__painting__borders$46dart, packages__flutter__src__painting__colors$46dart, packages__flutter__src__foundation__debug$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _internal = dart_sdk._internal;
-  const math = dart_sdk.math;
   const ui = dart_sdk.ui;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const text_input = packages__flutter__src__services__text_input$46dart.src__services__text_input;
-  const platform$ = packages__flutter__src__foundation___platform_web$46dart.src__foundation__platform;
-  const characters_impl = packages__characters__src__characters_impl$46dart.src__characters_impl;
-  const extensions = packages__characters__src__extensions$46dart.src__extensions;
-  const text_editing = packages__flutter__src__services__text_editing$46dart.src__services__text_editing;
-  var text_formatter = Object.create(dart.library);
-  var $isNotEmpty = dartx.isNotEmpty;
-  var $splitMapJoin = dartx.splitMapJoin;
-  var $length = dartx.length;
-  var $substring = dartx.substring;
+  const borders = packages__flutter__src__painting__borders$46dart.src__painting__borders;
+  const colors = packages__flutter__src__painting__colors$46dart.src__painting__colors;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  var floating_action_button_theme = Object.create(dart.library);
+  var $runtimeType = dartx.runtimeType;
   dart._checkModuleNullSafetyMode(false);
   var T = {
-    MaxLengthEnforcementL: () => (T.MaxLengthEnforcementL = dart.constFn(dart.legacy(text_formatter.MaxLengthEnforcement)))(),
-    MatchToString: () => (T.MatchToString = dart.constFn(dart.fnType(core.String, [core.Match])))(),
-    StringToString: () => (T.StringToString = dart.constFn(dart.fnType(core.String, [core.String])))()
+    DiagnosticsPropertyOfShapeBorder: () => (T.DiagnosticsPropertyOfShapeBorder = dart.constFn(diagnostics.DiagnosticsProperty$(borders.ShapeBorder)))()
   };
   var T$Eval = Object.assign({
     _: () => T$Eval
@@ -37,446 +28,212 @@ define(['dart_sdk', 'packages/flutter/src/services/text_input.dart', 'packages/f
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: text_formatter.MaxLengthEnforcement.prototype,
-        [_name$]: "MaxLengthEnforcement.none",
-        index: 0
-      });
-    },
-    get C1() {
-      return C[1] = dart.const({
-        __proto__: text_formatter.MaxLengthEnforcement.prototype,
-        [_name$]: "MaxLengthEnforcement.enforced",
-        index: 1
-      });
-    },
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: text_formatter.MaxLengthEnforcement.prototype,
-        [_name$]: "MaxLengthEnforcement.truncateAfterCompositionEnds",
-        index: 2
-      });
-    },
-    get C3() {
-      return C[3] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2], T.MaxLengthEnforcementL());
-    },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: platform$.TargetPlatform.prototype,
-        [_name]: "TargetPlatform.android",
-        index: 0
-      });
-    },
-    get C5() {
-      return C[5] = dart.const({
-        __proto__: platform$.TargetPlatform.prototype,
-        [_name]: "TargetPlatform.windows",
-        index: 5
-      });
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: platform$.TargetPlatform.prototype,
-        [_name]: "TargetPlatform.iOS",
-        index: 2
-      });
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: platform$.TargetPlatform.prototype,
-        [_name]: "TargetPlatform.macOS",
-        index: 4
-      });
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: platform$.TargetPlatform.prototype,
-        [_name]: "TargetPlatform.linux",
-        index: 3
-      });
-    },
-    get C9() {
-      return C[9] = dart.const({
-        __proto__: platform$.TargetPlatform.prototype,
-        [_name]: "TargetPlatform.fuchsia",
-        index: 1
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: ui.TextAffinity.prototype,
-        [_name$0]: "TextAffinity.downstream",
-        index: 1
-      });
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: text_editing.TextSelection.prototype,
-        [TextRange_end]: -1,
-        [TextRange_start]: -1,
-        [TextSelection_isDirectional]: false,
-        [TextSelection_affinity]: C[11] || CT.C11,
-        [TextSelection_extentOffset]: -1,
-        [TextSelection_baseOffset]: -1
+        __proto__: floating_action_button_theme.FloatingActionButtonThemeData.prototype,
+        [shape$]: null,
+        [highlightElevation$]: null,
+        [disabledElevation$]: null,
+        [hoverElevation$]: null,
+        [focusElevation$]: null,
+        [elevation$]: null,
+        [splashColor$]: null,
+        [hoverColor$]: null,
+        [focusColor$]: null,
+        [backgroundColor$]: null,
+        [foregroundColor$]: null
       });
     }
   }, false);
-  var C = Array(12).fill(void 0);
+  var C = [void 0];
   var I = [
-    "file:///C:/src/flutter/packages/flutter/lib/src/services/text_formatter.dart",
-    "package:flutter/src/services/text_formatter.dart"
+    "file:///C:/src/flutter/packages/flutter/lib/src/material/floating_action_button_theme.dart",
+    "package:flutter/src/material/floating_action_button_theme.dart"
   ];
-  var _name$ = dart.privateName(text_formatter, "_name");
-  text_formatter.MaxLengthEnforcement = class MaxLengthEnforcement extends core.Object {
-    toString() {
-      return this[_name$];
+  var foregroundColor$ = dart.privateName(floating_action_button_theme, "FloatingActionButtonThemeData.foregroundColor");
+  var backgroundColor$ = dart.privateName(floating_action_button_theme, "FloatingActionButtonThemeData.backgroundColor");
+  var focusColor$ = dart.privateName(floating_action_button_theme, "FloatingActionButtonThemeData.focusColor");
+  var hoverColor$ = dart.privateName(floating_action_button_theme, "FloatingActionButtonThemeData.hoverColor");
+  var splashColor$ = dart.privateName(floating_action_button_theme, "FloatingActionButtonThemeData.splashColor");
+  var elevation$ = dart.privateName(floating_action_button_theme, "FloatingActionButtonThemeData.elevation");
+  var focusElevation$ = dart.privateName(floating_action_button_theme, "FloatingActionButtonThemeData.focusElevation");
+  var hoverElevation$ = dart.privateName(floating_action_button_theme, "FloatingActionButtonThemeData.hoverElevation");
+  var disabledElevation$ = dart.privateName(floating_action_button_theme, "FloatingActionButtonThemeData.disabledElevation");
+  var highlightElevation$ = dart.privateName(floating_action_button_theme, "FloatingActionButtonThemeData.highlightElevation");
+  var shape$ = dart.privateName(floating_action_button_theme, "FloatingActionButtonThemeData.shape");
+  const Object_Diagnosticable$36 = class Object_Diagnosticable extends core.Object {};
+  (Object_Diagnosticable$36.new = function() {
+  }).prototype = Object_Diagnosticable$36.prototype;
+  dart.applyMixin(Object_Diagnosticable$36, diagnostics.Diagnosticable);
+  floating_action_button_theme.FloatingActionButtonThemeData = class FloatingActionButtonThemeData extends Object_Diagnosticable$36 {
+    get foregroundColor() {
+      return this[foregroundColor$];
+    }
+    set foregroundColor(value) {
+      super.foregroundColor = value;
+    }
+    get backgroundColor() {
+      return this[backgroundColor$];
+    }
+    set backgroundColor(value) {
+      super.backgroundColor = value;
+    }
+    get focusColor() {
+      return this[focusColor$];
+    }
+    set focusColor(value) {
+      super.focusColor = value;
+    }
+    get hoverColor() {
+      return this[hoverColor$];
+    }
+    set hoverColor(value) {
+      super.hoverColor = value;
+    }
+    get splashColor() {
+      return this[splashColor$];
+    }
+    set splashColor(value) {
+      super.splashColor = value;
+    }
+    get elevation() {
+      return this[elevation$];
+    }
+    set elevation(value) {
+      super.elevation = value;
+    }
+    get focusElevation() {
+      return this[focusElevation$];
+    }
+    set focusElevation(value) {
+      super.focusElevation = value;
+    }
+    get hoverElevation() {
+      return this[hoverElevation$];
+    }
+    set hoverElevation(value) {
+      super.hoverElevation = value;
+    }
+    get disabledElevation() {
+      return this[disabledElevation$];
+    }
+    set disabledElevation(value) {
+      super.disabledElevation = value;
+    }
+    get highlightElevation() {
+      return this[highlightElevation$];
+    }
+    set highlightElevation(value) {
+      super.highlightElevation = value;
+    }
+    get shape() {
+      return this[shape$];
+    }
+    set shape(value) {
+      super.shape = value;
+    }
+    copyWith(opts) {
+      let t0, t0$, t0$0, t0$1, t0$2, t0$3, t0$4, t0$5, t0$6, t0$7, t0$8;
+      let foregroundColor = opts && 'foregroundColor' in opts ? opts.foregroundColor : null;
+      let backgroundColor = opts && 'backgroundColor' in opts ? opts.backgroundColor : null;
+      let focusColor = opts && 'focusColor' in opts ? opts.focusColor : null;
+      let hoverColor = opts && 'hoverColor' in opts ? opts.hoverColor : null;
+      let splashColor = opts && 'splashColor' in opts ? opts.splashColor : null;
+      let elevation = opts && 'elevation' in opts ? opts.elevation : null;
+      let focusElevation = opts && 'focusElevation' in opts ? opts.focusElevation : null;
+      let hoverElevation = opts && 'hoverElevation' in opts ? opts.hoverElevation : null;
+      let disabledElevation = opts && 'disabledElevation' in opts ? opts.disabledElevation : null;
+      let highlightElevation = opts && 'highlightElevation' in opts ? opts.highlightElevation : null;
+      let shape = opts && 'shape' in opts ? opts.shape : null;
+      return new floating_action_button_theme.FloatingActionButtonThemeData.new({foregroundColor: (t0 = foregroundColor, t0 == null ? this.foregroundColor : t0), backgroundColor: (t0$ = backgroundColor, t0$ == null ? this.backgroundColor : t0$), focusColor: (t0$0 = focusColor, t0$0 == null ? this.focusColor : t0$0), hoverColor: (t0$1 = hoverColor, t0$1 == null ? this.hoverColor : t0$1), splashColor: (t0$2 = splashColor, t0$2 == null ? this.splashColor : t0$2), elevation: (t0$3 = elevation, t0$3 == null ? this.elevation : t0$3), focusElevation: (t0$4 = focusElevation, t0$4 == null ? this.focusElevation : t0$4), hoverElevation: (t0$5 = hoverElevation, t0$5 == null ? this.hoverElevation : t0$5), disabledElevation: (t0$6 = disabledElevation, t0$6 == null ? this.disabledElevation : t0$6), highlightElevation: (t0$7 = highlightElevation, t0$7 == null ? this.highlightElevation : t0$7), shape: (t0$8 = shape, t0$8 == null ? this.shape : t0$8)});
+    }
+    static lerp(a, b, t) {
+      let t0, t0$, t0$0, t0$1, t0$2, t0$3, t0$4, t0$5, t0$6, t0$7, t0$8, t0$9, t0$10, t0$11, t0$12, t0$13, t0$14, t0$15, t0$16, t0$17, t0$18, t0$19;
+      if (t == null) dart.nullFailed(I[0], 127, 121, "t");
+      if (!(t != null)) dart.assertFailed(null, I[0], 128, 12, "t != null");
+      if (a == null && b == null) return null;
+      return new floating_action_button_theme.FloatingActionButtonThemeData.new({foregroundColor: ui.Color.lerp((t0 = a, t0 == null ? null : t0.foregroundColor), (t0$ = b, t0$ == null ? null : t0$.foregroundColor), t), backgroundColor: ui.Color.lerp((t0$0 = a, t0$0 == null ? null : t0$0.backgroundColor), (t0$1 = b, t0$1 == null ? null : t0$1.backgroundColor), t), focusColor: ui.Color.lerp((t0$2 = a, t0$2 == null ? null : t0$2.focusColor), (t0$3 = b, t0$3 == null ? null : t0$3.focusColor), t), hoverColor: ui.Color.lerp((t0$4 = a, t0$4 == null ? null : t0$4.hoverColor), (t0$5 = b, t0$5 == null ? null : t0$5.hoverColor), t), splashColor: ui.Color.lerp((t0$6 = a, t0$6 == null ? null : t0$6.splashColor), (t0$7 = b, t0$7 == null ? null : t0$7.splashColor), t), elevation: ui.lerpDouble((t0$8 = a, t0$8 == null ? null : t0$8.elevation), (t0$9 = b, t0$9 == null ? null : t0$9.elevation), t), focusElevation: ui.lerpDouble((t0$10 = a, t0$10 == null ? null : t0$10.focusElevation), (t0$11 = b, t0$11 == null ? null : t0$11.focusElevation), t), hoverElevation: ui.lerpDouble((t0$12 = a, t0$12 == null ? null : t0$12.hoverElevation), (t0$13 = b, t0$13 == null ? null : t0$13.hoverElevation), t), disabledElevation: ui.lerpDouble((t0$14 = a, t0$14 == null ? null : t0$14.disabledElevation), (t0$15 = b, t0$15 == null ? null : t0$15.disabledElevation), t), highlightElevation: ui.lerpDouble((t0$16 = a, t0$16 == null ? null : t0$16.highlightElevation), (t0$17 = b, t0$17 == null ? null : t0$17.highlightElevation), t), shape: borders.ShapeBorder.lerp((t0$18 = a, t0$18 == null ? null : t0$18.shape), (t0$19 = b, t0$19 == null ? null : t0$19.shape), t)});
+    }
+    get hashCode() {
+      return ui.hashValues(this.foregroundColor, this.backgroundColor, this.focusColor, this.hoverColor, this.splashColor, this.elevation, this.focusElevation, this.hoverElevation, this.disabledElevation, this.highlightElevation, this.shape);
+    }
+    _equals(other) {
+      if (other == null) return false;
+      if (this === other) return true;
+      if (!dart.equals(dart.runtimeType(other), this[$runtimeType])) return false;
+      return floating_action_button_theme.FloatingActionButtonThemeData.is(other) && dart.equals(other.foregroundColor, this.foregroundColor) && dart.equals(other.backgroundColor, this.backgroundColor) && dart.equals(other.focusColor, this.focusColor) && dart.equals(other.hoverColor, this.hoverColor) && dart.equals(other.splashColor, this.splashColor) && other.elevation == this.elevation && other.focusElevation == this.focusElevation && other.hoverElevation == this.hoverElevation && other.disabledElevation == this.disabledElevation && other.highlightElevation == this.highlightElevation && dart.equals(other.shape, this.shape);
+    }
+    debugFillProperties(properties) {
+      if (properties == null) dart.nullFailed(I[0], 184, 56, "properties");
+      super.debugFillProperties(properties);
+      let defaultData = C[0] || CT.C0;
+      properties.add(new colors.ColorProperty.new("foregroundColor", this.foregroundColor, {defaultValue: defaultData.foregroundColor}));
+      properties.add(new colors.ColorProperty.new("backgroundColor", this.backgroundColor, {defaultValue: defaultData.backgroundColor}));
+      properties.add(new colors.ColorProperty.new("focusColor", this.focusColor, {defaultValue: defaultData.focusColor}));
+      properties.add(new colors.ColorProperty.new("hoverColor", this.hoverColor, {defaultValue: defaultData.hoverColor}));
+      properties.add(new colors.ColorProperty.new("splashColor", this.splashColor, {defaultValue: defaultData.splashColor}));
+      properties.add(new diagnostics.DoubleProperty.new("elevation", this.elevation, {defaultValue: defaultData.elevation}));
+      properties.add(new diagnostics.DoubleProperty.new("focusElevation", this.focusElevation, {defaultValue: defaultData.focusElevation}));
+      properties.add(new diagnostics.DoubleProperty.new("hoverElevation", this.hoverElevation, {defaultValue: defaultData.hoverElevation}));
+      properties.add(new diagnostics.DoubleProperty.new("disabledElevation", this.disabledElevation, {defaultValue: defaultData.disabledElevation}));
+      properties.add(new diagnostics.DoubleProperty.new("highlightElevation", this.highlightElevation, {defaultValue: defaultData.highlightElevation}));
+      properties.add(new (T.DiagnosticsPropertyOfShapeBorder()).new("shape", this.shape, {defaultValue: defaultData.shape}));
     }
   };
-  (text_formatter.MaxLengthEnforcement.new = function(index, _name) {
-    if (index == null) dart.nullFailed(I[0], 42, 6, "index");
-    if (_name == null) dart.nullFailed(I[0], 42, 6, "_name");
-    this.index = index;
-    this[_name$] = _name;
+  (floating_action_button_theme.FloatingActionButtonThemeData.new = function(opts) {
+    let foregroundColor = opts && 'foregroundColor' in opts ? opts.foregroundColor : null;
+    let backgroundColor = opts && 'backgroundColor' in opts ? opts.backgroundColor : null;
+    let focusColor = opts && 'focusColor' in opts ? opts.focusColor : null;
+    let hoverColor = opts && 'hoverColor' in opts ? opts.hoverColor : null;
+    let splashColor = opts && 'splashColor' in opts ? opts.splashColor : null;
+    let elevation = opts && 'elevation' in opts ? opts.elevation : null;
+    let focusElevation = opts && 'focusElevation' in opts ? opts.focusElevation : null;
+    let hoverElevation = opts && 'hoverElevation' in opts ? opts.hoverElevation : null;
+    let disabledElevation = opts && 'disabledElevation' in opts ? opts.disabledElevation : null;
+    let highlightElevation = opts && 'highlightElevation' in opts ? opts.highlightElevation : null;
+    let shape = opts && 'shape' in opts ? opts.shape : null;
+    this[foregroundColor$] = foregroundColor;
+    this[backgroundColor$] = backgroundColor;
+    this[focusColor$] = focusColor;
+    this[hoverColor$] = hoverColor;
+    this[splashColor$] = splashColor;
+    this[elevation$] = elevation;
+    this[focusElevation$] = focusElevation;
+    this[hoverElevation$] = hoverElevation;
+    this[disabledElevation$] = disabledElevation;
+    this[highlightElevation$] = highlightElevation;
+    this[shape$] = shape;
     ;
-  }).prototype = text_formatter.MaxLengthEnforcement.prototype;
-  dart.addTypeTests(text_formatter.MaxLengthEnforcement);
-  dart.addTypeCaches(text_formatter.MaxLengthEnforcement);
-  dart.setLibraryUri(text_formatter.MaxLengthEnforcement, I[1]);
-  dart.setFieldSignature(text_formatter.MaxLengthEnforcement, () => ({
-    __proto__: dart.getFields(text_formatter.MaxLengthEnforcement.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
+  }).prototype = floating_action_button_theme.FloatingActionButtonThemeData.prototype;
+  dart.addTypeTests(floating_action_button_theme.FloatingActionButtonThemeData);
+  dart.addTypeCaches(floating_action_button_theme.FloatingActionButtonThemeData);
+  dart.setMethodSignature(floating_action_button_theme.FloatingActionButtonThemeData, () => ({
+    __proto__: dart.getMethods(floating_action_button_theme.FloatingActionButtonThemeData.__proto__),
+    copyWith: dart.fnType(floating_action_button_theme.FloatingActionButtonThemeData, [], {backgroundColor: dart.nullable(ui.Color), disabledElevation: dart.nullable(core.double), elevation: dart.nullable(core.double), focusColor: dart.nullable(ui.Color), focusElevation: dart.nullable(core.double), foregroundColor: dart.nullable(ui.Color), highlightElevation: dart.nullable(core.double), hoverColor: dart.nullable(ui.Color), hoverElevation: dart.nullable(core.double), shape: dart.nullable(borders.ShapeBorder), splashColor: dart.nullable(ui.Color)}, {})
   }));
-  dart.defineExtensionMethods(text_formatter.MaxLengthEnforcement, ['toString']);
-  text_formatter.MaxLengthEnforcement.none = C[0] || CT.C0;
-  text_formatter.MaxLengthEnforcement.enforced = C[1] || CT.C1;
-  text_formatter.MaxLengthEnforcement.truncateAfterCompositionEnds = C[2] || CT.C2;
-  text_formatter.MaxLengthEnforcement.values = C[3] || CT.C3;
-  text_formatter.TextInputFormatter = class TextInputFormatter extends core.Object {
-    static withFunction(formatFunction) {
-      if (formatFunction == null) dart.nullFailed(I[0], 95, 29, "formatFunction");
-      return new text_formatter._SimpleTextInputFormatter.new(formatFunction);
-    }
-  };
-  (text_formatter.TextInputFormatter.new = function() {
-    ;
-  }).prototype = text_formatter.TextInputFormatter.prototype;
-  dart.addTypeTests(text_formatter.TextInputFormatter);
-  dart.addTypeCaches(text_formatter.TextInputFormatter);
-  dart.setLibraryUri(text_formatter.TextInputFormatter, I[1]);
-  text_formatter._SimpleTextInputFormatter = class _SimpleTextInputFormatter extends text_formatter.TextInputFormatter {
-    formatEditUpdate(oldValue, newValue) {
-      let t1, t0;
-      if (oldValue == null) dart.nullFailed(I[0], 117, 22, "oldValue");
-      if (newValue == null) dart.nullFailed(I[0], 118, 22, "newValue");
-      t0 = oldValue;
-      t1 = newValue;
-      return this.formatFunction(t0, t1);
-    }
-  };
-  (text_formatter._SimpleTextInputFormatter.new = function(formatFunction) {
-    if (formatFunction == null) dart.nullFailed(I[0], 110, 34, "formatFunction");
-    this.formatFunction = formatFunction;
-    if (!(formatFunction != null)) dart.assertFailed(null, I[0], 111, 14, "formatFunction != null");
-    ;
-  }).prototype = text_formatter._SimpleTextInputFormatter.prototype;
-  dart.addTypeTests(text_formatter._SimpleTextInputFormatter);
-  dart.addTypeCaches(text_formatter._SimpleTextInputFormatter);
-  dart.setMethodSignature(text_formatter._SimpleTextInputFormatter, () => ({
-    __proto__: dart.getMethods(text_formatter._SimpleTextInputFormatter.__proto__),
-    formatEditUpdate: dart.fnType(text_input.TextEditingValue, [text_input.TextEditingValue, text_input.TextEditingValue])
+  dart.setLibraryUri(floating_action_button_theme.FloatingActionButtonThemeData, I[1]);
+  dart.setFieldSignature(floating_action_button_theme.FloatingActionButtonThemeData, () => ({
+    __proto__: dart.getFields(floating_action_button_theme.FloatingActionButtonThemeData.__proto__),
+    foregroundColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    backgroundColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    focusColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    hoverColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    splashColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    elevation: dart.finalFieldType(dart.nullable(core.double)),
+    focusElevation: dart.finalFieldType(dart.nullable(core.double)),
+    hoverElevation: dart.finalFieldType(dart.nullable(core.double)),
+    disabledElevation: dart.finalFieldType(dart.nullable(core.double)),
+    highlightElevation: dart.finalFieldType(dart.nullable(core.double)),
+    shape: dart.finalFieldType(dart.nullable(borders.ShapeBorder))
   }));
-  dart.setLibraryUri(text_formatter._SimpleTextInputFormatter, I[1]);
-  dart.setFieldSignature(text_formatter._SimpleTextInputFormatter, () => ({
-    __proto__: dart.getFields(text_formatter._SimpleTextInputFormatter.__proto__),
-    formatFunction: dart.finalFieldType(dart.fnType(text_input.TextEditingValue, [text_input.TextEditingValue, text_input.TextEditingValue]))
-  }));
-  var filterPattern$ = dart.privateName(text_formatter, "FilteringTextInputFormatter.filterPattern");
-  var allow$ = dart.privateName(text_formatter, "FilteringTextInputFormatter.allow");
-  var replacementString$ = dart.privateName(text_formatter, "FilteringTextInputFormatter.replacementString");
-  text_formatter.FilteringTextInputFormatter = class FilteringTextInputFormatter extends text_formatter.TextInputFormatter {
-    get filterPattern() {
-      return this[filterPattern$];
-    }
-    set filterPattern(value) {
-      super.filterPattern = value;
-    }
-    get allow() {
-      return this[allow$];
-    }
-    set allow(value) {
-      super.allow = value;
-    }
-    get replacementString() {
-      return this[replacementString$];
-    }
-    set replacementString(value) {
-      super.replacementString = value;
-    }
-    formatEditUpdate(oldValue, newValue) {
-      if (oldValue == null) dart.nullFailed(I[0], 263, 22, "oldValue");
-      if (newValue == null) dart.nullFailed(I[0], 264, 22, "newValue");
-      return text_formatter._selectionAwareTextManipulation(newValue, dart.fn(substring => {
-        if (substring == null) dart.nullFailed(I[0], 268, 15, "substring");
-        return substring[$splitMapJoin](this.filterPattern, {onMatch: !dart.test(this.allow) ? dart.fn(match => {
-            if (match == null) dart.nullFailed(I[0], 271, 36, "match");
-            return this.replacementString;
-          }, T.MatchToString()) : null, onNonMatch: dart.test(this.allow) ? dart.fn(nonMatch => {
-            if (nonMatch == null) dart.nullFailed(I[0], 272, 39, "nonMatch");
-            return nonMatch[$isNotEmpty] ? this.replacementString : "";
-          }, T.StringToString()) : null});
-      }, T.StringToString()));
-    }
-  };
-  (text_formatter.FilteringTextInputFormatter.new = function(filterPattern, opts) {
-    if (filterPattern == null) dart.nullFailed(I[0], 150, 10, "filterPattern");
-    let allow = opts && 'allow' in opts ? opts.allow : null;
-    if (allow == null) dart.nullFailed(I[0], 151, 19, "allow");
-    let replacementString = opts && 'replacementString' in opts ? opts.replacementString : "";
-    if (replacementString == null) dart.nullFailed(I[0], 152, 10, "replacementString");
-    this[filterPattern$] = filterPattern;
-    this[allow$] = allow;
-    this[replacementString$] = replacementString;
-    if (!(filterPattern != null)) dart.assertFailed(null, I[0], 153, 15, "filterPattern != null");
-    if (!(allow != null)) dart.assertFailed(null, I[0], 154, 15, "allow != null");
-    if (!(replacementString != null)) dart.assertFailed(null, I[0], 155, 15, "replacementString != null");
-    ;
-  }).prototype = text_formatter.FilteringTextInputFormatter.prototype;
-  (text_formatter.FilteringTextInputFormatter.allow = function(filterPattern, opts) {
-    if (filterPattern == null) dart.nullFailed(I[0], 162, 10, "filterPattern");
-    let replacementString = opts && 'replacementString' in opts ? opts.replacementString : "";
-    if (replacementString == null) dart.nullFailed(I[0], 163, 10, "replacementString");
-    this[filterPattern$] = filterPattern;
-    this[replacementString$] = replacementString;
-    if (!(filterPattern != null)) dart.assertFailed(null, I[0], 164, 15, "filterPattern != null");
-    if (!(replacementString != null)) dart.assertFailed(null, I[0], 165, 15, "replacementString != null");
-    this[allow$] = true;
-    ;
-  }).prototype = text_formatter.FilteringTextInputFormatter.prototype;
-  (text_formatter.FilteringTextInputFormatter.deny = function(filterPattern, opts) {
-    if (filterPattern == null) dart.nullFailed(I[0], 173, 10, "filterPattern");
-    let replacementString = opts && 'replacementString' in opts ? opts.replacementString : "";
-    if (replacementString == null) dart.nullFailed(I[0], 174, 10, "replacementString");
-    this[filterPattern$] = filterPattern;
-    this[replacementString$] = replacementString;
-    if (!(filterPattern != null)) dart.assertFailed(null, I[0], 175, 15, "filterPattern != null");
-    if (!(replacementString != null)) dart.assertFailed(null, I[0], 176, 15, "replacementString != null");
-    this[allow$] = false;
-    ;
-  }).prototype = text_formatter.FilteringTextInputFormatter.prototype;
-  dart.addTypeTests(text_formatter.FilteringTextInputFormatter);
-  dart.addTypeCaches(text_formatter.FilteringTextInputFormatter);
-  dart.setMethodSignature(text_formatter.FilteringTextInputFormatter, () => ({
-    __proto__: dart.getMethods(text_formatter.FilteringTextInputFormatter.__proto__),
-    formatEditUpdate: dart.fnType(text_input.TextEditingValue, [text_input.TextEditingValue, text_input.TextEditingValue])
-  }));
-  dart.setLibraryUri(text_formatter.FilteringTextInputFormatter, I[1]);
-  dart.setFieldSignature(text_formatter.FilteringTextInputFormatter, () => ({
-    __proto__: dart.getFields(text_formatter.FilteringTextInputFormatter.__proto__),
-    filterPattern: dart.finalFieldType(core.Pattern),
-    allow: dart.finalFieldType(core.bool),
-    replacementString: dart.finalFieldType(core.String)
-  }));
-  dart.defineLazy(text_formatter.FilteringTextInputFormatter, {
-    /*text_formatter.FilteringTextInputFormatter.singleLineFormatter*/get singleLineFormatter() {
-      return new text_formatter.FilteringTextInputFormatter.deny("\n");
-    },
-    /*text_formatter.FilteringTextInputFormatter.digitsOnly*/get digitsOnly() {
-      return new text_formatter.FilteringTextInputFormatter.allow(core.RegExp.new("[0-9]"));
-    }
-  }, false);
-  text_formatter.BlacklistingTextInputFormatter = class BlacklistingTextInputFormatter extends text_formatter.FilteringTextInputFormatter {
-    get blacklistedPattern() {
-      return this.filterPattern;
-    }
-  };
-  (text_formatter.BlacklistingTextInputFormatter.new = function(blacklistedPattern, opts) {
-    if (blacklistedPattern == null) dart.nullFailed(I[0], 297, 13, "blacklistedPattern");
-    let replacementString = opts && 'replacementString' in opts ? opts.replacementString : "";
-    if (replacementString == null) dart.nullFailed(I[0], 298, 12, "replacementString");
-    text_formatter.BlacklistingTextInputFormatter.__proto__.deny.call(this, blacklistedPattern, {replacementString: replacementString});
-    ;
-  }).prototype = text_formatter.BlacklistingTextInputFormatter.prototype;
-  dart.addTypeTests(text_formatter.BlacklistingTextInputFormatter);
-  dart.addTypeCaches(text_formatter.BlacklistingTextInputFormatter);
-  dart.setGetterSignature(text_formatter.BlacklistingTextInputFormatter, () => ({
-    __proto__: dart.getGetters(text_formatter.BlacklistingTextInputFormatter.__proto__),
-    blacklistedPattern: core.Pattern
-  }));
-  dart.setLibraryUri(text_formatter.BlacklistingTextInputFormatter, I[1]);
-  dart.defineLazy(text_formatter.BlacklistingTextInputFormatter, {
-    /*text_formatter.BlacklistingTextInputFormatter.singleLineFormatter*/get singleLineFormatter() {
-      return new text_formatter.BlacklistingTextInputFormatter.new(core.RegExp.new("\\n"));
-    }
-  }, false);
-  text_formatter.WhitelistingTextInputFormatter = class WhitelistingTextInputFormatter extends text_formatter.FilteringTextInputFormatter {
-    get whitelistedPattern() {
-      return this.filterPattern;
-    }
-  };
-  (text_formatter.WhitelistingTextInputFormatter.new = function(whitelistedPattern) {
-    if (whitelistedPattern == null) dart.nullFailed(I[0], 328, 42, "whitelistedPattern");
-    if (!(whitelistedPattern != null)) dart.assertFailed(null, I[0], 329, 14, "whitelistedPattern != null");
-    text_formatter.WhitelistingTextInputFormatter.__proto__.allow.call(this, whitelistedPattern);
-    ;
-  }).prototype = text_formatter.WhitelistingTextInputFormatter.prototype;
-  dart.addTypeTests(text_formatter.WhitelistingTextInputFormatter);
-  dart.addTypeCaches(text_formatter.WhitelistingTextInputFormatter);
-  dart.setGetterSignature(text_formatter.WhitelistingTextInputFormatter, () => ({
-    __proto__: dart.getGetters(text_formatter.WhitelistingTextInputFormatter.__proto__),
-    whitelistedPattern: core.Pattern
-  }));
-  dart.setLibraryUri(text_formatter.WhitelistingTextInputFormatter, I[1]);
-  dart.defineLazy(text_formatter.WhitelistingTextInputFormatter, {
-    /*text_formatter.WhitelistingTextInputFormatter.digitsOnly*/get digitsOnly() {
-      return new text_formatter.WhitelistingTextInputFormatter.new(core.RegExp.new("\\d+"));
-    }
-  }, false);
-  var maxLength$ = dart.privateName(text_formatter, "LengthLimitingTextInputFormatter.maxLength");
-  var maxLengthEnforcement$ = dart.privateName(text_formatter, "LengthLimitingTextInputFormatter.maxLengthEnforcement");
-  var _name = dart.privateName(platform$, "_name");
-  text_formatter.LengthLimitingTextInputFormatter = class LengthLimitingTextInputFormatter extends text_formatter.TextInputFormatter {
-    get maxLength() {
-      return this[maxLength$];
-    }
-    set maxLength(value) {
-      super.maxLength = value;
-    }
-    get maxLengthEnforcement() {
-      return this[maxLengthEnforcement$];
-    }
-    set maxLengthEnforcement(value) {
-      super.maxLengthEnforcement = value;
-    }
-    static getDefaultMaxLengthEnforcement(platform = null) {
-      let t0;
-      if (true) {
-        return text_formatter.MaxLengthEnforcement.truncateAfterCompositionEnds;
-      } else {
-        switch (t0 = platform, t0 == null ? platform$.defaultTargetPlatform : t0) {
-          case C[4] || CT.C4:
-          case C[5] || CT.C5:
-          {
-            return text_formatter.MaxLengthEnforcement.enforced;
-          }
-          case C[6] || CT.C6:
-          case C[7] || CT.C7:
-          case C[8] || CT.C8:
-          case C[9] || CT.C9:
-          {
-            return text_formatter.MaxLengthEnforcement.truncateAfterCompositionEnds;
-          }
-          default:
-          {
-            dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
-          }
-        }
-      }
-    }
-    static truncate(value, maxLength) {
-      if (value == null) dart.nullFailed(I[0], 462, 53, "value");
-      if (maxLength == null) dart.nullFailed(I[0], 462, 64, "maxLength");
-      let iterator = new characters_impl.StringCharacterRange.new(value.text);
-      if (dart.notNull(extensions['StringCharacters|get#characters'](value.text)[$length]) > dart.notNull(maxLength)) {
-        iterator.expandNext(maxLength);
-      }
-      let truncated = iterator.current;
-      return new text_input.TextEditingValue.new({text: truncated, selection: value.selection.copyWith({baseOffset: math.min(core.int, value.selection.start, truncated.length), extentOffset: math.min(core.int, value.selection.end, truncated.length)}), composing: !dart.test(value.composing.isCollapsed) && truncated.length > dart.notNull(value.composing.start) ? new ui.TextRange.new({start: value.composing.start, end: math.min(core.int, value.composing.end, truncated.length)}) : ui.TextRange.empty});
-    }
-    formatEditUpdate(oldValue, newValue) {
-      let t0;
-      if (oldValue == null) dart.nullFailed(I[0], 486, 22, "oldValue");
-      if (newValue == null) dart.nullFailed(I[0], 487, 22, "newValue");
-      let maxLength = this.maxLength;
-      if (maxLength == null || maxLength === -1 || dart.notNull(extensions['StringCharacters|get#characters'](newValue.text)[$length]) <= dart.notNull(maxLength)) {
-        return newValue;
-      }
-      if (!(dart.notNull(maxLength) > 0)) dart.assertFailed(null, I[0], 497, 12, "maxLength > 0");
-      switch (t0 = this.maxLengthEnforcement, t0 == null ? text_formatter.LengthLimitingTextInputFormatter.getDefaultMaxLengthEnforcement() : t0) {
-        case C[0] || CT.C0:
-        {
-          return newValue;
-        }
-        case C[1] || CT.C1:
-        {
-          if (extensions['StringCharacters|get#characters'](oldValue.text)[$length] == maxLength && !dart.test(oldValue.selection.isValid)) {
-            return oldValue;
-          }
-          return text_formatter.LengthLimitingTextInputFormatter.truncate(newValue, maxLength);
-        }
-        case C[2] || CT.C2:
-        {
-          if (extensions['StringCharacters|get#characters'](oldValue.text)[$length] == maxLength && !dart.test(oldValue.composing.isValid)) {
-            return oldValue;
-          }
-          if (dart.test(newValue.composing.isValid)) {
-            return newValue;
-          }
-          return text_formatter.LengthLimitingTextInputFormatter.truncate(newValue, maxLength);
-        }
-        default:
-        {
-          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
-        }
-      }
-    }
-  };
-  (text_formatter.LengthLimitingTextInputFormatter.new = function(maxLength, opts) {
-    let maxLengthEnforcement = opts && 'maxLengthEnforcement' in opts ? opts.maxLengthEnforcement : null;
-    this[maxLength$] = maxLength;
-    this[maxLengthEnforcement$] = maxLengthEnforcement;
-    if (!(maxLength == null || maxLength === -1 || dart.notNull(maxLength) > 0)) dart.assertFailed(null, I[0], 371, 15, "maxLength == null || maxLength == -1 || maxLength > 0");
-    ;
-  }).prototype = text_formatter.LengthLimitingTextInputFormatter.prototype;
-  dart.addTypeTests(text_formatter.LengthLimitingTextInputFormatter);
-  dart.addTypeCaches(text_formatter.LengthLimitingTextInputFormatter);
-  dart.setMethodSignature(text_formatter.LengthLimitingTextInputFormatter, () => ({
-    __proto__: dart.getMethods(text_formatter.LengthLimitingTextInputFormatter.__proto__),
-    formatEditUpdate: dart.fnType(text_input.TextEditingValue, [text_input.TextEditingValue, text_input.TextEditingValue])
-  }));
-  dart.setLibraryUri(text_formatter.LengthLimitingTextInputFormatter, I[1]);
-  dart.setFieldSignature(text_formatter.LengthLimitingTextInputFormatter, () => ({
-    __proto__: dart.getFields(text_formatter.LengthLimitingTextInputFormatter.__proto__),
-    maxLength: dart.finalFieldType(dart.nullable(core.int)),
-    maxLengthEnforcement: dart.finalFieldType(dart.nullable(text_formatter.MaxLengthEnforcement))
-  }));
-  var TextRange_end = dart.privateName(ui, "TextRange.end");
-  var TextRange_start = dart.privateName(ui, "TextRange.start");
-  var TextSelection_isDirectional = dart.privateName(text_editing, "TextSelection.isDirectional");
-  var _name$0 = dart.privateName(ui, "_name");
-  var TextSelection_affinity = dart.privateName(text_editing, "TextSelection.affinity");
-  var TextSelection_extentOffset = dart.privateName(text_editing, "TextSelection.extentOffset");
-  var TextSelection_baseOffset = dart.privateName(text_editing, "TextSelection.baseOffset");
-  text_formatter._selectionAwareTextManipulation = function _selectionAwareTextManipulation(value, substringManipulation) {
-    let t0;
-    if (value == null) dart.nullFailed(I[0], 532, 20, "value");
-    if (substringManipulation == null) dart.nullFailed(I[0], 533, 10, "substringManipulation");
-    let selectionStartIndex = value.selection.start;
-    let selectionEndIndex = value.selection.end;
-    let manipulatedText = null;
-    let manipulatedSelection = null;
-    if (dart.notNull(selectionStartIndex) < 0 || dart.notNull(selectionEndIndex) < 0) {
-      manipulatedText = substringManipulation(value.text);
-    } else {
-      let beforeSelection = substringManipulation(value.text[$substring](0, selectionStartIndex));
-      let inSelection = substringManipulation(value.text[$substring](selectionStartIndex, selectionEndIndex));
-      let afterSelection = substringManipulation(value.text[$substring](selectionEndIndex));
-      manipulatedText = dart.notNull(beforeSelection) + dart.notNull(inSelection) + dart.notNull(afterSelection);
-      if (dart.notNull(value.selection.baseOffset) > dart.notNull(value.selection.extentOffset)) {
-        manipulatedSelection = value.selection.copyWith({baseOffset: beforeSelection.length + inSelection.length, extentOffset: beforeSelection.length});
-      } else {
-        manipulatedSelection = value.selection.copyWith({baseOffset: beforeSelection.length, extentOffset: beforeSelection.length + inSelection.length});
-      }
-    }
-    return new text_input.TextEditingValue.new({text: manipulatedText, selection: (t0 = manipulatedSelection, t0 == null ? C[10] || CT.C10 : t0), composing: manipulatedText == value.text ? value.composing : ui.TextRange.empty});
-  };
-  dart.trackLibraries("packages/flutter/src/services/text_formatter.dart", {
-    "package:flutter/src/services/text_formatter.dart": text_formatter
+  dart.defineExtensionMethods(floating_action_button_theme.FloatingActionButtonThemeData, ['_equals']);
+  dart.defineExtensionAccessors(floating_action_button_theme.FloatingActionButtonThemeData, ['hashCode']);
+  dart.trackLibraries("packages/flutter/src/material/floating_action_button_theme.dart", {
+    "package:flutter/src/material/floating_action_button_theme.dart": floating_action_button_theme
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["text_formatter.dart"],"names":[],"mappings":"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","file":"../../../../../../../../E:/packages/flutter/src/services/text_formatter.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["floating_action_button_theme.dart"],"names":[],"mappings":"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","file":"../../../../../../../../E:/packages/flutter/src/material/floating_action_button_theme.dart.lib.js"}');
   // Exports:
   return {
-    src__services__text_formatter: text_formatter
+    src__material__floating_action_button_theme: floating_action_button_theme
   };
 }));
 
-//# sourceMappingURL=text_formatter.dart.lib.js.map
+//# sourceMappingURL=floating_action_button_theme.dart.lib.js.map
