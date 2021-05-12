@@ -29,9 +29,7 @@ class Body extends StatelessWidget {
                         press: () {
                           Navigator.push(
                             context, 
-                            MaterialPageRoute(builder: (context) {
-                              return TambahScreen();
-                            }),
+                            MaterialPageRoute(builder: (context) => TambahScreen()),
                           );
                         },
                       ),
@@ -41,9 +39,7 @@ class Body extends StatelessWidget {
                         press: () {
                           Navigator.push(
                             context, 
-                            MaterialPageRoute(builder: (context) {
-                              return BarangScreen();
-                            }),
+                            MaterialPageRoute(builder: (context) => BarangScreen()),
                           );
                         },
                       ),
@@ -53,9 +49,7 @@ class Body extends StatelessWidget {
                         press: () {
                           Navigator.push(
                             context, 
-                            MaterialPageRoute(builder: (context) {
-                              return KurangScreen();
-                            }),
+                            MaterialPageRoute(builder: (context) => KurangScreen()),
                           );
                         },
                       ),
@@ -65,9 +59,7 @@ class Body extends StatelessWidget {
                         press: () {
                           Navigator.push(
                             context, 
-                            MaterialPageRoute(builder: (context) {
-                              return TentangScreen();
-                            }),
+                            MaterialPageRoute(builder: (context) => TentangScreen()),
                           );
                         },
                       ),
