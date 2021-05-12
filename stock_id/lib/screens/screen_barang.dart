@@ -28,9 +28,9 @@ class _BarangScreenState extends State<BarangScreen> {
             },
         ),
       ),
-      body: Stack(
+      body: ListView(
         children: <Widget>[
-          Text("ini halaman stok barang")
+          Container(),
         ],
       ),
     );
