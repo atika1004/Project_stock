@@ -18,8 +18,22 @@ class Body extends StatelessWidget {
                     crossAxisSpacing: 25,
                     mainAxisSpacing: 25,
                     children: <Widget>[
-                      HomeMenu(),
-                      HomeMenu(),
+                      HomeMenu(
+                        title: "Tambah Stok Barang",
+                        iconSrc: Icons.add_box,
+                      ),
+                      HomeMenu(
+                        title: "Daftar Stok Barang",
+                        iconSrc: Icons.inventory,
+                      ),
+                      HomeMenu(
+                        title: "Ambil Stok Barang",
+                        iconSrc: Icons.delivery_dining,
+                      ),
+                      HomeMenu(
+                        title: "Tentang Stock.Id",
+                        iconSrc: Icons.info,
+                      ),
                     ],
                   ),
               ),
@@ -30,8 +44,12 @@ class Body extends StatelessWidget {
 }
 
 class HomeMenu extends StatelessWidget {
+  final IconData iconSrc;
+  final String title;
   const HomeMenu({
     Key key,
+    this.iconSrc,
+    this.title,
   }) : super(key: key);
 
   @override
@@ -45,10 +63,10 @@ class HomeMenu extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Spacer(),
-          Icon(Icons.add_box, size: 60,),
+          Icon(iconSrc, size: 60,),
           Spacer(),
           Text(
-            "Tambah Stok Barang",
+            title,
             textAlign: TextAlign.center,
             style: TextStyle(
               fontWeight: FontWeight.bold,
