@@ -18,6 +18,7 @@ class BarangScreen extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           color: Colors.white,
+          tooltip: 'Kembali',
           onPressed: () => Navigator.pop(context),
         ),
       ),
