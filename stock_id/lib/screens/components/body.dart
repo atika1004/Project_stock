@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stock_id/constants.dart';
 import 'package:stock_id/screens/components/header_with_box.dart';
+import 'package:stock_id/screens/components/home_menu_card.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -21,18 +22,22 @@ class Body extends StatelessWidget {
                       HomeMenu(
                         title: "Tambah Stok Barang",
                         iconSrc: Icons.add_box,
+                        press: () {},
                       ),
                       HomeMenu(
                         title: "Daftar Stok Barang",
                         iconSrc: Icons.inventory,
+                        press: () {},
                       ),
                       HomeMenu(
                         title: "Ambil Stok Barang",
                         iconSrc: Icons.delivery_dining,
+                        press: () {},
                       ),
                       HomeMenu(
                         title: "Tentang Stock.Id",
                         iconSrc: Icons.info,
+                        press: () {},
                       ),
                     ],
                   ),
@@ -42,58 +47,3 @@ class Body extends StatelessWidget {
     );
   }
 }
-
-class HomeMenu extends StatelessWidget {
-  final IconData iconSrc;
-  final String title;
-  const HomeMenu({
-    Key key,
-    this.iconSrc,
-    this.title,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(15),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(15),
-          boxShadow: [
-            BoxShadow(
-              offset: Offset(8,15),
-              blurRadius: 10,
-              spreadRadius: -10,
-              color: stockShadow,
-            ),
-          ],
-        ),
-        child: Material(
-          color: Colors.transparent,
-          child: InkWell(
-            onTap: () {},
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                children: <Widget>[
-                  Spacer(),
-                  Icon(iconSrc, size: 60,),
-                  Spacer(),
-                  Text(
-                      title,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
