@@ -10,6 +10,27 @@ class Body extends StatelessWidget {
       child: Column(
         children: <Widget>[
           HeaderBox(size: size),
+          Expanded(
+            child: GridView.count(
+              crossAxisCount: 2,
+              children: <Widget>[
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                  ),
+                )
+              ],
+            ),
+          ),
+          // Container(
+          //   width: size.width * 0.4,
+          //   child: Padding(
+          //     padding: EdgeInsets.only(top: stockPadding),
+          //     child: GridView.count(
+          //       crossAxisCount: 2,
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );
