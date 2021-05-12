@@ -7,7 +7,7 @@ class KurangScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Barang Terpakai",
+          "Ambil Barang",
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
