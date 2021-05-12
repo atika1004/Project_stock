@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:stock_id/constants.dart';
 import 'package:stock_id/screens/components/header_with_box.dart';
 import 'package:stock_id/screens/components/home_menu_card.dart';
+import 'package:stock_id/screens/screen_tambah.dart';
+import 'package:stock_id/screens/screen_barang.dart';
+import 'package:stock_id/screens/screen_kurang.dart';
+import 'package:stock_id/screens/screen_tentang.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -22,22 +26,50 @@ class Body extends StatelessWidget {
                       HomeMenu(
                         title: "Tambah Stok Barang",
                         iconSrc: Icons.add_box,
-                        press: () {},
+                        press: () {
+                          Navigator.push(
+                            context, 
+                            MaterialPageRoute(builder: (context) {
+                              return TambahScreen();
+                            }),
+                          );
+                        },
                       ),
                       HomeMenu(
                         title: "Daftar Stok Barang",
                         iconSrc: Icons.inventory,
-                        press: () {},
+                        press: () {
+                          Navigator.push(
+                            context, 
+                            MaterialPageRoute(builder: (context) {
+                              return BarangScreen();
+                            }),
+                          );
+                        },
                       ),
                       HomeMenu(
                         title: "Ambil Stok Barang",
                         iconSrc: Icons.delivery_dining,
-                        press: () {},
+                        press: () {
+                          Navigator.push(
+                            context, 
+                            MaterialPageRoute(builder: (context) {
+                              return KurangScreen();
+                            }),
+                          );
+                        },
                       ),
                       HomeMenu(
                         title: "Tentang Stock.Id",
                         iconSrc: Icons.info,
-                        press: () {},
+                        press: () {
+                          Navigator.push(
+                            context, 
+                            MaterialPageRoute(builder: (context) {
+                              return TentangScreen();
+                            }),
+                          );
+                        },
                       ),
                     ],
                   ),
