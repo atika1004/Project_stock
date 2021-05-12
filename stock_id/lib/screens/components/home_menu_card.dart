@@ -42,11 +42,11 @@ class HomeMenu extends StatelessWidget {
                   Icon(iconSrc, size: 60,),
                   Spacer(),
                   Text(
-                      title,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
+                    title,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ],
               ),
