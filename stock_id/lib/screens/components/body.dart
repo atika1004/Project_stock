@@ -15,8 +15,8 @@ class Body extends StatelessWidget {
               child: GridView.count(
                     crossAxisCount: 2,
                     childAspectRatio: .85,
-                    crossAxisSpacing: 25,
-                    mainAxisSpacing: 25,
+                    crossAxisSpacing: 30,
+                    mainAxisSpacing: 30,
                     children: <Widget>[
                       HomeMenu(
                         title: "Tambah Stok Barang",
@@ -54,26 +54,44 @@ class HomeMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(15)
-      ),
-      child: Column(
-        children: <Widget>[
-          Spacer(),
-          Icon(iconSrc, size: 60,),
-          Spacer(),
-          Text(
-            title,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: stockText,
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(15),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+              offset: Offset(8,15),
+              blurRadius: 10,
+              spreadRadius: -10,
+              color: stockShadow,
+            ),
+          ],
+        ),
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: () {},
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                children: <Widget>[
+                  Spacer(),
+                  Icon(iconSrc, size: 60,),
+                  Spacer(),
+                  Text(
+                      title,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                ],
               ),
+            ),
           ),
-        ],
+        ),
       ),
     );
   }
