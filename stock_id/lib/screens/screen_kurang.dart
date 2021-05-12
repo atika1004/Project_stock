@@ -19,7 +19,9 @@ class KurangScreen extends StatelessWidget {
           icon: Icon(Icons.arrow_back),
           color: Colors.white,
           tooltip: 'Kembali',
-          onPressed: () => Navigator.pop(context),
+          onPressed: () {
+            Navigator.pop(context);
+            },
         ),
       ),
       body: Stack(
