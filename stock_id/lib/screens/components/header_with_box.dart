@@ -40,36 +40,36 @@ class HeaderBox extends StatelessWidget {
               ],
             ),
           ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Container(
-              alignment: Alignment.center,
-              margin: EdgeInsets.symmetric(horizontal: stockPadding),
-              padding: EdgeInsets.symmetric(horizontal: stockPadding),
-              height: 54,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: [
-                  BoxShadow(
-                    offset: Offset(0, 10),
-                    blurRadius: 50,
-                    color: stockPrimary.withOpacity(0.30),
-                  )
-                ],
-              ),
-              child: Text(
-                'Selamat datang di aplikasi Stock.Id',
-                style: TextStyle(
-                  color: stockText,
-                  fontSize: 20,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ),
+          // Positioned(
+          //   bottom: 0,
+          //   left: 0,
+          //   right: 0,
+          //   child: Container(
+          //     alignment: Alignment.center,
+          //     margin: EdgeInsets.symmetric(horizontal: stockPadding),
+          //     padding: EdgeInsets.symmetric(horizontal: stockPadding),
+          //     height: 54,
+          //     decoration: BoxDecoration(
+          //       color: Colors.white,
+          //       borderRadius: BorderRadius.circular(20),
+          //       boxShadow: [
+          //         BoxShadow(
+          //           offset: Offset(0, 10),
+          //           blurRadius: 50,
+          //           color: stockPrimary.withOpacity(0.30),
+          //         )
+          //       ],
+          //     ),
+          //     child: Text(
+          //       'Selamat datang di aplikasi Stock.Id',
+          //       style: TextStyle(
+          //         color: stockText,
+          //         fontSize: 20,
+          //       ),
+          //       textAlign: TextAlign.center,
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );

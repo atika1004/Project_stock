@@ -1,29 +1,51 @@
-define(['dart_sdk', 'packages/flutter/src/painting/borders.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/painting/border_radius.dart'], (function load__packages__flutter__src__painting__box_border_dart(dart_sdk, packages__flutter__src__painting__borders$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__foundation__object$46dart, packages__flutter__src__painting__border_radius$46dart) {
+define(['dart_sdk', 'packages/flutter/src/gestures/resampler.dart', 'packages/flutter/src/scheduler/binding.dart', 'packages/flutter/src/gestures/debug.dart', 'packages/flutter/src/foundation/print.dart', 'packages/flutter/src/gestures/events.dart', 'packages/flutter/src/gestures/pointer_router.dart', 'packages/flutter/src/gestures/arena.dart', 'packages/flutter/src/gestures/pointer_signal_resolver.dart', 'packages/flutter/src/gestures/hit_test.dart', 'packages/flutter/src/gestures/converter.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/foundation/binding.dart'], (function load__packages__flutter__src__gestures__binding_dart(dart_sdk, packages__flutter__src__gestures__resampler$46dart, packages__flutter__src__scheduler__binding$46dart, packages__flutter__src__gestures__debug$46dart, packages__flutter__src__foundation__print$46dart, packages__flutter__src__gestures__events$46dart, packages__flutter__src__gestures__pointer_router$46dart, packages__flutter__src__gestures__arena$46dart, packages__flutter__src__gestures__pointer_signal_resolver$46dart, packages__flutter__src__gestures__hit_test$46dart, packages__flutter__src__gestures__converter$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__foundation__binding$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _interceptors = dart_sdk._interceptors;
+  const _js_helper = dart_sdk._js_helper;
   const ui = dart_sdk.ui;
+  const collection = dart_sdk.collection;
+  const async = dart_sdk.async;
   const _internal = dart_sdk._internal;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const borders = packages__flutter__src__painting__borders$46dart.src__painting__borders;
+  const resampler$ = packages__flutter__src__gestures__resampler$46dart.src__gestures__resampler;
+  const binding = packages__flutter__src__scheduler__binding$46dart.src__scheduler__binding;
+  const debug = packages__flutter__src__gestures__debug$46dart.src__gestures__debug;
+  const print = packages__flutter__src__foundation__print$46dart.src__foundation__print;
+  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
+  const pointer_router = packages__flutter__src__gestures__pointer_router$46dart.src__gestures__pointer_router;
+  const arena = packages__flutter__src__gestures__arena$46dart.src__gestures__arena;
+  const pointer_signal_resolver = packages__flutter__src__gestures__pointer_signal_resolver$46dart.src__gestures__pointer_signal_resolver;
+  const hit_test = packages__flutter__src__gestures__hit_test$46dart.src__gestures__hit_test;
+  const converter = packages__flutter__src__gestures__converter$46dart.src__gestures__converter;
   const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
   const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
-  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
-  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
-  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
-  var box_border = Object.create(dart.library);
-  var $runtimeType = dartx.runtimeType;
-  var $add = dartx.add;
-  var $join = dartx.join;
+  const binding$ = packages__flutter__src__foundation__binding$46dart.src__foundation__binding;
+  var binding$0 = Object.create(dart.library);
+  var $putIfAbsent = dartx.putIfAbsent;
+  var $values = dartx.values;
+  var $removeWhere = dartx.removeWhere;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $clear = dartx.clear;
+  var $isEmpty = dartx.isEmpty;
+  var $containsKey = dartx.containsKey;
+  var $_set = dartx._set;
+  var $remove = dartx.remove;
+  var $_get = dartx._get;
   dart._checkModuleNullSafetyMode(false);
   var T = {
-    BoxShapeL: () => (T.BoxShapeL = dart.constFn(dart.legacy(box_border.BoxShape)))(),
-    BorderN: () => (T.BorderN = dart.constFn(dart.nullable(box_border.Border)))(),
-    BorderDirectionalN: () => (T.BorderDirectionalN = dart.constFn(dart.nullable(box_border.BorderDirectional)))(),
-    JSArrayOfDiagnosticsNode: () => (T.JSArrayOfDiagnosticsNode = dart.constFn(_interceptors.JSArray$(diagnostics.DiagnosticsNode)))(),
+    IdentityMapOfint$PointerEventResampler: () => (T.IdentityMapOfint$PointerEventResampler = dart.constFn(_js_helper.IdentityMap$(core.int, resampler$.PointerEventResampler)))(),
+    VoidToPointerEventResampler: () => (T.VoidToPointerEventResampler = dart.constFn(dart.fnType(resampler$.PointerEventResampler, [])))(),
+    intAndPointerEventResamplerTobool: () => (T.intAndPointerEventResamplerTobool = dart.constFn(dart.fnType(core.bool, [core.int, resampler$.PointerEventResampler])))(),
     VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
-    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))()
+    DurationTovoid: () => (T.DurationTovoid = dart.constFn(dart.fnType(dart.void, [core.Duration])))(),
+    ListQueueOfPointerEvent: () => (T.ListQueueOfPointerEvent = dart.constFn(collection.ListQueue$(events.PointerEvent)))(),
+    IdentityMapOfint$HitTestResult: () => (T.IdentityMapOfint$HitTestResult = dart.constFn(_js_helper.IdentityMap$(core.int, hit_test.HitTestResult)))(),
+    DiagnosticsPropertyOfPointerEvent: () => (T.DiagnosticsPropertyOfPointerEvent = dart.constFn(diagnostics.DiagnosticsProperty$(events.PointerEvent)))(),
+    SyncIterableOfDiagnosticsNode: () => (T.SyncIterableOfDiagnosticsNode = dart.constFn(_js_helper.SyncIterable$(diagnostics.DiagnosticsNode)))(),
+    IterableOfDiagnosticsNode: () => (T.IterableOfDiagnosticsNode = dart.constFn(core.Iterable$(diagnostics.DiagnosticsNode)))(),
+    VoidToIterableOfDiagnosticsNode: () => (T.VoidToIterableOfDiagnosticsNode = dart.constFn(dart.fnType(T.IterableOfDiagnosticsNode(), [])))(),
+    DiagnosticsPropertyOfHitTestTarget: () => (T.DiagnosticsPropertyOfHitTestTarget = dart.constFn(diagnostics.DiagnosticsProperty$(hit_test.HitTestTarget)))()
   };
   var T$Eval = Object.assign({
     _: () => T$Eval
@@ -40,717 +62,412 @@ define(['dart_sdk', 'packages/flutter/src/painting/borders.dart', 'packages/flut
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: box_border.BoxShape.prototype,
-        [_name$]: "BoxShape.rectangle",
-        index: 0
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: -38000
       });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: box_border.BoxShape.prototype,
-        [_name$]: "BoxShape.circle",
-        index: 1
-      });
-    },
-    get C2() {
-      return C[2] = dart.constList([C[0] || CT.C0, C[1] || CT.C1], T.BoxShapeL());
-    },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: borders.BorderStyle.prototype,
-        [_name]: "BorderStyle.none",
-        index: 0
-      });
-    },
-    get C5() {
-      return C[5] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278190080.0
-      });
-    },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: borders.BorderSide.prototype,
-        [BorderSide_style]: C[4] || CT.C4,
-        [BorderSide_width]: 0,
-        [BorderSide_color]: C[5] || CT.C5
-      });
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: borders.BorderStyle.prototype,
-        [_name]: "BorderStyle.solid",
-        index: 1
-      });
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: ui.TextDirection.prototype,
-        [_name$0]: "TextDirection.rtl",
-        index: 0
-      });
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: ui.TextDirection.prototype,
-        [_name$0]: "TextDirection.ltr",
-        index: 1
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 16667
       });
     }
   }, false);
-  var C = Array(9).fill(void 0);
+  var C = Array(2).fill(void 0);
   var I = [
-    "file:///C:/src/flutter/packages/flutter/lib/src/painting/box_border.dart",
-    "package:flutter/src/painting/box_border.dart"
+    "file:///C:/src/flutter/packages/flutter/lib/src/gestures/binding.dart",
+    "package:flutter/src/gestures/binding.dart"
   ];
-  var _name$ = dart.privateName(box_border, "_name");
-  box_border.BoxShape = class BoxShape extends core.Object {
-    toString() {
-      return this[_name$];
-    }
-  };
-  (box_border.BoxShape.new = function(index, _name) {
-    if (index == null) dart.nullFailed(I[0], 21, 6, "index");
-    if (_name == null) dart.nullFailed(I[0], 21, 6, "_name");
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = box_border.BoxShape.prototype;
-  dart.addTypeTests(box_border.BoxShape);
-  dart.addTypeCaches(box_border.BoxShape);
-  dart.setLibraryUri(box_border.BoxShape, I[1]);
-  dart.setFieldSignature(box_border.BoxShape, () => ({
-    __proto__: dart.getFields(box_border.BoxShape.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(box_border.BoxShape, ['toString']);
-  box_border.BoxShape.rectangle = C[0] || CT.C0;
-  box_border.BoxShape.circle = C[1] || CT.C1;
-  box_border.BoxShape.values = C[2] || CT.C2;
-  box_border.BoxBorder = class BoxBorder extends borders.ShapeBorder {
-    add(other, opts) {
-      if (other == null) dart.nullFailed(I[0], 86, 30, "other");
-      let reversed = opts && 'reversed' in opts ? opts.reversed : false;
-      if (reversed == null) dart.nullFailed(I[0], 86, 44, "reversed");
-      return null;
-    }
-    static lerp(a, b, t) {
-      if (t == null) dart.nullFailed(I[0], 105, 61, "t");
-      if (!(t != null)) dart.assertFailed(null, I[0], 106, 12, "t != null");
-      if (T.BorderN().is(a) && T.BorderN().is(b)) return box_border.Border.lerp(a, b, t);
-      if (T.BorderDirectionalN().is(a) && T.BorderDirectionalN().is(b)) return box_border.BorderDirectional.lerp(a, b, t);
-      if (box_border.Border.is(b) && box_border.BorderDirectional.is(a)) {
-        let c = b;
-        b = a;
-        a = c;
-        t = 1.0 - dart.notNull(t);
-      }
-      if (box_border.Border.is(a) && box_border.BorderDirectional.is(b)) {
-        if (dart.equals(b.start, borders.BorderSide.none) && dart.equals(b.end, borders.BorderSide.none)) {
-          return new box_border.Border.new({top: borders.BorderSide.lerp(a.top, b.top, t), right: borders.BorderSide.lerp(a.right, borders.BorderSide.none, t), bottom: borders.BorderSide.lerp(a.bottom, b.bottom, t), left: borders.BorderSide.lerp(a.left, borders.BorderSide.none, t)});
-        }
-        if (dart.equals(a.left, borders.BorderSide.none) && dart.equals(a.right, borders.BorderSide.none)) {
-          return new box_border.BorderDirectional.new({top: borders.BorderSide.lerp(a.top, b.top, t), start: borders.BorderSide.lerp(borders.BorderSide.none, b.start, t), end: borders.BorderSide.lerp(borders.BorderSide.none, b.end, t), bottom: borders.BorderSide.lerp(a.bottom, b.bottom, t)});
-        }
-        if (dart.notNull(t) < 0.5) {
-          return new box_border.Border.new({top: borders.BorderSide.lerp(a.top, b.top, t), right: borders.BorderSide.lerp(a.right, borders.BorderSide.none, dart.notNull(t) * 2.0), bottom: borders.BorderSide.lerp(a.bottom, b.bottom, t), left: borders.BorderSide.lerp(a.left, borders.BorderSide.none, dart.notNull(t) * 2.0)});
-        }
-        return new box_border.BorderDirectional.new({top: borders.BorderSide.lerp(a.top, b.top, t), start: borders.BorderSide.lerp(borders.BorderSide.none, b.start, (dart.notNull(t) - 0.5) * 2.0), end: borders.BorderSide.lerp(borders.BorderSide.none, b.end, (dart.notNull(t) - 0.5) * 2.0), bottom: borders.BorderSide.lerp(a.bottom, b.bottom, t)});
-      }
-      dart.throw(new assertions.FlutterError.fromParts(T.JSArrayOfDiagnosticsNode().of([new assertions.ErrorSummary.new("BoxBorder.lerp can only interpolate Border and BorderDirectional classes."), new assertions.ErrorDescription.new("BoxBorder.lerp() was called with two objects of type " + dart.str(dart.runtimeType(a)) + " and " + dart.str(dart.runtimeType(b)) + ":\n" + "  " + dart.str(a) + "\n" + "  " + dart.str(b) + "\n" + "However, only Border and BorderDirectional classes are supported by this method."), new assertions.ErrorHint.new("For a more general interpolation method, consider using ShapeBorder.lerp instead.")])));
-    }
-    getInnerPath(rect, opts) {
+  var _resamplers = dart.privateName(binding$0, "_resamplers");
+  var _frameCallbackScheduled = dart.privateName(binding$0, "_frameCallbackScheduled");
+  var _frameTime = dart.privateName(binding$0, "_frameTime");
+  var _lastSampleTime = dart.privateName(binding$0, "_lastSampleTime");
+  var _lastEventTime = dart.privateName(binding$0, "_lastEventTime");
+  var _handlePointerEvent$ = dart.privateName(binding$0, "_handlePointerEvent");
+  var _handleSampleTimeChanged$ = dart.privateName(binding$0, "_handleSampleTimeChanged");
+  binding$0._Resampler = class _Resampler extends core.Object {
+    addOrDispatch(event) {
       let t0;
-      if (rect == null) dart.nullFailed(I[0], 168, 26, "rect");
-      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
-      if (!(textDirection != null)) dart.assertFailed("The textDirection argument to " + dart.str(this[$runtimeType]) + ".getInnerPath must not be null.", I[0], 169, 12, "textDirection != null");
-      t0 = ui.Path.new();
-      return (() => {
-        t0.addRect(this.dimensions.resolve(textDirection).deflateRect(rect));
-        return t0;
-      })();
-    }
-    getOuterPath(rect, opts) {
-      let t0;
-      if (rect == null) dart.nullFailed(I[0], 175, 26, "rect");
-      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
-      if (!(textDirection != null)) dart.assertFailed("The textDirection argument to " + dart.str(this[$runtimeType]) + ".getOuterPath must not be null.", I[0], 176, 12, "textDirection != null");
-      t0 = ui.Path.new();
-      return (() => {
-        t0.addRect(rect);
-        return t0;
-      })();
-    }
-    static _paintUniformBorderWithRadius(canvas, rect, side, borderRadius) {
-      let t0, t0$;
-      if (canvas == null) dart.nullFailed(I[0], 209, 52, "canvas");
-      if (rect == null) dart.nullFailed(I[0], 209, 65, "rect");
-      if (side == null) dart.nullFailed(I[0], 209, 82, "side");
-      if (borderRadius == null) dart.nullFailed(I[0], 209, 101, "borderRadius");
-      if (!(side.style != borders.BorderStyle.none)) dart.assertFailed(null, I[0], 210, 12, "side.style != BorderStyle.none");
-      let paint = (t0 = ui.Paint.new(), (() => {
-        t0.color = side.color;
-        return t0;
-      })());
-      let outer = borderRadius.toRRect(rect);
-      let width = side.width;
-      if (width === 0.0) {
-        t0$ = paint;
-        (() => {
-          t0$.style = ui.PaintingStyle.stroke;
-          t0$.strokeWidth = 0.0;
-          return t0$;
-        })();
-        canvas.drawRRect(outer, paint);
+      if (event == null) dart.nullFailed(I[0], 55, 35, "event");
+      let scheduler = binding.SchedulerBinding.instance;
+      if (!(scheduler != null)) dart.assertFailed(null, I[0], 57, 12, "scheduler != null");
+      if (event.kind == ui.PointerDeviceKind.touch) {
+        this[_lastEventTime] = event.timeStamp;
+        let resampler = this[_resamplers][$putIfAbsent](event.device, dart.fn(() => new resampler$.PointerEventResampler.new(), T.VoidToPointerEventResampler()));
+        resampler.addEvent(event);
       } else {
-        let inner = outer.deflate(width);
-        canvas.drawDRRect(outer, inner, paint);
+        t0 = event;
+        this[_handlePointerEvent$](t0);
       }
     }
-    static _paintUniformBorderWithCircle(canvas, rect, side) {
-      if (canvas == null) dart.nullFailed(I[0], 226, 52, "canvas");
-      if (rect == null) dart.nullFailed(I[0], 226, 65, "rect");
-      if (side == null) dart.nullFailed(I[0], 226, 82, "side");
-      if (!(side.style != borders.BorderStyle.none)) dart.assertFailed(null, I[0], 227, 12, "side.style != BorderStyle.none");
-      let width = side.width;
-      let paint = side.toPaint();
-      let radius = (dart.notNull(rect.shortestSide) - dart.notNull(width)) / 2.0;
-      canvas.drawCircle(rect.center, radius, paint);
+    sample(samplingOffset, samplingInterval) {
+      let t0;
+      if (samplingOffset == null) dart.nullFailed(I[0], 81, 24, "samplingOffset");
+      if (samplingInterval == null) dart.nullFailed(I[0], 81, 49, "samplingInterval");
+      let scheduler = binding.SchedulerBinding.instance;
+      if (!(scheduler != null)) dart.assertFailed(null, I[0], 83, 12, "scheduler != null");
+      let sampleTime = this[_frameTime]['+'](samplingOffset);
+      let nextSampleTime = sampleTime['+'](samplingInterval);
+      for (let resampler of this[_resamplers][$values]) {
+        resampler.sample(sampleTime, nextSampleTime, this[_handlePointerEvent$]);
+      }
+      this[_resamplers][$removeWhere](dart.fn((key, resampler) => {
+        if (key == null) dart.nullFailed(I[0], 102, 34, "key");
+        if (resampler == null) dart.nullFailed(I[0], 102, 61, "resampler");
+        return !dart.test(resampler.hasPendingEvents) && !dart.test(resampler.isDown);
+      }, T.intAndPointerEventResamplerTobool()));
+      this[_lastSampleTime] = sampleTime;
+      if (!dart.test(this[_frameCallbackScheduled]) && dart.test(this[_resamplers][$isNotEmpty])) {
+        this[_frameCallbackScheduled] = true;
+        t0 = scheduler;
+        t0 == null ? null : t0.scheduleFrameCallback(dart.fn(_ => {
+          if (_ == null) dart.nullFailed(I[0], 112, 41, "_");
+          this[_frameCallbackScheduled] = false;
+          this[_frameTime] = scheduler.currentSystemFrameTimeStamp;
+          if (!dart.test(dart.fn(() => {
+            if (dart.test(debug.debugPrintResamplingMargin)) {
+              let resamplingMargin = this[_lastEventTime]['-'](this[_lastSampleTime]);
+              print.debugPrint(dart.str(resamplingMargin));
+            }
+            return true;
+          }, T.VoidTobool())())) dart.assertFailed(null, I[0], 118, 16, "() {\r\n          if (debugPrintResamplingMargin) {\r\n            final Duration resamplingMargin = _lastEventTime - _lastSampleTime;\r\n              debugPrint('$resamplingMargin');\r\n          }\r\n          return true;\r\n        }()");
+          this[_handleSampleTimeChanged$]();
+        }, T.DurationTovoid()));
+      }
     }
-    static _paintUniformBorderWithRectangle(canvas, rect, side) {
-      if (canvas == null) dart.nullFailed(I[0], 234, 55, "canvas");
-      if (rect == null) dart.nullFailed(I[0], 234, 68, "rect");
-      if (side == null) dart.nullFailed(I[0], 234, 85, "side");
-      if (!(side.style != borders.BorderStyle.none)) dart.assertFailed(null, I[0], 235, 12, "side.style != BorderStyle.none");
-      let width = side.width;
-      let paint = side.toPaint();
-      canvas.drawRect(rect.deflate(dart.notNull(width) / 2.0), paint);
+    stop() {
+      for (let resampler of this[_resamplers][$values]) {
+        resampler.stop(this[_handlePointerEvent$]);
+      }
+      this[_resamplers][$clear]();
     }
   };
-  (box_border.BoxBorder.new = function() {
-    box_border.BoxBorder.__proto__.new.call(this);
+  (binding$0._Resampler.new = function(_handlePointerEvent, _handleSampleTimeChanged) {
+    if (_handlePointerEvent == null) dart.nullFailed(I[0], 30, 19, "_handlePointerEvent");
+    if (_handleSampleTimeChanged == null) dart.nullFailed(I[0], 30, 45, "_handleSampleTimeChanged");
+    this[_resamplers] = new (T.IdentityMapOfint$PointerEventResampler()).new();
+    this[_frameCallbackScheduled] = false;
+    this[_frameTime] = core.Duration.zero;
+    this[_lastSampleTime] = core.Duration.zero;
+    this[_lastEventTime] = core.Duration.zero;
+    this[_handlePointerEvent$] = _handlePointerEvent;
+    this[_handleSampleTimeChanged$] = _handleSampleTimeChanged;
     ;
-  }).prototype = box_border.BoxBorder.prototype;
-  dart.addTypeTests(box_border.BoxBorder);
-  dart.addTypeCaches(box_border.BoxBorder);
-  dart.setMethodSignature(box_border.BoxBorder, () => ({
-    __proto__: dart.getMethods(box_border.BoxBorder.__proto__),
-    add: dart.fnType(dart.nullable(box_border.BoxBorder), [borders.ShapeBorder], {reversed: core.bool}, {}),
-    getInnerPath: dart.fnType(ui.Path, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {}),
-    getOuterPath: dart.fnType(ui.Path, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {})
+  }).prototype = binding$0._Resampler.prototype;
+  dart.addTypeTests(binding$0._Resampler);
+  dart.addTypeCaches(binding$0._Resampler);
+  dart.setMethodSignature(binding$0._Resampler, () => ({
+    __proto__: dart.getMethods(binding$0._Resampler.__proto__),
+    addOrDispatch: dart.fnType(dart.void, [events.PointerEvent]),
+    sample: dart.fnType(dart.void, [core.Duration, core.Duration]),
+    stop: dart.fnType(dart.void, [])
   }));
-  dart.setLibraryUri(box_border.BoxBorder, I[1]);
-  var top$ = dart.privateName(box_border, "Border.top");
-  var right$ = dart.privateName(box_border, "Border.right");
-  var bottom$ = dart.privateName(box_border, "Border.bottom");
-  var left$ = dart.privateName(box_border, "Border.left");
-  var _name = dart.privateName(borders, "_name");
-  var BorderSide_style = dart.privateName(borders, "BorderSide.style");
-  var BorderSide_width = dart.privateName(borders, "BorderSide.width");
-  var Color_value = dart.privateName(ui, "Color.value");
-  var BorderSide_color = dart.privateName(borders, "BorderSide.color");
-  var _colorIsUniform = dart.privateName(box_border, "_colorIsUniform");
-  var _widthIsUniform = dart.privateName(box_border, "_widthIsUniform");
-  var _styleIsUniform = dart.privateName(box_border, "_styleIsUniform");
-  box_border.Border = class Border extends box_border.BoxBorder {
-    get top() {
-      return this[top$];
+  dart.setLibraryUri(binding$0._Resampler, I[1]);
+  dart.setFieldSignature(binding$0._Resampler, () => ({
+    __proto__: dart.getFields(binding$0._Resampler.__proto__),
+    [_resamplers]: dart.finalFieldType(core.Map$(core.int, resampler$.PointerEventResampler)),
+    [_frameCallbackScheduled]: dart.fieldType(core.bool),
+    [_frameTime]: dart.fieldType(core.Duration),
+    [_lastSampleTime]: dart.fieldType(core.Duration),
+    [_lastEventTime]: dart.fieldType(core.Duration),
+    [_handlePointerEvent$]: dart.finalFieldType(dart.fnType(dart.void, [events.PointerEvent])),
+    [_handleSampleTimeChanged$]: dart.finalFieldType(dart.fnType(dart.void, []))
+  }));
+  var pointerRouter = dart.privateName(binding$0, "GestureBinding.pointerRouter");
+  var gestureArena = dart.privateName(binding$0, "GestureBinding.gestureArena");
+  var pointerSignalResolver = dart.privateName(binding$0, "GestureBinding.pointerSignalResolver");
+  var resamplingEnabled = dart.privateName(binding$0, "GestureBinding.resamplingEnabled");
+  var samplingOffset = dart.privateName(binding$0, "GestureBinding.samplingOffset");
+  var _pendingPointerEvents = dart.privateName(binding$0, "_pendingPointerEvents");
+  var _hitTests = dart.privateName(binding$0, "_hitTests");
+  var __GestureBinding__resampler = dart.privateName(binding$0, "_#GestureBinding#_resampler");
+  var __GestureBinding__resampler_isSet = dart.privateName(binding$0, "_#GestureBinding#_resampler#isSet");
+  var _handlePointerDataPacket = dart.privateName(binding$0, "_handlePointerDataPacket");
+  var _flushPointerEventQueue = dart.privateName(binding$0, "_flushPointerEventQueue");
+  var _resampler = dart.privateName(binding$0, "_resampler");
+  var _handlePointerEventImmediately = dart.privateName(binding$0, "_handlePointerEventImmediately");
+  binding$0.GestureBinding = class GestureBinding extends binding$.BindingBase {
+    static get instance() {
+      return binding$0.GestureBinding._instance;
     }
-    set top(value) {
-      super.top = value;
+  };
+  binding$0.GestureBinding[dart.mixinOn] = BindingBase => class GestureBinding extends BindingBase {
+    get pointerRouter() {
+      return this[pointerRouter];
     }
-    get right() {
-      return this[right$];
+    set pointerRouter(value) {
+      super.pointerRouter = value;
     }
-    set right(value) {
-      super.right = value;
+    get gestureArena() {
+      return this[gestureArena];
     }
-    get bottom() {
-      return this[bottom$];
+    set gestureArena(value) {
+      super.gestureArena = value;
     }
-    set bottom(value) {
-      super.bottom = value;
+    get pointerSignalResolver() {
+      return this[pointerSignalResolver];
     }
-    get left() {
-      return this[left$];
+    set pointerSignalResolver(value) {
+      super.pointerSignalResolver = value;
     }
-    set left(value) {
-      super.left = value;
+    get resamplingEnabled() {
+      return this[resamplingEnabled];
     }
-    static all(opts) {
-      let color = opts && 'color' in opts ? opts.color : C[5] || CT.C5;
-      if (color == null) dart.nullFailed(I[0], 349, 11, "color");
-      let width = opts && 'width' in opts ? opts.width : 1;
-      if (width == null) dart.nullFailed(I[0], 350, 12, "width");
-      let style = opts && 'style' in opts ? opts.style : C[6] || CT.C6;
-      if (style == null) dart.nullFailed(I[0], 351, 17, "style");
-      let side = new borders.BorderSide.new({color: color, width: width, style: style});
-      return new box_border.Border.fromBorderSide(side);
+    set resamplingEnabled(value) {
+      this[resamplingEnabled] = value;
     }
-    static merge(a, b) {
-      if (a == null) dart.nullFailed(I[0], 364, 30, "a");
-      if (b == null) dart.nullFailed(I[0], 364, 40, "b");
-      if (!(a != null)) dart.assertFailed(null, I[0], 365, 12, "a != null");
-      if (!(b != null)) dart.assertFailed(null, I[0], 366, 12, "b != null");
-      if (!dart.test(borders.BorderSide.canMerge(a.top, b.top))) dart.assertFailed(null, I[0], 367, 12, "BorderSide.canMerge(a.top, b.top)");
-      if (!dart.test(borders.BorderSide.canMerge(a.right, b.right))) dart.assertFailed(null, I[0], 368, 12, "BorderSide.canMerge(a.right, b.right)");
-      if (!dart.test(borders.BorderSide.canMerge(a.bottom, b.bottom))) dart.assertFailed(null, I[0], 369, 12, "BorderSide.canMerge(a.bottom, b.bottom)");
-      if (!dart.test(borders.BorderSide.canMerge(a.left, b.left))) dart.assertFailed(null, I[0], 370, 12, "BorderSide.canMerge(a.left, b.left)");
-      return new box_border.Border.new({top: borders.BorderSide.merge(a.top, b.top), right: borders.BorderSide.merge(a.right, b.right), bottom: borders.BorderSide.merge(a.bottom, b.bottom), left: borders.BorderSide.merge(a.left, b.left)});
+    get samplingOffset() {
+      return this[samplingOffset];
     }
-    get dimensions() {
-      return new edge_insets.EdgeInsets.fromLTRB(this.left.width, this.top.width, this.right.width, this.bottom.width);
+    set samplingOffset(value) {
+      this[samplingOffset] = value;
     }
-    get isUniform() {
-      return dart.test(this[_colorIsUniform]) && dart.test(this[_widthIsUniform]) && dart.test(this[_styleIsUniform]);
+    initInstances() {
+      super.initInstances();
+      binding$0.GestureBinding._instance = this;
+      this.window.onPointerDataPacket = dart.bind(this, _handlePointerDataPacket);
     }
-    get [_colorIsUniform]() {
-      let topColor = this.top.color;
-      return dart.equals(this.right.color, topColor) && dart.equals(this.bottom.color, topColor) && dart.equals(this.left.color, topColor);
+    unlocked() {
+      super.unlocked();
+      this[_flushPointerEventQueue]();
     }
-    get [_widthIsUniform]() {
-      let topWidth = this.top.width;
-      return this.right.width == topWidth && this.bottom.width == topWidth && this.left.width == topWidth;
+    [_handlePointerDataPacket](packet) {
+      if (packet == null) dart.nullFailed(I[0], 216, 54, "packet");
+      this[_pendingPointerEvents].addAll(converter.PointerEventConverter.expand(packet.data, this.window.devicePixelRatio));
+      if (!dart.test(this.locked)) this[_flushPointerEventQueue]();
     }
-    get [_styleIsUniform]() {
-      let topStyle = this.top.style;
-      return this.right.style == topStyle && this.bottom.style == topStyle && this.left.style == topStyle;
+    cancelPointer(pointer) {
+      if (pointer == null) dart.nullFailed(I[0], 228, 26, "pointer");
+      if (dart.test(this[_pendingPointerEvents][$isEmpty]) && !dart.test(this.locked)) async.scheduleMicrotask(dart.bind(this, _flushPointerEventQueue));
+      this[_pendingPointerEvents].addFirst(new events.PointerCancelEvent.new({pointer: pointer}));
     }
-    add(other, opts) {
-      if (other == null) dart.nullFailed(I[0], 415, 27, "other");
-      let reversed = opts && 'reversed' in opts ? opts.reversed : false;
-      if (reversed == null) dart.nullFailed(I[0], 415, 41, "reversed");
-      if (box_border.Border.is(other) && dart.test(borders.BorderSide.canMerge(this.top, other.top)) && dart.test(borders.BorderSide.canMerge(this.right, other.right)) && dart.test(borders.BorderSide.canMerge(this.bottom, other.bottom)) && dart.test(borders.BorderSide.canMerge(this.left, other.left))) {
-        return box_border.Border.merge(this, other);
+    [_flushPointerEventQueue]() {
+      if (!!dart.test(this.locked)) dart.assertFailed(null, I[0], 235, 12, "!locked");
+      while (dart.test(this[_pendingPointerEvents][$isNotEmpty]))
+        this.handlePointerEvent(this[_pendingPointerEvents].removeFirst());
+    }
+    handlePointerEvent(event) {
+      if (event == null) dart.nullFailed(I[0], 268, 40, "event");
+      if (!!dart.test(this.locked)) dart.assertFailed(null, I[0], 269, 12, "!locked");
+      if (dart.test(this.resamplingEnabled)) {
+        this[_resampler].addOrDispatch(event);
+        this[_resampler].sample(this.samplingOffset, binding$0._samplingInterval);
+        return;
       }
-      return null;
+      this[_resampler].stop();
+      this[_handlePointerEventImmediately](event);
     }
-    scale(t) {
-      if (t == null) dart.nullFailed(I[0], 427, 23, "t");
-      return new box_border.Border.new({top: this.top.scale(t), right: this.right.scale(t), bottom: this.bottom.scale(t), left: this.left.scale(t)});
-    }
-    lerpFrom(a, t) {
-      if (t == null) dart.nullFailed(I[0], 437, 48, "t");
-      if (box_border.Border.is(a)) return box_border.Border.lerp(a, this, t);
-      return super.lerpFrom(a, t);
-    }
-    lerpTo(b, t) {
-      if (t == null) dart.nullFailed(I[0], 444, 46, "t");
-      if (box_border.Border.is(b)) return box_border.Border.lerp(this, b, t);
-      return super.lerpTo(b, t);
-    }
-    static lerp(a, b, t) {
-      if (t == null) dart.nullFailed(I[0], 456, 52, "t");
-      if (!(t != null)) dart.assertFailed(null, I[0], 457, 12, "t != null");
-      if (a == null && b == null) return null;
-      if (a == null) return dart.nullCheck(b).scale(t);
-      if (b == null) return a.scale(1.0 - dart.notNull(t));
-      return new box_border.Border.new({top: borders.BorderSide.lerp(a.top, b.top, t), right: borders.BorderSide.lerp(a.right, b.right, t), bottom: borders.BorderSide.lerp(a.bottom, b.bottom, t), left: borders.BorderSide.lerp(a.left, b.left, t)});
-    }
-    paint(canvas, rect, opts) {
-      if (canvas == null) dart.nullFailed(I[0], 493, 12, "canvas");
-      if (rect == null) dart.nullFailed(I[0], 494, 10, "rect");
-      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
-      let shape = opts && 'shape' in opts ? opts.shape : C[0] || CT.C0;
-      if (shape == null) dart.nullFailed(I[0], 496, 14, "shape");
-      let borderRadius = opts && 'borderRadius' in opts ? opts.borderRadius : null;
-      if (dart.test(this.isUniform)) {
-        switch (this.top.style) {
-          case C[4] || CT.C4:
-          {
-            return;
-          }
-          case C[6] || CT.C6:
-          {
-            switch (shape) {
-              case C[1] || CT.C1:
-              {
-                if (!(borderRadius == null)) dart.assertFailed("A borderRadius can only be given for rectangular boxes.", I[0], 506, 22, "borderRadius == null");
-                box_border.BoxBorder._paintUniformBorderWithCircle(canvas, rect, this.top);
-                break;
-              }
-              case C[0] || CT.C0:
-              {
-                if (borderRadius != null) {
-                  box_border.BoxBorder._paintUniformBorderWithRadius(canvas, rect, this.top, borderRadius);
-                  return;
-                }
-                box_border.BoxBorder._paintUniformBorderWithRectangle(canvas, rect, this.top);
-                break;
-              }
-              default:
-              {
-                dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
-              }
-            }
-            return;
-          }
-          default:
-          {
-            dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
-          }
+    [_handlePointerEventImmediately](event) {
+      if (event == null) dart.nullFailed(I[0], 283, 52, "event");
+      let hitTestResult = null;
+      if (events.PointerDownEvent.is(event) || events.PointerSignalEvent.is(event) || events.PointerHoverEvent.is(event)) {
+        if (!!dart.test(this[_hitTests][$containsKey](event.pointer))) dart.assertFailed(null, I[0], 286, 14, "!_hitTests.containsKey(event.pointer)");
+        hitTestResult = new hit_test.HitTestResult.new();
+        this.hitTest(hitTestResult, event.position);
+        if (events.PointerDownEvent.is(event)) {
+          this[_hitTests][$_set](event.pointer, hitTestResult);
         }
+        if (!dart.test(dart.fn(() => {
+          if (dart.test(debug.debugPrintHitTestResults)) print.debugPrint(dart.str(event) + ": " + dart.str(hitTestResult));
+          return true;
+        }, T.VoidTobool())())) dart.assertFailed(null, I[0], 292, 14, "() {\r\n        if (debugPrintHitTestResults)\r\n          debugPrint('$event: $hitTestResult');\r\n        return true;\r\n      }()");
+      } else if (events.PointerUpEvent.is(event) || events.PointerCancelEvent.is(event)) {
+        hitTestResult = this[_hitTests][$remove](event.pointer);
+      } else if (dart.test(event.down)) {
+        hitTestResult = this[_hitTests][$_get](event.pointer);
       }
       if (!dart.test(dart.fn(() => {
-        if (borderRadius != null) {
-          dart.throw(new assertions.FlutterError.fromParts((() => {
-            let t0 = T.JSArrayOfDiagnosticsNode().of([new assertions.ErrorSummary.new("A borderRadius can only be given for a uniform Border."), new assertions.ErrorDescription.new("The following is not uniform:")]);
-            if (!dart.test(this[_colorIsUniform])) t0[$add](new assertions.ErrorDescription.new("BorderSide.color"));
-            if (!dart.test(this[_widthIsUniform])) t0[$add](new assertions.ErrorDescription.new("BorderSide.width"));
-            if (!dart.test(this[_styleIsUniform])) t0[$add](new assertions.ErrorDescription.new("BorderSide.style"));
-            return t0;
-          })()));
-        }
+        if (dart.test(debug.debugPrintMouseHoverEvents) && events.PointerHoverEvent.is(event)) print.debugPrint(dart.str(event));
         return true;
-      }, T.VoidTobool())())) dart.assertFailed(null, I[0], 521, 12, "() {\r\n      if (borderRadius != null) {\r\n        throw FlutterError.fromParts(<DiagnosticsNode>[\r\n          ErrorSummary('A borderRadius can only be given for a uniform Border.'),\r\n          ErrorDescription('The following is not uniform:'),\r\n          if (!_colorIsUniform) ErrorDescription('BorderSide.color'),\r\n          if (!_widthIsUniform) ErrorDescription('BorderSide.width'),\r\n          if (!_styleIsUniform) ErrorDescription('BorderSide.style'),\r\n        ]);\r\n      }\r\n      return true;\r\n    }()");
-      if (!dart.test(dart.fn(() => {
-        if (shape != box_border.BoxShape.rectangle) {
-          dart.throw(new assertions.FlutterError.fromParts((() => {
-            let t1 = T.JSArrayOfDiagnosticsNode().of([new assertions.ErrorSummary.new("A Border can only be drawn as a circle if it is uniform"), new assertions.ErrorDescription.new("The following is not uniform:")]);
-            if (!dart.test(this[_colorIsUniform])) t1[$add](new assertions.ErrorDescription.new("BorderSide.color"));
-            if (!dart.test(this[_widthIsUniform])) t1[$add](new assertions.ErrorDescription.new("BorderSide.width"));
-            if (!dart.test(this[_styleIsUniform])) t1[$add](new assertions.ErrorDescription.new("BorderSide.style"));
-            return t1;
-          })()));
+      }, T.VoidTobool())())) dart.assertFailed(null, I[0], 307, 12, "() {\r\n      if (debugPrintMouseHoverEvents && event is PointerHoverEvent)\r\n        debugPrint('$event');\r\n      return true;\r\n    }()");
+      if (hitTestResult != null || events.PointerAddedEvent.is(event) || events.PointerRemovedEvent.is(event)) {
+        if (!(event.position != null)) dart.assertFailed(null, I[0], 315, 14, "event.position != null");
+        this.dispatchEvent(event, hitTestResult);
+      }
+    }
+    hitTest(result, position) {
+      if (result == null) dart.nullFailed(I[0], 322, 30, "result");
+      if (position == null) dart.nullFailed(I[0], 322, 45, "position");
+      result.add(new hit_test.HitTestEntry.new(this));
+    }
+    dispatchEvent(event, hitTestResult) {
+      if (event == null) dart.nullFailed(I[0], 335, 35, "event");
+      if (!!dart.test(this.locked)) dart.assertFailed(null, I[0], 336, 12, "!locked");
+      if (hitTestResult == null) {
+        if (!(events.PointerAddedEvent.is(event) || events.PointerRemovedEvent.is(event))) dart.assertFailed(null, I[0], 341, 14, "event is PointerAddedEvent || event is PointerRemovedEvent");
+        try {
+          this.pointerRouter.route(event);
+        } catch (e) {
+          let exception = dart.getThrown(e);
+          let stack = dart.stackTrace(e);
+          if (core.Object.is(exception)) {
+            assertions.FlutterError.reportError(new binding$0.FlutterErrorDetailsForPointerEventDispatcher.new({exception: exception, stack: stack, library: "gesture library", context: new assertions.ErrorDescription.new("while dispatching a non-hit-tested pointer event"), event: event, hitTestEntry: null, informationCollector: dart.fn(() => new (T.SyncIterableOfDiagnosticsNode()).new(function*() {
+                yield new (T.DiagnosticsPropertyOfPointerEvent()).new("Event", event, {style: diagnostics.DiagnosticsTreeStyle.errorProperty});
+              }), T.VoidToIterableOfDiagnosticsNode())}));
+          } else
+            throw e;
         }
-        return true;
-      }, T.VoidTobool())())) dart.assertFailed(null, I[0], 533, 12, "() {\r\n      if (shape != BoxShape.rectangle) {\r\n        throw FlutterError.fromParts(<DiagnosticsNode>[\r\n          ErrorSummary('A Border can only be drawn as a circle if it is uniform'),\r\n          ErrorDescription('The following is not uniform:'),\r\n          if (!_colorIsUniform) ErrorDescription('BorderSide.color'),\r\n          if (!_widthIsUniform) ErrorDescription('BorderSide.width'),\r\n          if (!_styleIsUniform) ErrorDescription('BorderSide.style'),\r\n        ]);\r\n      }\r\n      return true;\r\n    }()");
-      borders.paintBorder(canvas, rect, {top: this.top, right: this.right, bottom: this.bottom, left: this.left});
+        return;
+      }
+      for (let entry of hitTestResult.path) {
+        try {
+          entry.target.handleEvent(event.transformed(entry.transform), entry);
+        } catch (e$) {
+          let exception = dart.getThrown(e$);
+          let stack = dart.stackTrace(e$);
+          if (core.Object.is(exception)) {
+            assertions.FlutterError.reportError(new binding$0.FlutterErrorDetailsForPointerEventDispatcher.new({exception: exception, stack: stack, library: "gesture library", context: new assertions.ErrorDescription.new("while dispatching a pointer event"), event: event, hitTestEntry: entry, informationCollector: dart.fn(() => new (T.SyncIterableOfDiagnosticsNode()).new(function*() {
+                yield new (T.DiagnosticsPropertyOfPointerEvent()).new("Event", event, {style: diagnostics.DiagnosticsTreeStyle.errorProperty});
+                yield new (T.DiagnosticsPropertyOfHitTestTarget()).new("Target", entry.target, {style: diagnostics.DiagnosticsTreeStyle.errorProperty});
+              }), T.VoidToIterableOfDiagnosticsNode())}));
+          } else
+            throw e$;
+        }
+      }
     }
-    _equals(other) {
-      if (other == null) return false;
-      if (this === other) return true;
-      if (!dart.equals(dart.runtimeType(other), this[$runtimeType])) return false;
-      return box_border.Border.is(other) && dart.equals(other.top, this.top) && dart.equals(other.right, this.right) && dart.equals(other.bottom, this.bottom) && dart.equals(other.left, this.left);
+    handleEvent(event, entry) {
+      if (event == null) dart.nullFailed(I[0], 380, 33, "event");
+      if (entry == null) dart.nullFailed(I[0], 380, 53, "entry");
+      this.pointerRouter.route(event);
+      if (events.PointerDownEvent.is(event)) {
+        this.gestureArena.close(event.pointer);
+      } else if (events.PointerUpEvent.is(event)) {
+        this.gestureArena.sweep(event.pointer);
+      } else if (events.PointerSignalEvent.is(event)) {
+        this.pointerSignalResolver.resolve(event);
+      }
     }
-    get hashCode() {
-      return ui.hashValues(this.top, this.right, this.bottom, this.left);
+    resetGestureBinding() {
+      this[_hitTests][$clear]();
     }
-    toString() {
-      if (dart.test(this.isUniform)) return dart.str(object.objectRuntimeType(this, "Border")) + ".all(" + dart.str(this.top) + ")";
-      let $arguments = (() => {
-        let t2 = T.JSArrayOfString().of([]);
-        if (!dart.equals(this.top, borders.BorderSide.none)) t2[$add]("top: " + dart.str(this.top));
-        if (!dart.equals(this.right, borders.BorderSide.none)) t2[$add]("right: " + dart.str(this.right));
-        if (!dart.equals(this.bottom, borders.BorderSide.none)) t2[$add]("bottom: " + dart.str(this.bottom));
-        if (!dart.equals(this.left, borders.BorderSide.none)) t2[$add]("left: " + dart.str(this.left));
-        return t2;
-      })();
-      return dart.str(object.objectRuntimeType(this, "Border")) + "(" + dart.str($arguments[$join](", ")) + ")";
+    [_handleSampleTimeChanged$]() {
+      if (!dart.test(this.locked)) {
+        if (dart.test(this.resamplingEnabled)) {
+          this[_resampler].sample(this.samplingOffset, binding$0._samplingInterval);
+        } else {
+          this[_resampler].stop();
+        }
+      }
+    }
+    get [_resampler]() {
+      let t3;
+      if (!dart.test(this[__GestureBinding__resampler_isSet])) {
+        let t2 = new binding$0._Resampler.new(dart.bind(this, _handlePointerEventImmediately), dart.bind(this, _handleSampleTimeChanged$));
+        if (dart.test(this[__GestureBinding__resampler_isSet])) dart.throw(new _internal.LateError.fieldADI("_resampler"));
+        this[__GestureBinding__resampler] = t2;
+        this[__GestureBinding__resampler_isSet] = true;
+      }
+      t3 = this[__GestureBinding__resampler];
+      return t3;
     }
   };
-  (box_border.Border.new = function(opts) {
-    let top = opts && 'top' in opts ? opts.top : C[3] || CT.C3;
-    if (top == null) dart.nullFailed(I[0], 310, 10, "top");
-    let right = opts && 'right' in opts ? opts.right : C[3] || CT.C3;
-    if (right == null) dart.nullFailed(I[0], 311, 10, "right");
-    let bottom = opts && 'bottom' in opts ? opts.bottom : C[3] || CT.C3;
-    if (bottom == null) dart.nullFailed(I[0], 312, 10, "bottom");
-    let left = opts && 'left' in opts ? opts.left : C[3] || CT.C3;
-    if (left == null) dart.nullFailed(I[0], 313, 10, "left");
-    this[top$] = top;
-    this[right$] = right;
-    this[bottom$] = bottom;
-    this[left$] = left;
-    if (!(top != null)) dart.assertFailed(null, I[0], 314, 15, "top != null");
-    if (!(right != null)) dart.assertFailed(null, I[0], 315, 15, "right != null");
-    if (!(bottom != null)) dart.assertFailed(null, I[0], 316, 15, "bottom != null");
-    if (!(left != null)) dart.assertFailed(null, I[0], 317, 15, "left != null");
-    box_border.Border.__proto__.new.call(this);
-    ;
-  }).prototype = box_border.Border.prototype;
-  (box_border.Border.fromBorderSide = function(side) {
-    if (side == null) dart.nullFailed(I[0], 322, 42, "side");
-    if (!(side != null)) dart.assertFailed(null, I[0], 323, 16, "side != null");
-    this[top$] = side;
-    this[right$] = side;
-    this[bottom$] = side;
-    this[left$] = side;
-    box_border.Border.__proto__.new.call(this);
-    ;
-  }).prototype = box_border.Border.prototype;
-  (box_border.Border.symmetric = function(opts) {
-    let vertical = opts && 'vertical' in opts ? opts.vertical : C[3] || CT.C3;
-    if (vertical == null) dart.nullFailed(I[0], 336, 16, "vertical");
-    let horizontal = opts && 'horizontal' in opts ? opts.horizontal : C[3] || CT.C3;
-    if (horizontal == null) dart.nullFailed(I[0], 337, 16, "horizontal");
-    if (!(vertical != null)) dart.assertFailed(null, I[0], 338, 15, "vertical != null");
-    if (!(horizontal != null)) dart.assertFailed(null, I[0], 339, 15, "horizontal != null");
-    this[left$] = vertical;
-    this[top$] = horizontal;
-    this[right$] = vertical;
-    this[bottom$] = horizontal;
-    box_border.Border.__proto__.new.call(this);
-    ;
-  }).prototype = box_border.Border.prototype;
-  dart.addTypeTests(box_border.Border);
-  dart.addTypeCaches(box_border.Border);
-  dart.setMethodSignature(box_border.Border, () => ({
-    __proto__: dart.getMethods(box_border.Border.__proto__),
-    add: dart.fnType(dart.nullable(box_border.Border), [borders.ShapeBorder], {reversed: core.bool}, {}),
-    scale: dart.fnType(box_border.Border, [core.double]),
-    paint: dart.fnType(dart.void, [ui.Canvas, ui.Rect], {borderRadius: dart.nullable(border_radius.BorderRadius), shape: box_border.BoxShape, textDirection: dart.nullable(ui.TextDirection)}, {})
+  (binding$0.GestureBinding[dart.mixinNew] = function() {
+    this[_pendingPointerEvents] = new (T.ListQueueOfPointerEvent()).new();
+    this[pointerRouter] = new pointer_router.PointerRouter.new();
+    this[gestureArena] = new arena.GestureArenaManager.new();
+    this[pointerSignalResolver] = new pointer_signal_resolver.PointerSignalResolver.new();
+    this[_hitTests] = new (T.IdentityMapOfint$HitTestResult()).new();
+    this[__GestureBinding__resampler] = null;
+    this[__GestureBinding__resampler_isSet] = false;
+    this[resamplingEnabled] = false;
+    this[samplingOffset] = binding$0._defaultSamplingOffset;
+  }).prototype = binding$0.GestureBinding.prototype;
+  dart.addTypeTests(binding$0.GestureBinding);
+  dart.addTypeCaches(binding$0.GestureBinding);
+  binding$0.GestureBinding[dart.implements] = () => [hit_test.HitTestable, hit_test.HitTestDispatcher, hit_test.HitTestTarget, binding$.BindingBase];
+  dart.setMethodSignature(binding$0.GestureBinding, () => ({
+    __proto__: dart.getMethods(binding$0.GestureBinding.__proto__),
+    [_handlePointerDataPacket]: dart.fnType(dart.void, [ui.PointerDataPacket]),
+    cancelPointer: dart.fnType(dart.void, [core.int]),
+    [_flushPointerEventQueue]: dart.fnType(dart.void, []),
+    handlePointerEvent: dart.fnType(dart.void, [events.PointerEvent]),
+    [_handlePointerEventImmediately]: dart.fnType(dart.void, [events.PointerEvent]),
+    hitTest: dart.fnType(dart.void, [hit_test.HitTestResult, ui.Offset]),
+    dispatchEvent: dart.fnType(dart.void, [events.PointerEvent, dart.nullable(hit_test.HitTestResult)]),
+    handleEvent: dart.fnType(dart.void, [events.PointerEvent, hit_test.HitTestEntry]),
+    resetGestureBinding: dart.fnType(dart.void, []),
+    [_handleSampleTimeChanged$]: dart.fnType(dart.void, [])
   }));
-  dart.setGetterSignature(box_border.Border, () => ({
-    __proto__: dart.getGetters(box_border.Border.__proto__),
-    dimensions: edge_insets.EdgeInsetsGeometry,
-    isUniform: core.bool,
-    [_colorIsUniform]: core.bool,
-    [_widthIsUniform]: core.bool,
-    [_styleIsUniform]: core.bool
+  dart.setGetterSignature(binding$0.GestureBinding, () => ({
+    __proto__: dart.getGetters(binding$0.GestureBinding.__proto__),
+    [_resampler]: binding$0._Resampler
   }));
-  dart.setLibraryUri(box_border.Border, I[1]);
-  dart.setFieldSignature(box_border.Border, () => ({
-    __proto__: dart.getFields(box_border.Border.__proto__),
-    top: dart.finalFieldType(borders.BorderSide),
-    right: dart.finalFieldType(borders.BorderSide),
-    bottom: dart.finalFieldType(borders.BorderSide),
-    left: dart.finalFieldType(borders.BorderSide)
+  dart.setLibraryUri(binding$0.GestureBinding, I[1]);
+  dart.setFieldSignature(binding$0.GestureBinding, () => ({
+    __proto__: dart.getFields(binding$0.GestureBinding.__proto__),
+    [_pendingPointerEvents]: dart.finalFieldType(collection.Queue$(events.PointerEvent)),
+    pointerRouter: dart.finalFieldType(pointer_router.PointerRouter),
+    gestureArena: dart.finalFieldType(arena.GestureArenaManager),
+    pointerSignalResolver: dart.finalFieldType(pointer_signal_resolver.PointerSignalResolver),
+    [_hitTests]: dart.finalFieldType(core.Map$(core.int, hit_test.HitTestResult)),
+    [__GestureBinding__resampler]: dart.fieldType(dart.nullable(binding$0._Resampler)),
+    [__GestureBinding__resampler_isSet]: dart.fieldType(core.bool),
+    resamplingEnabled: dart.fieldType(core.bool),
+    samplingOffset: dart.fieldType(core.Duration)
   }));
-  dart.defineExtensionMethods(box_border.Border, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(box_border.Border, ['hashCode']);
-  var top$0 = dart.privateName(box_border, "BorderDirectional.top");
-  var start$ = dart.privateName(box_border, "BorderDirectional.start");
-  var end$ = dart.privateName(box_border, "BorderDirectional.end");
-  var bottom$0 = dart.privateName(box_border, "BorderDirectional.bottom");
-  var _name$0 = dart.privateName(ui, "_name");
-  box_border.BorderDirectional = class BorderDirectional extends box_border.BoxBorder {
-    get top() {
-      return this[top$0];
-    }
-    set top(value) {
-      super.top = value;
-    }
-    get start() {
-      return this[start$];
-    }
-    set start(value) {
-      super.start = value;
-    }
-    get end() {
-      return this[end$];
-    }
-    set end(value) {
-      super.end = value;
-    }
-    get bottom() {
-      return this[bottom$0];
-    }
-    set bottom(value) {
-      super.bottom = value;
-    }
-    static merge(a, b) {
-      if (a == null) dart.nullFailed(I[0], 625, 52, "a");
-      if (b == null) dart.nullFailed(I[0], 625, 73, "b");
-      if (!(a != null)) dart.assertFailed(null, I[0], 626, 12, "a != null");
-      if (!(b != null)) dart.assertFailed(null, I[0], 627, 12, "b != null");
-      if (!dart.test(borders.BorderSide.canMerge(a.top, b.top))) dart.assertFailed(null, I[0], 628, 12, "BorderSide.canMerge(a.top, b.top)");
-      if (!dart.test(borders.BorderSide.canMerge(a.start, b.start))) dart.assertFailed(null, I[0], 629, 12, "BorderSide.canMerge(a.start, b.start)");
-      if (!dart.test(borders.BorderSide.canMerge(a.end, b.end))) dart.assertFailed(null, I[0], 630, 12, "BorderSide.canMerge(a.end, b.end)");
-      if (!dart.test(borders.BorderSide.canMerge(a.bottom, b.bottom))) dart.assertFailed(null, I[0], 631, 12, "BorderSide.canMerge(a.bottom, b.bottom)");
-      return new box_border.BorderDirectional.new({top: borders.BorderSide.merge(a.top, b.top), start: borders.BorderSide.merge(a.start, b.start), end: borders.BorderSide.merge(a.end, b.end), bottom: borders.BorderSide.merge(a.bottom, b.bottom)});
-    }
-    get dimensions() {
-      return new edge_insets.EdgeInsetsDirectional.fromSTEB(this.start.width, this.top.width, this.end.width, this.bottom.width);
-    }
-    get isUniform() {
-      let topColor = this.top.color;
-      if (!dart.equals(this.start.color, topColor) || !dart.equals(this.end.color, topColor) || !dart.equals(this.bottom.color, topColor)) return false;
-      let topWidth = this.top.width;
-      if (this.start.width != topWidth || this.end.width != topWidth || this.bottom.width != topWidth) return false;
-      let topStyle = this.top.style;
-      if (this.start.style != topStyle || this.end.style != topStyle || this.bottom.style != topStyle) return false;
-      return true;
-    }
-    add(other, opts) {
-      if (other == null) dart.nullFailed(I[0], 695, 30, "other");
-      let reversed = opts && 'reversed' in opts ? opts.reversed : false;
-      if (reversed == null) dart.nullFailed(I[0], 695, 44, "reversed");
-      if (box_border.BorderDirectional.is(other)) {
-        let typedOther = other;
-        if (dart.test(borders.BorderSide.canMerge(this.top, typedOther.top)) && dart.test(borders.BorderSide.canMerge(this.start, typedOther.start)) && dart.test(borders.BorderSide.canMerge(this.end, typedOther.end)) && dart.test(borders.BorderSide.canMerge(this.bottom, typedOther.bottom))) {
-          return box_border.BorderDirectional.merge(this, typedOther);
-        }
-        return null;
-      }
-      if (box_border.Border.is(other)) {
-        let typedOther = other;
-        if (!dart.test(borders.BorderSide.canMerge(typedOther.top, this.top)) || !dart.test(borders.BorderSide.canMerge(typedOther.bottom, this.bottom))) return null;
-        if (!dart.equals(this.start, borders.BorderSide.none) || !dart.equals(this.end, borders.BorderSide.none)) {
-          if (!dart.equals(typedOther.left, borders.BorderSide.none) || !dart.equals(typedOther.right, borders.BorderSide.none)) return null;
-          if (!dart.equals(typedOther.left, borders.BorderSide.none)) dart.assertFailed(null, I[0], 716, 16, "typedOther.left == BorderSide.none");
-          if (!dart.equals(typedOther.right, borders.BorderSide.none)) dart.assertFailed(null, I[0], 717, 16, "typedOther.right == BorderSide.none");
-          return new box_border.BorderDirectional.new({top: borders.BorderSide.merge(typedOther.top, this.top), start: this.start, end: this.end, bottom: borders.BorderSide.merge(typedOther.bottom, this.bottom)});
-        }
-        if (!dart.equals(this.start, borders.BorderSide.none)) dart.assertFailed(null, I[0], 725, 14, "start == BorderSide.none");
-        if (!dart.equals(this.end, borders.BorderSide.none)) dart.assertFailed(null, I[0], 726, 14, "end == BorderSide.none");
-        return new box_border.Border.new({top: borders.BorderSide.merge(typedOther.top, this.top), right: typedOther.right, bottom: borders.BorderSide.merge(typedOther.bottom, this.bottom), left: typedOther.left});
-      }
+  dart.defineLazy(binding$0.GestureBinding, {
+    /*binding$0.GestureBinding._instance*/get _instance() {
       return null;
+    },
+    set _instance(_) {}
+  }, false);
+  var event$ = dart.privateName(binding$0, "FlutterErrorDetailsForPointerEventDispatcher.event");
+  var hitTestEntry$ = dart.privateName(binding$0, "FlutterErrorDetailsForPointerEventDispatcher.hitTestEntry");
+  binding$0.FlutterErrorDetailsForPointerEventDispatcher = class FlutterErrorDetailsForPointerEventDispatcher extends assertions.FlutterErrorDetails {
+    get event() {
+      return this[event$];
     }
-    scale(t) {
-      if (t == null) dart.nullFailed(I[0], 738, 34, "t");
-      return new box_border.BorderDirectional.new({top: this.top.scale(t), start: this.start.scale(t), end: this.end.scale(t), bottom: this.bottom.scale(t)});
+    set event(value) {
+      super.event = value;
     }
-    lerpFrom(a, t) {
-      if (t == null) dart.nullFailed(I[0], 748, 48, "t");
-      if (box_border.BorderDirectional.is(a)) return box_border.BorderDirectional.lerp(a, this, t);
-      return super.lerpFrom(a, t);
+    get hitTestEntry() {
+      return this[hitTestEntry$];
     }
-    lerpTo(b, t) {
-      if (t == null) dart.nullFailed(I[0], 755, 46, "t");
-      if (box_border.BorderDirectional.is(b)) return box_border.BorderDirectional.lerp(this, b, t);
-      return super.lerpTo(b, t);
-    }
-    static lerp(a, b, t) {
-      if (t == null) dart.nullFailed(I[0], 767, 85, "t");
-      if (!(t != null)) dart.assertFailed(null, I[0], 768, 12, "t != null");
-      if (a == null && b == null) return null;
-      if (a == null) return dart.nullCheck(b).scale(t);
-      if (b == null) return a.scale(1.0 - dart.notNull(t));
-      return new box_border.BorderDirectional.new({top: borders.BorderSide.lerp(a.top, b.top, t), end: borders.BorderSide.lerp(a.end, b.end, t), bottom: borders.BorderSide.lerp(a.bottom, b.bottom, t), start: borders.BorderSide.lerp(a.start, b.start, t)});
-    }
-    paint(canvas, rect, opts) {
-      if (canvas == null) dart.nullFailed(I[0], 807, 12, "canvas");
-      if (rect == null) dart.nullFailed(I[0], 808, 10, "rect");
-      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
-      let shape = opts && 'shape' in opts ? opts.shape : C[0] || CT.C0;
-      if (shape == null) dart.nullFailed(I[0], 810, 14, "shape");
-      let borderRadius = opts && 'borderRadius' in opts ? opts.borderRadius : null;
-      if (dart.test(this.isUniform)) {
-        switch (this.top.style) {
-          case C[4] || CT.C4:
-          {
-            return;
-          }
-          case C[6] || CT.C6:
-          {
-            switch (shape) {
-              case C[1] || CT.C1:
-              {
-                if (!(borderRadius == null)) dart.assertFailed("A borderRadius can only be given for rectangular boxes.", I[0], 820, 22, "borderRadius == null");
-                box_border.BoxBorder._paintUniformBorderWithCircle(canvas, rect, this.top);
-                break;
-              }
-              case C[0] || CT.C0:
-              {
-                if (borderRadius != null) {
-                  box_border.BoxBorder._paintUniformBorderWithRadius(canvas, rect, this.top, borderRadius);
-                  return;
-                }
-                box_border.BoxBorder._paintUniformBorderWithRectangle(canvas, rect, this.top);
-                break;
-              }
-              default:
-              {
-                dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
-              }
-            }
-            return;
-          }
-          default:
-          {
-            dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
-          }
-        }
-      }
-      if (!(borderRadius == null)) dart.assertFailed("A borderRadius can only be given for uniform borders.", I[0], 835, 12, "borderRadius == null");
-      if (!(shape == box_border.BoxShape.rectangle)) dart.assertFailed("A border can only be drawn as a circle if it is uniform.", I[0], 836, 12, "shape == BoxShape.rectangle");
-      let left = null;
-      let right = null;
-      if (!(textDirection != null)) dart.assertFailed("Non-uniform BorderDirectional objects require a TextDirection when painting.", I[0], 839, 12, "textDirection != null");
-      switch (dart.nullCheck(textDirection)) {
-        case C[7] || CT.C7:
-        {
-          left = this.end;
-          right = this.start;
-          break;
-        }
-        case C[8] || CT.C8:
-        {
-          left = this.start;
-          right = this.end;
-          break;
-        }
-        default:
-        {
-          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
-        }
-      }
-      borders.paintBorder(canvas, rect, {top: this.top, left: left, bottom: this.bottom, right: right});
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (this === other) return true;
-      if (!dart.equals(dart.runtimeType(other), this[$runtimeType])) return false;
-      return box_border.BorderDirectional.is(other) && dart.equals(other.top, this.top) && dart.equals(other.start, this.start) && dart.equals(other.end, this.end) && dart.equals(other.bottom, this.bottom);
-    }
-    get hashCode() {
-      return ui.hashValues(this.top, this.start, this.end, this.bottom);
-    }
-    toString() {
-      let $arguments = (() => {
-        let t3 = T.JSArrayOfString().of([]);
-        if (!dart.equals(this.top, borders.BorderSide.none)) t3[$add]("top: " + dart.str(this.top));
-        if (!dart.equals(this.start, borders.BorderSide.none)) t3[$add]("start: " + dart.str(this.start));
-        if (!dart.equals(this.end, borders.BorderSide.none)) t3[$add]("end: " + dart.str(this.end));
-        if (!dart.equals(this.bottom, borders.BorderSide.none)) t3[$add]("bottom: " + dart.str(this.bottom));
-        return t3;
-      })();
-      return dart.str(object.objectRuntimeType(this, "BorderDirectional")) + "(" + dart.str($arguments[$join](", ")) + ")";
+    set hitTestEntry(value) {
+      super.hitTestEntry = value;
     }
   };
-  (box_border.BorderDirectional.new = function(opts) {
-    let top = opts && 'top' in opts ? opts.top : C[3] || CT.C3;
-    if (top == null) dart.nullFailed(I[0], 609, 10, "top");
-    let start = opts && 'start' in opts ? opts.start : C[3] || CT.C3;
-    if (start == null) dart.nullFailed(I[0], 610, 10, "start");
-    let end = opts && 'end' in opts ? opts.end : C[3] || CT.C3;
-    if (end == null) dart.nullFailed(I[0], 611, 10, "end");
-    let bottom = opts && 'bottom' in opts ? opts.bottom : C[3] || CT.C3;
-    if (bottom == null) dart.nullFailed(I[0], 612, 10, "bottom");
-    this[top$0] = top;
-    this[start$] = start;
-    this[end$] = end;
-    this[bottom$0] = bottom;
-    if (!(top != null)) dart.assertFailed(null, I[0], 613, 15, "top != null");
-    if (!(start != null)) dart.assertFailed(null, I[0], 614, 15, "start != null");
-    if (!(end != null)) dart.assertFailed(null, I[0], 615, 15, "end != null");
-    if (!(bottom != null)) dart.assertFailed(null, I[0], 616, 15, "bottom != null");
-    box_border.BorderDirectional.__proto__.new.call(this);
+  (binding$0.FlutterErrorDetailsForPointerEventDispatcher.new = function(opts) {
+    let exception = opts && 'exception' in opts ? opts.exception : null;
+    if (exception == null) dart.nullFailed(I[0], 448, 21, "exception");
+    let stack = opts && 'stack' in opts ? opts.stack : null;
+    let library = opts && 'library' in opts ? opts.library : null;
+    let context = opts && 'context' in opts ? opts.context : null;
+    let event = opts && 'event' in opts ? opts.event : null;
+    let hitTestEntry = opts && 'hitTestEntry' in opts ? opts.hitTestEntry : null;
+    let informationCollector = opts && 'informationCollector' in opts ? opts.informationCollector : null;
+    let silent = opts && 'silent' in opts ? opts.silent : false;
+    if (silent == null) dart.nullFailed(I[0], 455, 10, "silent");
+    this[event$] = event;
+    this[hitTestEntry$] = hitTestEntry;
+    binding$0.FlutterErrorDetailsForPointerEventDispatcher.__proto__.new.call(this, {exception: exception, stack: stack, library: library, context: context, informationCollector: informationCollector, silent: silent});
     ;
-  }).prototype = box_border.BorderDirectional.prototype;
-  dart.addTypeTests(box_border.BorderDirectional);
-  dart.addTypeCaches(box_border.BorderDirectional);
-  dart.setMethodSignature(box_border.BorderDirectional, () => ({
-    __proto__: dart.getMethods(box_border.BorderDirectional.__proto__),
-    scale: dart.fnType(box_border.BorderDirectional, [core.double]),
-    paint: dart.fnType(dart.void, [ui.Canvas, ui.Rect], {borderRadius: dart.nullable(border_radius.BorderRadius), shape: box_border.BoxShape, textDirection: dart.nullable(ui.TextDirection)}, {})
+  }).prototype = binding$0.FlutterErrorDetailsForPointerEventDispatcher.prototype;
+  dart.addTypeTests(binding$0.FlutterErrorDetailsForPointerEventDispatcher);
+  dart.addTypeCaches(binding$0.FlutterErrorDetailsForPointerEventDispatcher);
+  dart.setLibraryUri(binding$0.FlutterErrorDetailsForPointerEventDispatcher, I[1]);
+  dart.setFieldSignature(binding$0.FlutterErrorDetailsForPointerEventDispatcher, () => ({
+    __proto__: dart.getFields(binding$0.FlutterErrorDetailsForPointerEventDispatcher.__proto__),
+    event: dart.finalFieldType(dart.nullable(events.PointerEvent)),
+    hitTestEntry: dart.finalFieldType(dart.nullable(hit_test.HitTestEntry))
   }));
-  dart.setGetterSignature(box_border.BorderDirectional, () => ({
-    __proto__: dart.getGetters(box_border.BorderDirectional.__proto__),
-    dimensions: edge_insets.EdgeInsetsGeometry,
-    isUniform: core.bool
-  }));
-  dart.setLibraryUri(box_border.BorderDirectional, I[1]);
-  dart.setFieldSignature(box_border.BorderDirectional, () => ({
-    __proto__: dart.getFields(box_border.BorderDirectional.__proto__),
-    top: dart.finalFieldType(borders.BorderSide),
-    start: dart.finalFieldType(borders.BorderSide),
-    end: dart.finalFieldType(borders.BorderSide),
-    bottom: dart.finalFieldType(borders.BorderSide)
-  }));
-  dart.defineExtensionMethods(box_border.BorderDirectional, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(box_border.BorderDirectional, ['hashCode']);
-  dart.trackLibraries("packages/flutter/src/painting/box_border.dart", {
-    "package:flutter/src/painting/box_border.dart": box_border
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  dart.defineLazy(binding$0, {
+    /*binding$0._defaultSamplingOffset*/get _defaultSamplingOffset() {
+      return C[0] || CT.C0;
+    },
+    /*binding$0._samplingInterval*/get _samplingInterval() {
+      return C[1] || CT.C1;
+    }
+  }, false);
+  dart.trackLibraries("packages/flutter/src/gestures/binding.dart", {
+    "package:flutter/src/gestures/binding.dart": binding$0
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["box_border.dart"],"names":[],"mappings":"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","file":"../../../../../../../../E:/packages/flutter/src/painting/box_border.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["binding.dart"],"names":[],"mappings":"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","file":"../../../../../../../../E:/packages/flutter/src/gestures/binding.dart.lib.js"}');
   // Exports:
   return {
-    src__painting__box_border: box_border
+    src__gestures__binding: binding$0
   };
 }));
 
-//# sourceMappingURL=box_border.dart.lib.js.map
+//# sourceMappingURL=binding.dart.lib.js.map

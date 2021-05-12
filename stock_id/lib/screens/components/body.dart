@@ -6,33 +6,40 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return SingleChildScrollView(
-      child: Column(
+    return Stack(
         children: <Widget>[
           HeaderBox(size: size),
-          Expanded(
-            child: GridView.count(
-              crossAxisCount: 2,
-              children: <Widget>[
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.black,
+          Container(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: stockPadding, vertical: stockPadding + 36),
+              child: GridView.count(
+                    crossAxisCount: 2,
+                    childAspectRatio: .85,
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(15)
+                        ),
+                        child: Column(
+                          children: <Widget>[
+                            Spacer(),
+                            Icon(Icons.add_box, size: 60,),
+                            Spacer(),
+                            Text(
+                              "Tambah Stok Barang",
+                              textAlign: TextAlign.center,
+
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                )
-              ],
+              ),
             ),
-          ),
-          // Container(
-          //   width: size.width * 0.4,
-          //   child: Padding(
-          //     padding: EdgeInsets.only(top: stockPadding),
-          //     child: GridView.count(
-          //       crossAxisCount: 2,
-          //     ),
-          //   ),
-          // ),
         ],
-      ),
     );
   }
 }
