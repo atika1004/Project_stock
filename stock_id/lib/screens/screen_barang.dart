@@ -41,7 +41,7 @@ class _BarangScreenState extends State<BarangScreen> {
           child: Card(
             elevation: 5.0,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(0.0),
+              borderRadius: BorderRadius.circular(5.0),
             ),
             child: Container(
               width: size.width,
@@ -61,7 +61,7 @@ class _BarangScreenState extends State<BarangScreen> {
                           Icons.inventory,
                         ),
                       ),
-                      SizedBox(width: 5.0),
+                      SizedBox(width: 13.0),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
@@ -113,14 +113,10 @@ class _BarangScreenState extends State<BarangScreen> {
                                   fontSize: 12.0,
                                 ),
                               ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                            ],),
+                        ],),
+                    ],),
+                ],),
             ),
           ),
         ),
