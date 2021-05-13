@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stock_id/constants.dart';
+import 'package:stock_id/screens/home/home_screen.dart';
 
 class BarangScreen extends StatefulWidget {
   _BarangScreenState createState() => _BarangScreenState();
@@ -30,7 +31,8 @@ class _BarangScreenState extends State<BarangScreen> {
           color: Colors.white,
           tooltip: 'Kembali',
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.pop(context,
+            MaterialPageRoute(builder: (context) => HomeScreen()),);
             },
         ),
       ),

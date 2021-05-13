@@ -1,4 +1,4 @@
-#Thu May 13 19:30:39 ICT 2021
+#Thu May 13 21:24:50 ICT 2021
 base.0=E\:\\Unila\\KULIAH\\Sem6\\Mobile_Lanjut\\Project_Stock\\stock_id\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
