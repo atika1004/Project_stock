@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:stock_id/screens/home/home_screen.dart';
-import 'package:stock_id/Auth/register.dart';
+import 'package:stock_id/Auth/login.dart';
 
-class Login extends StatefulWidget {
+class Register extends StatefulWidget {
   @override
-  _LoginState createState() => _LoginState();
+  _RegisterState createState() => _RegisterState();
 }
 
-class _LoginState extends State<Login> {
+class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
         padding: const EdgeInsets.all(8),
-        color: Color(0xfffff0c8),
+        color: Colors.blue,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -35,8 +34,25 @@ class _LoginState extends State<Login> {
               height: 20,
             ),
             Text(
-              "Selamat Datang, Silahkan Masuk",
+              "Silahkan Mendaftar",
               style: TextStyle(fontSize: 20, color: Colors.black87),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            TextFormField(
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black87)),
+                  prefixIcon: Icon(
+                    Icons.person,
+                    size: 40,
+                  ),
+                  hintText: "Masukkan Email",
+                  hintStyle: TextStyle(color: Colors.black87),
+                  labelText: "Email",
+                  labelStyle: TextStyle(color: Colors.black87)),
             ),
             SizedBox(
               height: 20,
@@ -76,6 +92,24 @@ class _LoginState extends State<Login> {
             SizedBox(
               height: 20,
             ),
+            TextFormField(
+              obscureText: true,
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black87)),
+                  prefixIcon: Icon(
+                    Icons.person,
+                    size: 40,
+                  ),
+                  hintText: "Masukkan kembali Password",
+                  hintStyle: TextStyle(color: Colors.black87),
+                  labelText: "Re-type Password",
+                  labelStyle: TextStyle(color: Colors.black87)),
+            ),
+            SizedBox(
+              height: 20,
+            ),
             Card(
               color: Colors.black87,
               elevation: 5,
@@ -86,12 +120,12 @@ class _LoginState extends State<Login> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()),
+                      MaterialPageRoute(builder: (context) => Login()),
                     );
                   },
                   child: Center(
                     child: Text(
-                      "Masuk",
+                      "Daftar",
                       style: TextStyle(
                         fontSize: 20,
                         color: Colors.white,
@@ -101,21 +135,6 @@ class _LoginState extends State<Login> {
                 ),
               ),
             ),
-            Text("Belum punya akun ?"),
-            Container(
-              color: Colors.transparent,
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Register()),
-                  );
-                },
-                child: Center(
-                  child: Text("Daftar disini"),
-                ),
-              ),
-            )
           ],
         ),
       ),
