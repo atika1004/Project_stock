@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.stock_id">
    <application
-        android:label="stock_id"
+        android:label="stock.id"
         android:icon="@mipmap/logo_stock_circle">
         <activity
             android:name=".MainActivity"
