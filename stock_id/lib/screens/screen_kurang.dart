@@ -24,10 +24,19 @@ class KurangScreen extends StatelessWidget {
             },
         ),
       ),
-      body: Stack(
-        children: <Widget>[
-          Text("ini halaman kurangi barang")
-        ],
+      body: Container(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                TextField(
+                  textAlign: TextAlign.start,
+                ),
+            ],)
+          ],
+        ),
       ),
     );
   }
