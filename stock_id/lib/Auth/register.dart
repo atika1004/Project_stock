@@ -13,7 +13,7 @@ class _RegisterState extends State<Register> {
       body: Container(
         width: MediaQuery.of(context).size.width,
         padding: const EdgeInsets.all(8),
-        color: Colors.blue,
+        color: Color(0xfffff0c8),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
