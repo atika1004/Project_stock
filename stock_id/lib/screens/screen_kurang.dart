@@ -25,9 +25,39 @@ class KurangScreen extends StatelessWidget {
             },
         ),
       ),
-      body: Container(
-        child: Text("INI HALAMAN AMBIL BARANG"),
-      ),
+      body: Column(
+              children: <Widget> [
+                TextField(
+                  decoration: InputDecoration(
+                    labelText: "Nama Barang",
+                    labelStyle: TextStyle(
+                      fontSize: 12,
+                      ),
+                    suffixIcon: IconButton (
+                      onPressed: () {},
+                      icon: Icon(Icons.create_outlined),
+                      )
+                    )
+                  ),
+                TextField(
+                  decoration: InputDecoration(
+                    labelText: "Jumlah Barang",
+                    labelStyle: TextStyle(
+                      fontSize: 12,
+                      ),
+                    suffixIcon: Container(
+                      width: 100.0,
+                      child: Row(
+                        children: [
+                          IconButton(onPressed: () {},
+                                     icon:Icon(Icons.do_disturb_on_outlined), onPressed: () {})
+                          ]
+                        ),
+                      )
+                    )
+                  ),
+                ]
+        )
     );
   }
 }
