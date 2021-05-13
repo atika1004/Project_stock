@@ -11,7 +11,6 @@ attr fontStyle
 attr fontVariationSettings
 attr fontWeight
 attr ttcIndex
-color background_color
 color notification_action_color_filter
 color notification_icon_bg_color
 color ripple_material_light
