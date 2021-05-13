@@ -31,7 +31,7 @@ class _BarangScreenState extends State<BarangScreen> {
           color: Colors.white,
           tooltip: 'Kembali',
           onPressed: () {
-            Navigator.pop(context,
+            Navigator.push(context,
             MaterialPageRoute(builder: (context) => HomeScreen()),);
             },
         ),
