@@ -19,15 +19,15 @@ define("main_module.bootstrap", ["web_entrypoint.dart", "dart_sdk"], function(ap
          main();
       });
     }
-    window.$dartAppId = "wrtmLMzXIlp7d0fheUF4SQ==";
+    window.$dartAppId = "FW5KY/t3liaZU04H8n0nuw==";
 window.$dartReloadConfiguration = "ReloadConfiguration.none";
 window.$dartModuleStrategy = "require-js";
 window.$loadModuleConfig = require;
 window.$dwdsVersion = "7.1.1";
-window.$dwdsDevHandlerPath = "http://localhost:58162/$dwdsSseHandler";
+window.$dwdsDevHandlerPath = "http://localhost:55472/$dwdsSseHandler";
 window.$dartEntrypointPath = "main_module.bootstrap.js";
 window.$requireLoader.forceLoadModule("dwds/src/injected/client");
-window.$dartExtensionUri = "http://127.0.0.1:58164/$debug";
+window.$dartExtensionUri = "http://127.0.0.1:55474/$debug";
 
   } else {
     if(window.$dartMainExecuted){
@@ -82,7 +82,7 @@ var baseUrl = (function () {
 let modulePaths = {
  "web_entrypoint.dart": "web_entrypoint.dart.lib",
  "packages/stock_id/main.dart": "packages/stock_id/main.dart.lib",
- "packages/stock_id/Auth/login.dart": "packages/stock_id/Auth/login.dart.lib",
+ "packages/stock_id/Auth/register.dart": "packages/stock_id/Auth/register.dart.lib",
  "packages/flutter/material.dart": "packages/flutter/material.dart.lib",
  "packages/flutter/widgets.dart": "packages/flutter/widgets.dart.lib",
  "packages/flutter/src/widgets/will_pop_scope.dart": "packages/flutter/src/widgets/will_pop_scope.dart.lib",
@@ -439,12 +439,20 @@ let modulePaths = {
  "packages/flutter/src/material/app.dart": "packages/flutter/src/material/app.dart.lib",
  "packages/flutter/src/material/animated_icons.dart": "packages/flutter/src/material/animated_icons.dart.lib",
  "packages/flutter/src/material/about.dart": "packages/flutter/src/material/about.dart.lib",
- "packages/stock_id/constants.dart": "packages/stock_id/constants.dart.lib"
+ "packages/stock_id/screens/home/home_screen.dart": "packages/stock_id/screens/home/home_screen.dart.lib",
+ "packages/stock_id/screens/components/body.dart": "packages/stock_id/screens/components/body.dart.lib",
+ "packages/stock_id/screens/screen_tentang.dart": "packages/stock_id/screens/screen_tentang.dart.lib",
+ "packages/stock_id/constants.dart": "packages/stock_id/constants.dart.lib",
+ "packages/stock_id/screens/screen_kurang.dart": "packages/stock_id/screens/screen_kurang.dart.lib",
+ "packages/stock_id/screens/screen_barang.dart": "packages/stock_id/screens/screen_barang.dart.lib",
+ "packages/stock_id/screens/screen_tambah.dart": "packages/stock_id/screens/screen_tambah.dart.lib",
+ "packages/stock_id/screens/components/home_menu_card.dart": "packages/stock_id/screens/components/home_menu_card.dart.lib",
+ "packages/stock_id/screens/components/header_with_box.dart": "packages/stock_id/screens/components/header_with_box.dart.lib"
 };
 let moduleNames = {
  "web_entrypoint.dart.lib": "web_entrypoint.dart",
  "packages/stock_id/main.dart.lib": "packages/stock_id/main.dart",
- "packages/stock_id/Auth/login.dart.lib": "packages/stock_id/Auth/login.dart",
+ "packages/stock_id/Auth/register.dart.lib": "packages/stock_id/Auth/register.dart",
  "packages/flutter/material.dart.lib": "packages/flutter/material.dart",
  "packages/flutter/widgets.dart.lib": "packages/flutter/widgets.dart",
  "packages/flutter/src/widgets/will_pop_scope.dart.lib": "packages/flutter/src/widgets/will_pop_scope.dart",
@@ -801,7 +809,15 @@ let moduleNames = {
  "packages/flutter/src/material/app.dart.lib": "packages/flutter/src/material/app.dart",
  "packages/flutter/src/material/animated_icons.dart.lib": "packages/flutter/src/material/animated_icons.dart",
  "packages/flutter/src/material/about.dart.lib": "packages/flutter/src/material/about.dart",
- "packages/stock_id/constants.dart.lib": "packages/stock_id/constants.dart"
+ "packages/stock_id/screens/home/home_screen.dart.lib": "packages/stock_id/screens/home/home_screen.dart",
+ "packages/stock_id/screens/components/body.dart.lib": "packages/stock_id/screens/components/body.dart",
+ "packages/stock_id/screens/screen_tentang.dart.lib": "packages/stock_id/screens/screen_tentang.dart",
+ "packages/stock_id/constants.dart.lib": "packages/stock_id/constants.dart",
+ "packages/stock_id/screens/screen_kurang.dart.lib": "packages/stock_id/screens/screen_kurang.dart",
+ "packages/stock_id/screens/screen_barang.dart.lib": "packages/stock_id/screens/screen_barang.dart",
+ "packages/stock_id/screens/screen_tambah.dart.lib": "packages/stock_id/screens/screen_tambah.dart",
+ "packages/stock_id/screens/components/home_menu_card.dart.lib": "packages/stock_id/screens/components/home_menu_card.dart",
+ "packages/stock_id/screens/components/header_with_box.dart.lib": "packages/stock_id/screens/components/header_with_box.dart"
 };
 if(!window.$requireLoader) {
    window.$requireLoader = {
