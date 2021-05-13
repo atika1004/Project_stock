@@ -1,32 +1,32 @@
-define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/stock_id/constants.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/painting/box_shadow.dart', 'packages/flutter/src/painting/strut_style.dart'], (function load__packages__stock_id__screens__components__header_with_box_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__stock_id__constants$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__painting__box_shadow$46dart, packages__flutter__src__painting__strut_style$46dart) {
+define(['dart_sdk', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/foundation/change_notifier.dart', 'packages/vector_math/vector_math_64.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__rendering__flow_dart(dart_sdk, packages__flutter__src__foundation__object$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__foundation__change_notifier$46dart, packages__vector_math__vector_math_64$46dart, packages__flutter__src__foundation__debug$46dart) {
   'use strict';
   const core = dart_sdk.core;
   const ui = dart_sdk.ui;
   const _interceptors = dart_sdk._interceptors;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
-  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
-  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
-  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
-  const constants = packages__stock_id__constants$46dart.constants;
-  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
-  const theme = packages__flutter__src__material__icon_button$46dart.src__material__theme;
-  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
-  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
-  const box_shadow = packages__flutter__src__painting__box_shadow$46dart.src__painting__box_shadow;
-  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
-  var header_with_box = Object.create(dart.library);
+  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const object$ = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
+  const layer = packages__flutter__src__rendering__layer$46dart.src__rendering__layer;
+  const change_notifier = packages__flutter__src__foundation__change_notifier$46dart.src__foundation__change_notifier;
+  const vector_math_64 = packages__vector_math__vector_math_64$46dart.vector_math_64;
+  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
+  var flow = Object.create(dart.library);
+  var $runtimeType = dartx.runtimeType;
+  var $isFinite = dartx.isFinite;
+  var $clear = dartx.clear;
+  var $add = dartx.add;
+  var $length = dartx.length;
+  var $_get = dartx._get;
   dart._checkModuleNullSafetyMode(false);
   var T = {
-    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
-    WidgetL: () => (T.WidgetL = dart.constFn(dart.legacy(framework.Widget)))(),
-    JSArrayOfWidgetL: () => (T.JSArrayOfWidgetL = dart.constFn(_interceptors.JSArray$(T.WidgetL())))(),
-    BoxShadowL: () => (T.BoxShadowL = dart.constFn(dart.legacy(box_shadow.BoxShadow)))(),
-    JSArrayOfBoxShadowL: () => (T.JSArrayOfBoxShadowL = dart.constFn(_interceptors.JSArray$(T.BoxShadowL())))()
+    JSArrayOfRenderBox: () => (T.JSArrayOfRenderBox = dart.constFn(_interceptors.JSArray$(box.RenderBox)))(),
+    JSArrayOfint: () => (T.JSArrayOfint = dart.constFn(_interceptors.JSArray$(core.int)))(),
+    VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
+    PaintingContextAndOffsetTovoid: () => (T.PaintingContextAndOffsetTovoid = dart.constFn(dart.fnType(dart.void, [object$.PaintingContext, ui.Offset])))(),
+    OffsetN: () => (T.OffsetN = dart.constFn(dart.nullable(ui.Offset)))(),
+    BoxHitTestResultAndOffsetNTobool: () => (T.BoxHitTestResultAndOffsetNTobool = dart.constFn(dart.fnType(core.bool, [box.BoxHitTestResult, T.OffsetN()])))()
   };
   var T$Eval = Object.assign({
     _: () => T$Eval
@@ -41,397 +41,367 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 19,
-        [_Location_line]: 36,
-        [_Location_file]: null
-      });
-    },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 19,
-        [_Location_line]: 37,
-        [_Location_file]: null
-      });
-    },
-    get C1() {
-      return C[1] = dart.constList([C[2] || CT.C2, C[3] || CT.C3], T._LocationL());
-    },
     get C0() {
       return C[0] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[1] || CT.C1,
-        [_Location_name]: null,
-        [_Location_column]: 17,
-        [_Location_line]: 35,
-        [_Location_file]: "file:///E:/Unila/KULIAH/Sem6/Mobile_Lanjut/Project_Stock/stock_id/lib/screens/components/header_with_box.dart"
-      });
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 15,
-        [_Location_line]: 34,
-        [_Location_file]: null
-      });
-    },
-    get C5() {
-      return C[5] = dart.constList([C[6] || CT.C6], T._LocationL());
-    },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[5] || CT.C5,
-        [_Location_name]: null,
-        [_Location_column]: 20,
-        [_Location_line]: 33,
-        [_Location_file]: "file:///E:/Unila/KULIAH/Sem6/Mobile_Lanjut/Project_Stock/stock_id/lib/screens/components/header_with_box.dart"
-      });
-    },
-    get C9() {
-      return C[9] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 13,
-        [_Location_line]: 20,
-        [_Location_file]: null
-      });
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "height",
-        [_Location_column]: 13,
-        [_Location_line]: 25,
-        [_Location_file]: null
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "decoration",
-        [_Location_column]: 13,
-        [_Location_line]: 26,
-        [_Location_file]: null
-      });
-    },
-    get C12() {
-      return C[12] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 13,
-        [_Location_line]: 33,
-        [_Location_file]: null
-      });
-    },
-    get C8() {
-      return C[8] = dart.constList([C[9] || CT.C9, C[10] || CT.C10, C[11] || CT.C11, C[12] || CT.C12], T._LocationL());
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[8] || CT.C8,
-        [_Location_name]: null,
-        [_Location_column]: 11,
-        [_Location_line]: 19,
-        [_Location_file]: "file:///E:/Unila/KULIAH/Sem6/Mobile_Lanjut/Project_Stock/stock_id/lib/screens/components/header_with_box.dart"
-      });
-    },
-    get C15() {
-      return C[15] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 17,
-        [_Location_line]: 64,
-        [_Location_file]: null
-      });
-    },
-    get C16() {
-      return C[16] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 17,
-        [_Location_line]: 65,
-        [_Location_file]: null
-      });
-    },
-    get C17() {
-      return C[17] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "textAlign",
-        [_Location_column]: 17,
-        [_Location_line]: 69,
-        [_Location_file]: null
-      });
-    },
-    get C14() {
-      return C[14] = dart.constList([C[15] || CT.C15, C[16] || CT.C16, C[17] || CT.C17], T._LocationL());
-    },
-    get C13() {
-      return C[13] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[14] || CT.C14,
-        [_Location_name]: null,
-        [_Location_column]: 22,
-        [_Location_line]: 63,
-        [_Location_file]: "file:///E:/Unila/KULIAH/Sem6/Mobile_Lanjut/Project_Stock/stock_id/lib/screens/components/header_with_box.dart"
-      });
-    },
-    get C20() {
-      return C[20] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "alignment",
-        [_Location_column]: 15,
-        [_Location_line]: 48,
-        [_Location_file]: null
-      });
-    },
-    get C21() {
-      return C[21] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "margin",
-        [_Location_column]: 15,
-        [_Location_line]: 49,
-        [_Location_file]: null
-      });
-    },
-    get C22() {
-      return C[22] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 15,
-        [_Location_line]: 50,
-        [_Location_file]: null
-      });
-    },
-    get C23() {
-      return C[23] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "height",
-        [_Location_column]: 15,
-        [_Location_line]: 51,
-        [_Location_file]: null
-      });
-    },
-    get C24() {
-      return C[24] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "decoration",
-        [_Location_column]: 15,
-        [_Location_line]: 52,
-        [_Location_file]: null
-      });
-    },
-    get C25() {
-      return C[25] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 15,
-        [_Location_line]: 63,
-        [_Location_file]: null
-      });
-    },
-    get C19() {
-      return C[19] = dart.constList([C[20] || CT.C20, C[21] || CT.C21, C[22] || CT.C22, C[23] || CT.C23, C[24] || CT.C24, C[25] || CT.C25], T._LocationL());
-    },
-    get C18() {
-      return C[18] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[19] || CT.C19,
-        [_Location_name]: null,
-        [_Location_column]: 20,
-        [_Location_line]: 47,
-        [_Location_file]: "file:///E:/Unila/KULIAH/Sem6/Mobile_Lanjut/Project_Stock/stock_id/lib/screens/components/header_with_box.dart"
-      });
-    },
-    get C28() {
-      return C[28] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "bottom",
-        [_Location_column]: 13,
-        [_Location_line]: 44,
-        [_Location_file]: null
-      });
-    },
-    get C29() {
-      return C[29] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "left",
-        [_Location_column]: 13,
-        [_Location_line]: 45,
-        [_Location_file]: null
-      });
-    },
-    get C30() {
-      return C[30] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "right",
-        [_Location_column]: 13,
-        [_Location_line]: 46,
-        [_Location_file]: null
-      });
-    },
-    get C31() {
-      return C[31] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 13,
-        [_Location_line]: 47,
-        [_Location_file]: null
-      });
-    },
-    get C27() {
-      return C[27] = dart.constList([C[28] || CT.C28, C[29] || CT.C29, C[30] || CT.C30, C[31] || CT.C31], T._LocationL());
-    },
-    get C26() {
-      return C[26] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[27] || CT.C27,
-        [_Location_name]: null,
-        [_Location_column]: 11,
-        [_Location_line]: 43,
-        [_Location_file]: "file:///E:/Unila/KULIAH/Sem6/Mobile_Lanjut/Project_Stock/stock_id/lib/screens/components/header_with_box.dart"
-      });
-    },
-    get C34() {
-      return C[34] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 9,
-        [_Location_line]: 18,
-        [_Location_file]: null
-      });
-    },
-    get C33() {
-      return C[33] = dart.constList([C[34] || CT.C34], T._LocationL());
-    },
-    get C32() {
-      return C[32] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[33] || CT.C33,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 17,
-        [_Location_file]: "file:///E:/Unila/KULIAH/Sem6/Mobile_Lanjut/Project_Stock/stock_id/lib/screens/components/header_with_box.dart"
-      });
-    },
-    get C37() {
-      return C[37] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "margin",
-        [_Location_column]: 7,
-        [_Location_line]: 15,
-        [_Location_file]: null
-      });
-    },
-    get C38() {
-      return C[38] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "height",
-        [_Location_column]: 7,
-        [_Location_line]: 16,
-        [_Location_file]: null
-      });
-    },
-    get C39() {
-      return C[39] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 17,
-        [_Location_file]: null
-      });
-    },
-    get C36() {
-      return C[36] = dart.constList([C[37] || CT.C37, C[38] || CT.C38, C[39] || CT.C39], T._LocationL());
-    },
-    get C35() {
-      return C[35] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[36] || CT.C36,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 14,
-        [_Location_file]: "file:///E:/Unila/KULIAH/Sem6/Mobile_Lanjut/Project_Stock/stock_id/lib/screens/components/header_with_box.dart"
+        __proto__: ui.Clip.prototype,
+        [_name]: "Clip.hardEdge",
+        index: 1
       });
     }
   }, false);
-  var C = Array(40).fill(void 0);
-  var I = ["package:stock_id/screens/components/header_with_box.dart"];
-  var size$ = dart.privateName(header_with_box, "HeaderBox.size");
-  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
-  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
-  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
-  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  header_with_box.HeaderBox = class HeaderBox extends framework.StatelessWidget {
-    get size() {
-      return this[size$];
+  var C = [void 0];
+  var I = [
+    "package:flutter/src/rendering/flow.dart",
+    "file:///C:/src/flutter/packages/flutter/lib/src/rendering/flow.dart"
+  ];
+  flow.FlowPaintingContext = class FlowPaintingContext extends core.Object {};
+  (flow.FlowPaintingContext.new = function() {
+    ;
+  }).prototype = flow.FlowPaintingContext.prototype;
+  dart.addTypeTests(flow.FlowPaintingContext);
+  dart.addTypeCaches(flow.FlowPaintingContext);
+  dart.setLibraryUri(flow.FlowPaintingContext, I[0]);
+  var _repaint = dart.privateName(flow, "FlowDelegate._repaint");
+  var _repaint$ = dart.privateName(flow, "_repaint");
+  flow.FlowDelegate = class FlowDelegate extends core.Object {
+    get [_repaint$]() {
+      return this[_repaint];
     }
-    set size(value) {
-      super.size = value;
+    set [_repaint$](value) {
+      super[_repaint$] = value;
     }
-    build(context) {
-      return new container.Container.new({margin: new edge_insets.EdgeInsets.only({bottom: 20 * 2.5}), height: dart.notNull(this.size.height) * 0.2, child: new basic.Stack.new({children: T.JSArrayOfWidgetL().of([new container.Container.new({padding: new edge_insets.EdgeInsets.only({left: 20, right: 20, bottom: 36 + 20}), height: dart.notNull(this.size.height) * 0.2 - 27, decoration: new box_decoration.BoxDecoration.new({color: constants.stockPrimary, borderRadius: new border_radius.BorderRadius.only({bottomLeft: new ui.Radius.circular(36.0), bottomRight: new ui.Radius.circular(36.0)})}), child: new basic.Row.new({children: T.JSArrayOfWidgetL().of([new text.Text.new("Stock.Id", {style: theme.Theme.of(context).textTheme.headline5.copyWith({color: colors.Colors.white, fontWeight: ui.FontWeight.bold}), $creationLocationd_0dea112b090073317d4: C[0] || CT.C0})]), $creationLocationd_0dea112b090073317d4: C[4] || CT.C4}), $creationLocationd_0dea112b090073317d4: C[7] || CT.C7}), new basic.Positioned.new({bottom: 0.0, left: 0.0, right: 0.0, child: new container.Container.new({alignment: alignment.Alignment.center, margin: new edge_insets.EdgeInsets.symmetric({horizontal: 20}), padding: new edge_insets.EdgeInsets.symmetric({horizontal: 20}), height: 54.0, decoration: new box_decoration.BoxDecoration.new({color: colors.Colors.white, borderRadius: new border_radius.BorderRadius.circular(20.0), boxShadow: T.JSArrayOfBoxShadowL().of([new box_shadow.BoxShadow.new({offset: new ui.Offset.new(0.0, 10.0), blurRadius: 50.0, color: constants.stockPrimary.withOpacity(0.3)})])}), child: new text.Text.new("Selamat datang di aplikasi Stock.Id", {style: new text_style.TextStyle.new({color: constants.stockText, fontSize: 20.0}), textAlign: ui.TextAlign.center, $creationLocationd_0dea112b090073317d4: C[13] || CT.C13}), $creationLocationd_0dea112b090073317d4: C[18] || CT.C18}), $creationLocationd_0dea112b090073317d4: C[26] || CT.C26})]), $creationLocationd_0dea112b090073317d4: C[32] || CT.C32}), $creationLocationd_0dea112b090073317d4: C[35] || CT.C35});
+    getSize(constraints) {
+      if (constraints == null) dart.nullFailed(I[1], 75, 31, "constraints");
+      return constraints.biggest;
+    }
+    getConstraintsForChild(i, constraints) {
+      if (i == null) dart.nullFailed(I[1], 90, 45, "i");
+      if (constraints == null) dart.nullFailed(I[1], 90, 63, "constraints");
+      return constraints;
+    }
+    shouldRelayout(oldDelegate) {
+      flow.FlowDelegate.as(oldDelegate);
+      if (oldDelegate == null) dart.nullFailed(I[1], 114, 46, "oldDelegate");
+      return false;
+    }
+    toString() {
+      return object.objectRuntimeType(this, "FlowDelegate");
     }
   };
-  (header_with_box.HeaderBox.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let size = opts && 'size' in opts ? opts.size : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[size$] = size;
-    header_with_box.HeaderBox.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  (flow.FlowDelegate.new = function(opts) {
+    let repaint = opts && 'repaint' in opts ? opts.repaint : null;
+    this[_repaint] = repaint;
     ;
-  }).prototype = header_with_box.HeaderBox.prototype;
-  dart.addTypeTests(header_with_box.HeaderBox);
-  dart.addTypeCaches(header_with_box.HeaderBox);
-  dart.setMethodSignature(header_with_box.HeaderBox, () => ({
-    __proto__: dart.getMethods(header_with_box.HeaderBox.__proto__),
-    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }).prototype = flow.FlowDelegate.prototype;
+  dart.addTypeTests(flow.FlowDelegate);
+  dart.addTypeCaches(flow.FlowDelegate);
+  dart.setMethodSignature(flow.FlowDelegate, () => ({
+    __proto__: dart.getMethods(flow.FlowDelegate.__proto__),
+    getSize: dart.fnType(ui.Size, [box.BoxConstraints]),
+    getConstraintsForChild: dart.fnType(box.BoxConstraints, [core.int, box.BoxConstraints]),
+    shouldRelayout: dart.fnType(core.bool, [dart.nullable(core.Object)])
   }));
-  dart.setLibraryUri(header_with_box.HeaderBox, I[0]);
-  dart.setFieldSignature(header_with_box.HeaderBox, () => ({
-    __proto__: dart.getFields(header_with_box.HeaderBox.__proto__),
-    size: dart.finalFieldType(dart.legacy(ui.Size))
+  dart.setLibraryUri(flow.FlowDelegate, I[0]);
+  dart.setFieldSignature(flow.FlowDelegate, () => ({
+    __proto__: dart.getFields(flow.FlowDelegate.__proto__),
+    [_repaint$]: dart.finalFieldType(dart.nullable(change_notifier.Listenable))
   }));
-  dart.trackLibraries("packages/stock_id/screens/components/header_with_box.dart", {
-    "package:stock_id/screens/components/header_with_box.dart": header_with_box
+  dart.defineExtensionMethods(flow.FlowDelegate, ['toString']);
+  var _transform = dart.privateName(flow, "_transform");
+  flow.FlowParentData = class FlowParentData extends box.ContainerBoxParentData$(box.RenderBox) {};
+  (flow.FlowParentData.new = function() {
+    this[_transform] = null;
+    flow.FlowParentData.__proto__.new.call(this);
+    ;
+  }).prototype = flow.FlowParentData.prototype;
+  dart.addTypeTests(flow.FlowParentData);
+  dart.addTypeCaches(flow.FlowParentData);
+  dart.setLibraryUri(flow.FlowParentData, I[0]);
+  dart.setFieldSignature(flow.FlowParentData, () => ({
+    __proto__: dart.getFields(flow.FlowParentData.__proto__),
+    [_transform]: dart.fieldType(dart.nullable(vector_math_64.Matrix4))
+  }));
+  var _name = dart.privateName(ui, "_name");
+  var _clipBehavior = dart.privateName(flow, "_clipBehavior");
+  var _randomAccessChildren = dart.privateName(flow, "_randomAccessChildren");
+  var _lastPaintOrder = dart.privateName(flow, "_lastPaintOrder");
+  var _paintingContext = dart.privateName(flow, "_paintingContext");
+  var _paintingOffset = dart.privateName(flow, "_paintingOffset");
+  var _clipRectLayer = dart.privateName(flow, "_clipRectLayer");
+  var _delegate = dart.privateName(flow, "_delegate");
+  var _getSize = dart.privateName(flow, "_getSize");
+  var _paintWithDelegate = dart.privateName(flow, "_paintWithDelegate");
+  const RenderBox_ContainerRenderObjectMixin$36 = class RenderBox_ContainerRenderObjectMixin extends box.RenderBox {};
+  (RenderBox_ContainerRenderObjectMixin$36.new = function() {
+    object$.ContainerRenderObjectMixin$(box.RenderBox, flow.FlowParentData)[dart.mixinNew].call(this);
+    RenderBox_ContainerRenderObjectMixin$36.__proto__.new.call(this);
+  }).prototype = RenderBox_ContainerRenderObjectMixin$36.prototype;
+  dart.applyMixin(RenderBox_ContainerRenderObjectMixin$36, object$.ContainerRenderObjectMixin$(box.RenderBox, flow.FlowParentData));
+  const RenderBox_RenderBoxContainerDefaultsMixin$36 = class RenderBox_RenderBoxContainerDefaultsMixin extends RenderBox_ContainerRenderObjectMixin$36 {};
+  (RenderBox_RenderBoxContainerDefaultsMixin$36.new = function() {
+    RenderBox_RenderBoxContainerDefaultsMixin$36.__proto__.new.call(this);
+  }).prototype = RenderBox_RenderBoxContainerDefaultsMixin$36.prototype;
+  dart.applyMixin(RenderBox_RenderBoxContainerDefaultsMixin$36, box.RenderBoxContainerDefaultsMixin$(box.RenderBox, flow.FlowParentData));
+  flow.RenderFlow = class RenderFlow extends RenderBox_RenderBoxContainerDefaultsMixin$36 {
+    setupParentData(child) {
+      box.RenderBox.as(child);
+      if (child == null) dart.nullFailed(I[1], 194, 34, "child");
+      let childParentData = child.parentData;
+      if (flow.FlowParentData.is(childParentData))
+        childParentData[_transform] = null;
+      else
+        child.parentData = new flow.FlowParentData.new();
+    }
+    get delegate() {
+      return this[_delegate];
+    }
+    set delegate(newDelegate) {
+      let t0, t0$;
+      if (newDelegate == null) dart.nullFailed(I[1], 210, 29, "newDelegate");
+      if (!(newDelegate != null)) dart.assertFailed(null, I[1], 211, 12, "newDelegate != null");
+      if (dart.equals(this[_delegate], newDelegate)) return;
+      let oldDelegate = this[_delegate];
+      this[_delegate] = newDelegate;
+      if (!dart.equals(dart.runtimeType(newDelegate), dart.runtimeType(oldDelegate)) || dart.test(newDelegate.shouldRelayout(oldDelegate)))
+        this.markNeedsLayout();
+      else if (dart.test(newDelegate.shouldRepaint(oldDelegate))) this.markNeedsPaint();
+      if (dart.test(this.attached)) {
+        t0 = oldDelegate[_repaint$];
+        t0 == null ? null : t0.removeListener(dart.bind(this, 'markNeedsPaint'));
+        t0$ = newDelegate[_repaint$];
+        t0$ == null ? null : t0$.addListener(dart.bind(this, 'markNeedsPaint'));
+      }
+    }
+    get clipBehavior() {
+      return this[_clipBehavior];
+    }
+    set clipBehavior(value) {
+      if (value == null) dart.nullFailed(I[1], 233, 25, "value");
+      if (!(value != null)) dart.assertFailed(null, I[1], 234, 12, "value != null");
+      if (value != this[_clipBehavior]) {
+        this[_clipBehavior] = value;
+        this.markNeedsPaint();
+        this.markNeedsSemanticsUpdate();
+      }
+    }
+    attach(owner) {
+      let t0;
+      object$.PipelineOwner.as(owner);
+      if (owner == null) dart.nullFailed(I[1], 243, 29, "owner");
+      super.attach(owner);
+      t0 = this[_delegate][_repaint$];
+      t0 == null ? null : t0.addListener(dart.bind(this, 'markNeedsPaint'));
+    }
+    detach() {
+      let t0;
+      t0 = this[_delegate][_repaint$];
+      t0 == null ? null : t0.removeListener(dart.bind(this, 'markNeedsPaint'));
+      super.detach();
+    }
+    [_getSize](constraints) {
+      if (constraints == null) dart.nullFailed(I[1], 254, 32, "constraints");
+      if (!dart.test(constraints.debugAssertIsValid())) dart.assertFailed(null, I[1], 255, 12, "constraints.debugAssertIsValid()");
+      return constraints.constrain(this[_delegate].getSize(constraints));
+    }
+    get isRepaintBoundary() {
+      return true;
+    }
+    computeMinIntrinsicWidth(height) {
+      if (height == null) dart.nullFailed(I[1], 267, 42, "height");
+      let width = this[_getSize](new box.BoxConstraints.tightForFinite({height: height})).width;
+      if (width[$isFinite]) return width;
+      return 0.0;
+    }
+    computeMaxIntrinsicWidth(height) {
+      if (height == null) dart.nullFailed(I[1], 275, 42, "height");
+      let width = this[_getSize](new box.BoxConstraints.tightForFinite({height: height})).width;
+      if (width[$isFinite]) return width;
+      return 0.0;
+    }
+    computeMinIntrinsicHeight(width) {
+      if (width == null) dart.nullFailed(I[1], 283, 43, "width");
+      let height = this[_getSize](new box.BoxConstraints.tightForFinite({width: width})).height;
+      if (height[$isFinite]) return height;
+      return 0.0;
+    }
+    computeMaxIntrinsicHeight(width) {
+      if (width == null) dart.nullFailed(I[1], 291, 43, "width");
+      let height = this[_getSize](new box.BoxConstraints.tightForFinite({width: width})).height;
+      if (height[$isFinite]) return height;
+      return 0.0;
+    }
+    computeDryLayout(constraints) {
+      if (constraints == null) dart.nullFailed(I[1], 299, 40, "constraints");
+      return this[_getSize](constraints);
+    }
+    performLayout() {
+      let constraints = this.constraints;
+      this.size = this[_getSize](constraints);
+      let i = 0;
+      this[_randomAccessChildren][$clear]();
+      let child = this.firstChild;
+      while (child != null) {
+        this[_randomAccessChildren][$add](child);
+        let innerConstraints = this[_delegate].getConstraintsForChild(i, constraints);
+        child.layout(innerConstraints, {parentUsesSize: true});
+        let childParentData = flow.FlowParentData.as(dart.nullCheck(child.parentData));
+        childParentData.offset = ui.Offset.zero;
+        child = childParentData.nextSibling;
+        i = i + 1;
+      }
+    }
+    getChildSize(i) {
+      if (i == null) dart.nullFailed(I[1], 332, 26, "i");
+      if (dart.notNull(i) < 0 || dart.notNull(i) >= dart.notNull(this[_randomAccessChildren][$length])) return null;
+      return this[_randomAccessChildren][$_get](i).size;
+    }
+    paintChild(i, opts) {
+      if (i == null) dart.nullFailed(I[1], 339, 23, "i");
+      let transform = opts && 'transform' in opts ? opts.transform : null;
+      let opacity = opts && 'opacity' in opts ? opts.opacity : 1;
+      if (opacity == null) dart.nullFailed(I[1], 339, 55, "opacity");
+      transform == null ? transform = vector_math_64.Matrix4.identity() : null;
+      let child = this[_randomAccessChildren][$_get](i);
+      let childParentData = flow.FlowParentData.as(dart.nullCheck(child.parentData));
+      if (!dart.test(dart.fn(() => {
+        if (childParentData[_transform] != null) {
+          dart.throw(assertions.FlutterError.new("Cannot call paintChild twice for the same child.\n" + "The flow delegate of type " + dart.str(dart.runtimeType(this[_delegate])) + " attempted to " + "paint child " + dart.str(i) + " multiple times, which is not permitted."));
+        }
+        return true;
+      }, T.VoidTobool())())) dart.assertFailed(null, I[1], 343, 12, "() {\r\n      if (childParentData._transform != null) {\r\n        throw FlutterError(\r\n          'Cannot call paintChild twice for the same child.\\n'\r\n          'The flow delegate of type ${_delegate.runtimeType} attempted to '\r\n          'paint child $i multiple times, which is not permitted.'\r\n        );\r\n      }\r\n      return true;\r\n    }()");
+      this[_lastPaintOrder][$add](i);
+      childParentData[_transform] = transform;
+      if (opacity === 0.0) return;
+      function painter(context, offset) {
+        if (context == null) dart.nullFailed(I[1], 361, 34, "context");
+        if (offset == null) dart.nullFailed(I[1], 361, 50, "offset");
+        context.paintChild(child, offset);
+      }
+      dart.fn(painter, T.PaintingContextAndOffsetTovoid());
+      if (opacity === 1.0) {
+        dart.nullCheck(this[_paintingContext]).pushTransform(this.needsCompositing, dart.nullCheck(this[_paintingOffset]), transform, painter);
+      } else {
+        dart.nullCheck(this[_paintingContext]).pushOpacity(dart.nullCheck(this[_paintingOffset]), ui.Color.getAlphaFromOpacity(opacity), dart.fn((context, offset) => {
+          if (context == null) dart.nullFailed(I[1], 367, 111, "context");
+          if (offset == null) dart.nullFailed(I[1], 367, 127, "offset");
+          context.pushTransform(this.needsCompositing, offset, dart.nullCheck(transform), painter);
+        }, T.PaintingContextAndOffsetTovoid()));
+      }
+    }
+    [_paintWithDelegate](context, offset) {
+      if (context == null) dart.nullFailed(I[1], 373, 43, "context");
+      if (offset == null) dart.nullFailed(I[1], 373, 59, "offset");
+      this[_lastPaintOrder][$clear]();
+      this[_paintingContext] = context;
+      this[_paintingOffset] = offset;
+      for (let child of this[_randomAccessChildren]) {
+        let childParentData = flow.FlowParentData.as(dart.nullCheck(child.parentData));
+        childParentData[_transform] = null;
+      }
+      try {
+        this[_delegate].paintChildren(this);
+      } finally {
+        this[_paintingContext] = null;
+        this[_paintingOffset] = null;
+      }
+    }
+    paint(context, offset) {
+      if (context == null) dart.nullFailed(I[1], 390, 30, "context");
+      if (offset == null) dart.nullFailed(I[1], 390, 46, "offset");
+      if (this.clipBehavior == ui.Clip.none) {
+        this[_clipRectLayer] = null;
+        this[_paintWithDelegate](context, offset);
+      } else {
+        this[_clipRectLayer] = context.pushClipRect(this.needsCompositing, offset, ui.Offset.zero['&'](this.size), dart.bind(this, _paintWithDelegate), {clipBehavior: this.clipBehavior, oldLayer: this[_clipRectLayer]});
+      }
+    }
+    hitTestChildren(result, opts) {
+      if (result == null) dart.nullFailed(I[1], 403, 41, "result");
+      let position = opts && 'position' in opts ? opts.position : null;
+      if (position == null) dart.nullFailed(I[1], 403, 67, "position");
+      let children = this.getChildrenAsList();
+      for (let i = dart.notNull(this[_lastPaintOrder][$length]) - 1; i >= 0; i = i - 1) {
+        let childIndex = this[_lastPaintOrder][$_get](i);
+        if (dart.notNull(childIndex) >= dart.notNull(children[$length])) continue;
+        let child = children[$_get](childIndex);
+        let childParentData = flow.FlowParentData.as(dart.nullCheck(child.parentData));
+        let transform = childParentData[_transform];
+        if (transform == null) continue;
+        let absorbed = result.addWithPaintTransform({transform: transform, position: position, hitTest: dart.fn((result, position) => {
+            if (result == null) dart.nullFailed(I[1], 417, 36, "result");
+            return child.hitTest(result, {position: dart.nullCheck(position)});
+          }, T.BoxHitTestResultAndOffsetNTobool())});
+        if (dart.test(absorbed)) return true;
+      }
+      return false;
+    }
+    applyPaintTransform(child, transform) {
+      box.RenderBox.as(child);
+      if (child == null) dart.nullFailed(I[1], 428, 38, "child");
+      if (transform == null) dart.nullFailed(I[1], 428, 53, "transform");
+      let childParentData = flow.FlowParentData.as(dart.nullCheck(child.parentData));
+      if (childParentData[_transform] != null) transform.multiply(dart.nullCheck(childParentData[_transform]));
+      super.applyPaintTransform(child, transform);
+    }
+  };
+  (flow.RenderFlow.new = function(opts) {
+    let children = opts && 'children' in opts ? opts.children : null;
+    let delegate = opts && 'delegate' in opts ? opts.delegate : null;
+    if (delegate == null) dart.nullFailed(I[1], 184, 27, "delegate");
+    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[0] || CT.C0;
+    if (clipBehavior == null) dart.nullFailed(I[1], 185, 10, "clipBehavior");
+    this[_clipBehavior] = ui.Clip.hardEdge;
+    this[_randomAccessChildren] = T.JSArrayOfRenderBox().of([]);
+    this[_lastPaintOrder] = T.JSArrayOfint().of([]);
+    this[_paintingContext] = null;
+    this[_paintingOffset] = null;
+    this[_clipRectLayer] = null;
+    if (!(delegate != null)) dart.assertFailed(null, I[1], 186, 15, "delegate != null");
+    if (!(clipBehavior != null)) dart.assertFailed(null, I[1], 187, 15, "clipBehavior != null");
+    this[_delegate] = delegate;
+    this[_clipBehavior] = clipBehavior;
+    flow.RenderFlow.__proto__.new.call(this);
+    this.addAll(children);
+  }).prototype = flow.RenderFlow.prototype;
+  dart.addTypeTests(flow.RenderFlow);
+  dart.addTypeCaches(flow.RenderFlow);
+  flow.RenderFlow[dart.implements] = () => [flow.FlowPaintingContext];
+  dart.setMethodSignature(flow.RenderFlow, () => ({
+    __proto__: dart.getMethods(flow.RenderFlow.__proto__),
+    [_getSize]: dart.fnType(ui.Size, [box.BoxConstraints]),
+    getChildSize: dart.fnType(dart.nullable(ui.Size), [core.int]),
+    paintChild: dart.fnType(dart.void, [core.int], {opacity: core.double, transform: dart.nullable(vector_math_64.Matrix4)}, {}),
+    [_paintWithDelegate]: dart.fnType(dart.void, [object$.PaintingContext, ui.Offset])
+  }));
+  dart.setGetterSignature(flow.RenderFlow, () => ({
+    __proto__: dart.getGetters(flow.RenderFlow.__proto__),
+    delegate: flow.FlowDelegate,
+    clipBehavior: ui.Clip
+  }));
+  dart.setSetterSignature(flow.RenderFlow, () => ({
+    __proto__: dart.getSetters(flow.RenderFlow.__proto__),
+    delegate: flow.FlowDelegate,
+    clipBehavior: ui.Clip
+  }));
+  dart.setLibraryUri(flow.RenderFlow, I[0]);
+  dart.setFieldSignature(flow.RenderFlow, () => ({
+    __proto__: dart.getFields(flow.RenderFlow.__proto__),
+    [_delegate]: dart.fieldType(flow.FlowDelegate),
+    [_clipBehavior]: dart.fieldType(ui.Clip),
+    [_randomAccessChildren]: dart.finalFieldType(core.List$(box.RenderBox)),
+    [_lastPaintOrder]: dart.finalFieldType(core.List$(core.int)),
+    [_paintingContext]: dart.fieldType(dart.nullable(object$.PaintingContext)),
+    [_paintingOffset]: dart.fieldType(dart.nullable(ui.Offset)),
+    [_clipRectLayer]: dart.fieldType(dart.nullable(layer.ClipRectLayer))
+  }));
+  dart.trackLibraries("packages/flutter/src/rendering/flow.dart", {
+    "package:flutter/src/rendering/flow.dart": flow
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["header_with_box.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IASa;;;;;;UAGe;AACxB,YAAO,sCACc,yCAA0B,KAAE,eAC3B,aAAZ,AAAK,oBAAS,YACf,+BACa,yBAChB,sCACsB,8DAGV,AAAG,mBAEO,AAAM,aAAlB,AAAK,oBAAS,MAAM,gBAChB,6CACH,sCACoB,iDACN,uBAAS,oBACR,uBAAS,kBAG1B,6BACa,yBAChB,kBACE,oBACa,AAAY,AAAU,AAAU,eAA7B,OAAO,uCACP,iCAA8B,mMAKtD,kCACU,WACF,YACC,YACA,wCACgB,oCACF,iEACC,gEACZ,kBACI,6CACI,mCACa,wCAAS,kBACzB,4BACT,sCACU,kBAAO,KAAG,mBACN,aACL,AAAa,mCAAY,mBAI/B,kBACL,+CACO,qCACE,+BACG,mBAES;IAOnC;;;QAtEM;QACW;;;AACZ,6DAAW,GAAG;;EAAC","file":"../../../../../../../../../packages/stock_id/screens/components/header_with_box.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["flow.dart"],"names":[],"mappings":"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","file":"../../../../../../../../E:/packages/flutter/src/rendering/flow.dart.lib.js"}');
   // Exports:
   return {
-    screens__components__header_with_box: header_with_box
+    src__rendering__flow: flow
   };
 }));
 
-//# sourceMappingURL=header_with_box.dart.lib.js.map
+//# sourceMappingURL=flow.dart.lib.js.map

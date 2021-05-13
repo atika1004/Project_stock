@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stock_id/screens/home/home_screen.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -81,7 +82,12 @@ class _LoginState extends State<Login> {
                 height: 50,
                 child: InkWell(
                   splashColor: Colors.white,
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context, 
+                      MaterialPageRoute(builder: (context) => HomeScreen()),
+                    );
+                  },
                   child: Center(
                     child: Text(
                       "Masuk",

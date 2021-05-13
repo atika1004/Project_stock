@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stock_id/constants.dart';
 import 'package:stock_id/screens/components/body.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -6,6 +7,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(),
+      backgroundColor: stockBackground,
       body: Body(),
     );
   }

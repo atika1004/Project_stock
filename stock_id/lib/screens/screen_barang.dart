@@ -14,6 +14,7 @@ class _BarangScreenState extends State<BarangScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: stockBackground,
       appBar: AppBar(
         title: Text(
           "Stok Barang",

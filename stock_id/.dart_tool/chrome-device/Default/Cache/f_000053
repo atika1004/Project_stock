@@ -1,52 +1,34 @@
-define(['dart_sdk', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/painting/box_fit.dart', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/painting/_network_image_web.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/painting/image_stream.dart', 'packages/flutter/src/painting/debug.dart', 'packages/flutter/src/scheduler/binding.dart'], (function load__packages__flutter__src__painting__decoration_image_dart(dart_sdk, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__painting__box_fit$46dart, packages__flutter__src__foundation__object$46dart, packages__flutter__src__painting___network_image_web$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__painting__image_stream$46dart, packages__flutter__src__painting__debug$46dart, packages__flutter__src__scheduler__binding$46dart) {
+define(['dart_sdk', 'packages/flutter/src/gestures/binding.dart', 'packages/flutter/src/gestures/events.dart', 'packages/vector_math/vector_math_64.dart', 'packages/flutter/src/gestures/arena.dart', 'packages/flutter/src/gestures/tap.dart', 'packages/flutter/src/gestures/constants.dart', 'packages/flutter/src/gestures/recognizer.dart'], (function load__packages__flutter__src__gestures__multitap_dart(dart_sdk, packages__flutter__src__gestures__binding$46dart, packages__flutter__src__gestures__events$46dart, packages__vector_math__vector_math_64$46dart, packages__flutter__src__gestures__arena$46dart, packages__flutter__src__gestures__tap$46dart, packages__flutter__src__gestures__constants$46dart, packages__flutter__src__gestures__recognizer$46dart) {
   'use strict';
   const core = dart_sdk.core;
+  const async = dart_sdk.async;
   const ui = dart_sdk.ui;
-  const _interceptors = dart_sdk._interceptors;
-  const collection = dart_sdk.collection;
-  const _engine = dart_sdk._engine;
-  const developer = dart_sdk.developer;
   const _js_helper = dart_sdk._js_helper;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
-  const box_fit = packages__flutter__src__painting__box_fit$46dart.src__painting__box_fit;
-  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
-  const image_provider = packages__flutter__src__painting___network_image_web$46dart.src__painting__image_provider;
-  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
-  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
-  const image_stream = packages__flutter__src__painting__image_stream$46dart.src__painting__image_stream;
-  const debug = packages__flutter__src__painting__debug$46dart.src__painting__debug;
-  const binding = packages__flutter__src__scheduler__binding$46dart.src__scheduler__binding;
-  var decoration_image = Object.create(dart.library);
-  var $runtimeType = dartx.runtimeType;
-  var $add = dartx.add;
-  var $join = dartx.join;
-  var $isNotEmpty = dartx.isNotEmpty;
-  var $toDouble = dartx.toDouble;
-  var $truncate = dartx.truncate;
-  var $toInt = dartx.toInt;
-  var $_get = dartx._get;
+  const binding = packages__flutter__src__gestures__binding$46dart.src__gestures__binding;
+  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
+  const vector_math_64 = packages__vector_math__vector_math_64$46dart.vector_math_64;
+  const arena = packages__flutter__src__gestures__arena$46dart.src__gestures__arena;
+  const tap = packages__flutter__src__gestures__tap$46dart.src__gestures__tap;
+  const constants = packages__flutter__src__gestures__constants$46dart.src__gestures__constants;
+  const recognizer = packages__flutter__src__gestures__recognizer$46dart.src__gestures__recognizer;
+  var multitap = Object.create(dart.library);
   var $_set = dartx._set;
-  var $values = dartx.values;
-  var $toSet = dartx.toSet;
+  var $_get = dartx._get;
+  var $remove = dartx.remove;
   var $isEmpty = dartx.isEmpty;
-  var $floor = dartx.floor;
-  var $ceil = dartx.ceil;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $values = dartx.values;
+  var $toList = dartx.toList;
+  var $forEach = dartx.forEach;
+  var $containsKey = dartx.containsKey;
   dart._checkModuleNullSafetyMode(false);
   var T = {
-    ImageRepeatL: () => (T.ImageRepeatL = dart.constFn(dart.legacy(decoration_image.ImageRepeat)))(),
-    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))(),
-    DiagnosticsPropertyOfDecorationImage: () => (T.DiagnosticsPropertyOfDecorationImage = dart.constFn(diagnostics.DiagnosticsProperty$(decoration_image.DecorationImage)))(),
-    DiagnosticsPropertyOfImageConfiguration: () => (T.DiagnosticsPropertyOfImageConfiguration = dart.constFn(diagnostics.DiagnosticsProperty$(image_provider.ImageConfiguration)))(),
-    JSArrayOfDiagnosticsNode: () => (T.JSArrayOfDiagnosticsNode = dart.constFn(_interceptors.JSArray$(diagnostics.DiagnosticsNode)))(),
-    VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
-    LinkedHashSetOfImageSizeInfo: () => (T.LinkedHashSetOfImageSizeInfo = dart.constFn(collection.LinkedHashSet$(debug.ImageSizeInfo)))(),
-    doubleL: () => (T.doubleL = dart.constFn(dart.legacy(core.double)))(),
-    IdentityMapOfString$Object: () => (T.IdentityMapOfString$Object = dart.constFn(_js_helper.IdentityMap$(core.String, core.Object)))(),
-    IdentityMapOfString$ImageSizeInfo: () => (T.IdentityMapOfString$ImageSizeInfo = dart.constFn(_js_helper.IdentityMap$(core.String, debug.ImageSizeInfo)))(),
-    DurationTovoid: () => (T.DurationTovoid = dart.constFn(dart.fnType(dart.void, [core.Duration])))(),
-    SyncIterableOfRect: () => (T.SyncIterableOfRect = dart.constFn(_js_helper.SyncIterable$(ui.Rect)))()
+    IdentityMapOfint$_TapTracker: () => (T.IdentityMapOfint$_TapTracker = dart.constFn(_js_helper.IdentityMap$(core.int, multitap._TapTracker)))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    IdentityMapOfint$_TapGesture: () => (T.IdentityMapOfint$_TapGesture = dart.constFn(_js_helper.IdentityMap$(core.int, multitap._TapGesture)))(),
+    ListOf_TapGesture: () => (T.ListOf_TapGesture = dart.constFn(core.List$(multitap._TapGesture)))()
   };
   var T$Eval = Object.assign({
     _: () => T$Eval
@@ -63,535 +45,577 @@ define(['dart_sdk', 'packages/flutter/src/painting/alignment.dart', 'packages/fl
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: decoration_image.ImageRepeat.prototype,
-        [_name$]: "ImageRepeat.repeat",
-        index: 0
-      });
-    },
-    get C1() {
-      return C[1] = dart.const({
-        __proto__: decoration_image.ImageRepeat.prototype,
-        [_name$]: "ImageRepeat.repeatX",
-        index: 1
-      });
-    },
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: decoration_image.ImageRepeat.prototype,
-        [_name$]: "ImageRepeat.repeatY",
-        index: 2
-      });
-    },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: decoration_image.ImageRepeat.prototype,
-        [_name$]: "ImageRepeat.noRepeat",
-        index: 3
-      });
-    },
-    get C4() {
-      return C[4] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2, C[3] || CT.C3], T.ImageRepeatL());
-    },
-    get C5() {
-      return C[5] = dart.const({
-        __proto__: alignment.Alignment.prototype,
-        [Alignment_y]: 0,
-        [Alignment_x]: 0
-      });
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: ui.FilterQuality.prototype,
-        [_name]: "FilterQuality.low",
-        index: 1
-      });
-    },
-    get C8() {
-      return C[8] = dart.constList([-1, 0, 0, 0, 255, 0, -1, 0, 0, 255, 0, 0, -1, 0, 255, 0, 0, 0, 1, 0], T.doubleL());
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: _engine._CkMatrixColorFilter.prototype,
-        [_CkMatrixColorFilter_matrix]: C[8] || CT.C8
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 0
       });
     }
   }, false);
-  var C = Array(9).fill(void 0);
+  var C = [void 0];
   var I = [
-    "file:///C:/src/flutter/packages/flutter/lib/src/painting/decoration_image.dart",
-    "package:flutter/src/painting/decoration_image.dart"
+    "file:///C:/src/flutter/packages/flutter/lib/src/gestures/multitap.dart",
+    "package:flutter/src/gestures/multitap.dart"
   ];
-  var _name$ = dart.privateName(decoration_image, "_name");
-  decoration_image.ImageRepeat = class ImageRepeat extends core.Object {
-    toString() {
-      return this[_name$];
+  var _timeout = dart.privateName(multitap, "_timeout");
+  var _onTimeout = dart.privateName(multitap, "_onTimeout");
+  multitap._CountdownZoned = class _CountdownZoned extends core.Object {
+    get timeout() {
+      return this[_timeout];
+    }
+    [_onTimeout]() {
+      this[_timeout] = true;
     }
   };
-  (decoration_image.ImageRepeat.new = function(index, _name) {
-    if (index == null) dart.nullFailed(I[0], 21, 6, "index");
-    if (_name == null) dart.nullFailed(I[0], 21, 6, "_name");
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = decoration_image.ImageRepeat.prototype;
-  dart.addTypeTests(decoration_image.ImageRepeat);
-  dart.addTypeCaches(decoration_image.ImageRepeat);
-  dart.setLibraryUri(decoration_image.ImageRepeat, I[1]);
-  dart.setFieldSignature(decoration_image.ImageRepeat, () => ({
-    __proto__: dart.getFields(decoration_image.ImageRepeat.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
+  (multitap._CountdownZoned.new = function(opts) {
+    let duration = opts && 'duration' in opts ? opts.duration : null;
+    if (duration == null) dart.nullFailed(I[0], 42, 39, "duration");
+    this[_timeout] = false;
+    if (!(duration != null)) dart.assertFailed(null, I[0], 43, 17, "duration != null");
+    async.Timer.new(duration, dart.bind(this, _onTimeout));
+  }).prototype = multitap._CountdownZoned.prototype;
+  dart.addTypeTests(multitap._CountdownZoned);
+  dart.addTypeCaches(multitap._CountdownZoned);
+  dart.setMethodSignature(multitap._CountdownZoned, () => ({
+    __proto__: dart.getMethods(multitap._CountdownZoned.__proto__),
+    [_onTimeout]: dart.fnType(dart.void, [])
   }));
-  dart.defineExtensionMethods(decoration_image.ImageRepeat, ['toString']);
-  decoration_image.ImageRepeat.repeat = C[0] || CT.C0;
-  decoration_image.ImageRepeat.repeatX = C[1] || CT.C1;
-  decoration_image.ImageRepeat.repeatY = C[2] || CT.C2;
-  decoration_image.ImageRepeat.noRepeat = C[3] || CT.C3;
-  decoration_image.ImageRepeat.values = C[4] || CT.C4;
-  var image$ = dart.privateName(decoration_image, "DecorationImage.image");
-  var onError$ = dart.privateName(decoration_image, "DecorationImage.onError");
-  var colorFilter$ = dart.privateName(decoration_image, "DecorationImage.colorFilter");
-  var fit$ = dart.privateName(decoration_image, "DecorationImage.fit");
-  var alignment$ = dart.privateName(decoration_image, "DecorationImage.alignment");
-  var centerSlice$ = dart.privateName(decoration_image, "DecorationImage.centerSlice");
-  var repeat$ = dart.privateName(decoration_image, "DecorationImage.repeat");
-  var matchTextDirection$ = dart.privateName(decoration_image, "DecorationImage.matchTextDirection");
-  var scale$ = dart.privateName(decoration_image, "DecorationImage.scale");
-  var Alignment_y = dart.privateName(alignment, "Alignment.y");
-  var Alignment_x = dart.privateName(alignment, "Alignment.x");
-  decoration_image.DecorationImage = class DecorationImage extends core.Object {
-    get image() {
-      return this[image$];
+  dart.setGetterSignature(multitap._CountdownZoned, () => ({
+    __proto__: dart.getGetters(multitap._CountdownZoned.__proto__),
+    timeout: core.bool
+  }));
+  dart.setLibraryUri(multitap._CountdownZoned, I[1]);
+  dart.setFieldSignature(multitap._CountdownZoned, () => ({
+    __proto__: dart.getFields(multitap._CountdownZoned.__proto__),
+    [_timeout]: dart.fieldType(core.bool)
+  }));
+  var _isTrackingPointer = dart.privateName(multitap, "_isTrackingPointer");
+  var _initialGlobalPosition = dart.privateName(multitap, "_initialGlobalPosition");
+  var _doubleTapMinTimeCountdown = dart.privateName(multitap, "_doubleTapMinTimeCountdown");
+  multitap._TapTracker = class _TapTracker extends core.Object {
+    startTrackingPointer(route, transform) {
+      if (route == null) dart.nullFailed(I[0], 79, 42, "route");
+      if (!dart.test(this[_isTrackingPointer])) {
+        this[_isTrackingPointer] = true;
+        dart.nullCheck(binding.GestureBinding.instance).pointerRouter.addRoute(this.pointer, route, transform);
+      }
     }
-    set image(value) {
-      super.image = value;
+    stopTrackingPointer(route) {
+      if (route == null) dart.nullFailed(I[0], 86, 41, "route");
+      if (dart.test(this[_isTrackingPointer])) {
+        this[_isTrackingPointer] = false;
+        dart.nullCheck(binding.GestureBinding.instance).pointerRouter.removeRoute(this.pointer, route);
+      }
     }
-    get onError() {
-      return this[onError$];
+    isWithinGlobalTolerance(event, tolerance) {
+      if (event == null) dart.nullFailed(I[0], 93, 45, "event");
+      if (tolerance == null) dart.nullFailed(I[0], 93, 59, "tolerance");
+      let offset = event.position['-'](this[_initialGlobalPosition]);
+      return dart.notNull(offset.distance) <= dart.notNull(tolerance);
     }
-    set onError(value) {
-      super.onError = value;
+    hasElapsedMinTime() {
+      return this[_doubleTapMinTimeCountdown].timeout;
     }
-    get colorFilter() {
-      return this[colorFilter$];
-    }
-    set colorFilter(value) {
-      super.colorFilter = value;
-    }
-    get fit() {
-      return this[fit$];
-    }
-    set fit(value) {
-      super.fit = value;
-    }
-    get alignment() {
-      return this[alignment$];
-    }
-    set alignment(value) {
-      super.alignment = value;
-    }
-    get centerSlice() {
-      return this[centerSlice$];
-    }
-    set centerSlice(value) {
-      super.centerSlice = value;
-    }
-    get repeat() {
-      return this[repeat$];
-    }
-    set repeat(value) {
-      super.repeat = value;
-    }
-    get matchTextDirection() {
-      return this[matchTextDirection$];
-    }
-    set matchTextDirection(value) {
-      super.matchTextDirection = value;
-    }
-    get scale() {
-      return this[scale$];
-    }
-    set scale(value) {
-      super.scale = value;
-    }
-    createPainter(onChanged) {
-      if (onChanged == null) dart.nullFailed(I[0], 149, 53, "onChanged");
-      if (!(onChanged != null)) dart.assertFailed(null, I[0], 150, 12, "onChanged != null");
-      return new decoration_image.DecorationImagePainter.__(this, onChanged);
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (this === other) return true;
-      if (!dart.equals(dart.runtimeType(other), this[$runtimeType])) return false;
-      return decoration_image.DecorationImage.is(other) && dart.equals(other.image, this.image) && dart.equals(other.colorFilter, this.colorFilter) && other.fit == this.fit && dart.equals(other.alignment, this.alignment) && dart.equals(other.centerSlice, this.centerSlice) && other.repeat == this.repeat && other.matchTextDirection == this.matchTextDirection && other.scale == this.scale;
-    }
-    get hashCode() {
-      return ui.hashValues(this.image, this.colorFilter, this.fit, this.alignment, this.centerSlice, this.repeat, this.matchTextDirection, this.scale);
-    }
-    toString() {
-      let properties = (() => {
-        let t0 = T.JSArrayOfString().of([dart.str(this.image)]);
-        if (this.colorFilter != null) t0[$add](dart.str(this.colorFilter));
-        if (this.fit != null && !(this.fit == box_fit.BoxFit.fill && this.centerSlice != null) && !(this.fit == box_fit.BoxFit.scaleDown && this.centerSlice == null)) t0[$add](dart.str(this.fit));
-        t0[$add](dart.str(this.alignment));
-        if (this.centerSlice != null) t0[$add]("centerSlice: " + dart.str(this.centerSlice));
-        if (this.repeat != decoration_image.ImageRepeat.noRepeat) t0[$add](dart.str(this.repeat));
-        if (dart.test(this.matchTextDirection)) t0[$add]("match text direction");
-        t0[$add]("scale: " + dart.str(this.scale));
-        return t0;
-      })();
-      return dart.str(object.objectRuntimeType(this, "DecorationImage")) + "(" + dart.str(properties[$join](", ")) + ")";
+    hasSameButton(event) {
+      if (event == null) dart.nullFailed(I[0], 102, 39, "event");
+      return event.buttons == this.initialButtons;
     }
   };
-  (decoration_image.DecorationImage.new = function(opts) {
-    let image = opts && 'image' in opts ? opts.image : null;
-    if (image == null) dart.nullFailed(I[0], 46, 19, "image");
-    let onError = opts && 'onError' in opts ? opts.onError : null;
-    let colorFilter = opts && 'colorFilter' in opts ? opts.colorFilter : null;
-    let fit = opts && 'fit' in opts ? opts.fit : null;
-    let alignment = opts && 'alignment' in opts ? opts.alignment : C[5] || CT.C5;
-    if (alignment == null) dart.nullFailed(I[0], 50, 10, "alignment");
-    let centerSlice = opts && 'centerSlice' in opts ? opts.centerSlice : null;
-    let repeat = opts && 'repeat' in opts ? opts.repeat : C[3] || CT.C3;
-    if (repeat == null) dart.nullFailed(I[0], 52, 10, "repeat");
-    let matchTextDirection = opts && 'matchTextDirection' in opts ? opts.matchTextDirection : false;
-    if (matchTextDirection == null) dart.nullFailed(I[0], 53, 10, "matchTextDirection");
-    let scale = opts && 'scale' in opts ? opts.scale : 1;
-    if (scale == null) dart.nullFailed(I[0], 54, 10, "scale");
-    this[image$] = image;
-    this[onError$] = onError;
-    this[colorFilter$] = colorFilter;
-    this[fit$] = fit;
-    this[alignment$] = alignment;
-    this[centerSlice$] = centerSlice;
-    this[repeat$] = repeat;
-    this[matchTextDirection$] = matchTextDirection;
-    this[scale$] = scale;
-    if (!(image != null)) dart.assertFailed(null, I[0], 55, 15, "image != null");
-    if (!(alignment != null)) dart.assertFailed(null, I[0], 56, 15, "alignment != null");
-    if (!(repeat != null)) dart.assertFailed(null, I[0], 57, 15, "repeat != null");
-    if (!(matchTextDirection != null)) dart.assertFailed(null, I[0], 58, 15, "matchTextDirection != null");
-    if (!(scale != null)) dart.assertFailed(null, I[0], 59, 15, "scale != null");
+  (multitap._TapTracker.new = function(opts) {
+    let event = opts && 'event' in opts ? opts.event : null;
+    if (event == null) dart.nullFailed(I[0], 60, 31, "event");
+    let entry = opts && 'entry' in opts ? opts.entry : null;
+    if (entry == null) dart.nullFailed(I[0], 61, 19, "entry");
+    let doubleTapMinTime = opts && 'doubleTapMinTime' in opts ? opts.doubleTapMinTime : null;
+    if (doubleTapMinTime == null) dart.nullFailed(I[0], 62, 23, "doubleTapMinTime");
+    this[_isTrackingPointer] = false;
+    this.entry = entry;
+    if (!(doubleTapMinTime != null)) dart.assertFailed(null, I[0], 63, 15, "doubleTapMinTime != null");
+    if (!(event != null)) dart.assertFailed(null, I[0], 64, 15, "event != null");
+    if (!(event.buttons != null)) dart.assertFailed(null, I[0], 65, 15, "event.buttons != null");
+    this.pointer = event.pointer;
+    this[_initialGlobalPosition] = event.position;
+    this.initialButtons = event.buttons;
+    this[_doubleTapMinTimeCountdown] = new multitap._CountdownZoned.new({duration: doubleTapMinTime});
     ;
-  }).prototype = decoration_image.DecorationImage.prototype;
-  dart.addTypeTests(decoration_image.DecorationImage);
-  dart.addTypeCaches(decoration_image.DecorationImage);
-  dart.setMethodSignature(decoration_image.DecorationImage, () => ({
-    __proto__: dart.getMethods(decoration_image.DecorationImage.__proto__),
-    createPainter: dart.fnType(decoration_image.DecorationImagePainter, [dart.fnType(dart.void, [])])
+  }).prototype = multitap._TapTracker.prototype;
+  dart.addTypeTests(multitap._TapTracker);
+  dart.addTypeCaches(multitap._TapTracker);
+  dart.setMethodSignature(multitap._TapTracker, () => ({
+    __proto__: dart.getMethods(multitap._TapTracker.__proto__),
+    startTrackingPointer: dart.fnType(dart.void, [dart.fnType(dart.void, [events.PointerEvent]), dart.nullable(vector_math_64.Matrix4)]),
+    stopTrackingPointer: dart.fnType(dart.void, [dart.fnType(dart.void, [events.PointerEvent])]),
+    isWithinGlobalTolerance: dart.fnType(core.bool, [events.PointerEvent, core.double]),
+    hasElapsedMinTime: dart.fnType(core.bool, []),
+    hasSameButton: dart.fnType(core.bool, [events.PointerDownEvent])
   }));
-  dart.setLibraryUri(decoration_image.DecorationImage, I[1]);
-  dart.setFieldSignature(decoration_image.DecorationImage, () => ({
-    __proto__: dart.getFields(decoration_image.DecorationImage.__proto__),
-    image: dart.finalFieldType(image_provider.ImageProvider$(core.Object)),
-    onError: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)]))),
-    colorFilter: dart.finalFieldType(dart.nullable(ui.ColorFilter)),
-    fit: dart.finalFieldType(dart.nullable(box_fit.BoxFit)),
-    alignment: dart.finalFieldType(alignment.AlignmentGeometry),
-    centerSlice: dart.finalFieldType(dart.nullable(ui.Rect)),
-    repeat: dart.finalFieldType(decoration_image.ImageRepeat),
-    matchTextDirection: dart.finalFieldType(core.bool),
-    scale: dart.finalFieldType(core.double)
+  dart.setLibraryUri(multitap._TapTracker, I[1]);
+  dart.setFieldSignature(multitap._TapTracker, () => ({
+    __proto__: dart.getFields(multitap._TapTracker.__proto__),
+    pointer: dart.finalFieldType(core.int),
+    entry: dart.finalFieldType(arena.GestureArenaEntry),
+    [_initialGlobalPosition]: dart.finalFieldType(ui.Offset),
+    initialButtons: dart.finalFieldType(core.int),
+    [_doubleTapMinTimeCountdown]: dart.finalFieldType(multitap._CountdownZoned),
+    [_isTrackingPointer]: dart.fieldType(core.bool)
   }));
-  dart.defineExtensionMethods(decoration_image.DecorationImage, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(decoration_image.DecorationImage, ['hashCode']);
-  var _imageStream = dart.privateName(decoration_image, "_imageStream");
-  var _image = dart.privateName(decoration_image, "_image");
-  var _details$ = dart.privateName(decoration_image, "_details");
-  var _onChanged$ = dart.privateName(decoration_image, "_onChanged");
-  var _handleImage = dart.privateName(decoration_image, "_handleImage");
-  decoration_image.DecorationImagePainter = class DecorationImagePainter extends core.Object {
-    paint(canvas, rect, clipPath, configuration) {
-      let t1, t1$;
-      if (canvas == null) dart.nullFailed(I[0], 231, 21, "canvas");
-      if (rect == null) dart.nullFailed(I[0], 231, 34, "rect");
-      if (configuration == null) dart.nullFailed(I[0], 231, 75, "configuration");
-      if (!(canvas != null)) dart.assertFailed(null, I[0], 232, 12, "canvas != null");
-      if (!(rect != null)) dart.assertFailed(null, I[0], 233, 12, "rect != null");
-      if (!(configuration != null)) dart.assertFailed(null, I[0], 234, 12, "configuration != null");
-      let flipHorizontally = false;
-      if (dart.test(this[_details$].matchTextDirection)) {
-        if (!dart.test(dart.fn(() => {
-          if (configuration.textDirection == null) {
-            dart.throw(new assertions.FlutterError.fromParts(T.JSArrayOfDiagnosticsNode().of([new assertions.ErrorSummary.new("DecorationImage.matchTextDirection can only be used when a TextDirection is available."), new assertions.ErrorDescription.new("When DecorationImagePainter.paint() was called, there was no text direction provided " + "in the ImageConfiguration object to match."), new (T.DiagnosticsPropertyOfDecorationImage()).new("The DecorationImage was", this[_details$], {style: diagnostics.DiagnosticsTreeStyle.errorProperty}), new (T.DiagnosticsPropertyOfImageConfiguration()).new("The ImageConfiguration was", configuration, {style: diagnostics.DiagnosticsTreeStyle.errorProperty})])));
+  var onDoubleTapDown = dart.privateName(multitap, "DoubleTapGestureRecognizer.onDoubleTapDown");
+  var onDoubleTap = dart.privateName(multitap, "DoubleTapGestureRecognizer.onDoubleTap");
+  var onDoubleTapCancel = dart.privateName(multitap, "DoubleTapGestureRecognizer.onDoubleTapCancel");
+  var _doubleTapTimer = dart.privateName(multitap, "_doubleTapTimer");
+  var _firstTap = dart.privateName(multitap, "_firstTap");
+  var _trackers = dart.privateName(multitap, "_trackers");
+  var _reset = dart.privateName(multitap, "_reset");
+  var _trackTap = dart.privateName(multitap, "_trackTap");
+  var _stopDoubleTapTimer = dart.privateName(multitap, "_stopDoubleTapTimer");
+  var _handleEvent = dart.privateName(multitap, "_handleEvent");
+  var _registerFirstTap = dart.privateName(multitap, "_registerFirstTap");
+  var _registerSecondTap = dart.privateName(multitap, "_registerSecondTap");
+  var _reject = dart.privateName(multitap, "_reject");
+  var _freezeTracker = dart.privateName(multitap, "_freezeTracker");
+  var _checkCancel = dart.privateName(multitap, "_checkCancel");
+  var _clearTrackers = dart.privateName(multitap, "_clearTrackers");
+  var _startDoubleTapTimer = dart.privateName(multitap, "_startDoubleTapTimer");
+  var _checkUp = dart.privateName(multitap, "_checkUp");
+  multitap.DoubleTapGestureRecognizer = class DoubleTapGestureRecognizer extends recognizer.GestureRecognizer {
+    get onDoubleTapDown() {
+      return this[onDoubleTapDown];
+    }
+    set onDoubleTapDown(value) {
+      this[onDoubleTapDown] = value;
+    }
+    get onDoubleTap() {
+      return this[onDoubleTap];
+    }
+    set onDoubleTap(value) {
+      this[onDoubleTap] = value;
+    }
+    get onDoubleTapCancel() {
+      return this[onDoubleTapCancel];
+    }
+    set onDoubleTapCancel(value) {
+      this[onDoubleTapCancel] = value;
+    }
+    isPointerAllowed(event) {
+      if (event == null) dart.nullFailed(I[0], 193, 42, "event");
+      if (this[_firstTap] == null) {
+        switch (event.buttons) {
+          case 1:
+          {
+            if (this.onDoubleTapDown == null && this.onDoubleTap == null && this.onDoubleTapCancel == null) return false;
+            break;
           }
-          return true;
-        }, T.VoidTobool())())) dart.assertFailed(null, I[0], 238, 14, "() {\r\n        // We check this first so that the assert will fire immediately, not just\r\n        // when the image is ready.\r\n        if (configuration.textDirection == null) {\r\n          throw FlutterError.fromParts(<DiagnosticsNode>[\r\n            ErrorSummary('DecorationImage.matchTextDirection can only be used when a TextDirection is available.'),\r\n            ErrorDescription(\r\n              'When DecorationImagePainter.paint() was called, there was no text direction provided '\r\n              'in the ImageConfiguration object to match.'\r\n            ),\r\n            DiagnosticsProperty<DecorationImage>('The DecorationImage was', _details, style: DiagnosticsTreeStyle.errorProperty),\r\n            DiagnosticsProperty<ImageConfiguration>('The ImageConfiguration was', configuration, style: DiagnosticsTreeStyle.errorProperty),\r\n          ]);\r\n        }\r\n        return true;\r\n      }()");
-        if (configuration.textDirection == ui.TextDirection.rtl) flipHorizontally = true;
+          default:
+          {
+            return false;
+          }
+        }
       }
-      let newImageStream = this[_details$].image.resolve(configuration);
-      if (!dart.equals(newImageStream.key, (t1 = this[_imageStream], t1 == null ? null : t1.key))) {
-        let listener = new image_stream.ImageStreamListener.new(dart.bind(this, _handleImage), {onError: this[_details$].onError});
-        t1$ = this[_imageStream];
-        t1$ == null ? null : t1$.removeListener(listener);
-        this[_imageStream] = newImageStream;
-        dart.nullCheck(this[_imageStream]).addListener(listener);
-      }
-      if (this[_image] == null) return;
-      if (clipPath != null) {
-        canvas.save();
-        canvas.clipPath(clipPath);
-      }
-      decoration_image.paintImage({canvas: canvas, rect: rect, image: dart.nullCheck(this[_image]).image, debugImageLabel: dart.nullCheck(this[_image]).debugLabel, scale: dart.notNull(this[_details$].scale) * dart.notNull(dart.nullCheck(this[_image]).scale), colorFilter: this[_details$].colorFilter, fit: this[_details$].fit, alignment: this[_details$].alignment.resolve(configuration.textDirection), centerSlice: this[_details$].centerSlice, repeat: this[_details$].repeat, flipHorizontally: flipHorizontally, filterQuality: ui.FilterQuality.low});
-      if (clipPath != null) canvas.restore();
+      return super.isPointerAllowed(event);
     }
-    [_handleImage](value, synchronousCall) {
-      let t1;
-      if (value == null) dart.nullFailed(I[0], 295, 31, "value");
-      if (synchronousCall == null) dart.nullFailed(I[0], 295, 43, "synchronousCall");
-      if (dart.equals(this[_image], value)) return;
-      if (this[_image] != null && dart.test(dart.nullCheck(this[_image]).isCloneOf(value))) {
-        value.dispose();
-        return;
+    addAllowedPointer(event) {
+      if (event == null) dart.nullFailed(I[0], 210, 43, "event");
+      if (this[_firstTap] != null) {
+        if (!dart.test(dart.nullCheck(this[_firstTap]).isWithinGlobalTolerance(event, 100))) {
+          return;
+        } else if (!dart.test(dart.nullCheck(this[_firstTap]).hasElapsedMinTime()) || !dart.test(dart.nullCheck(this[_firstTap]).hasSameButton(event))) {
+          this[_reset]();
+          return this[_trackTap](event);
+        } else if (this.onDoubleTapDown != null) {
+          let details = new tap.TapDownDetails.new({globalPosition: event.position, localPosition: event.localPosition, kind: this.getKindForPointer(event.pointer)});
+          this.invokeCallback(dart.void, "onDoubleTapDown", dart.fn(() => dart.nullCheck(this.onDoubleTapDown)(details), T.VoidTovoid()));
+        }
       }
-      t1 = this[_image];
-      t1 == null ? null : t1.dispose();
-      this[_image] = value;
-      if (!(this[_onChanged$] != null)) dart.assertFailed(null, I[0], 304, 12, "_onChanged != null");
-      if (!dart.test(synchronousCall)) this[_onChanged$]();
+      this[_trackTap](event);
+    }
+    [_trackTap](event) {
+      if (event == null) dart.nullFailed(I[0], 232, 35, "event");
+      this[_stopDoubleTapTimer]();
+      let tracker = new multitap._TapTracker.new({event: event, entry: dart.nullCheck(binding.GestureBinding.instance).gestureArena.add(event.pointer, this), doubleTapMinTime: constants.kDoubleTapMinTime});
+      this[_trackers][$_set](event.pointer, tracker);
+      tracker.startTrackingPointer(dart.bind(this, _handleEvent), event.transform);
+    }
+    [_handleEvent](event) {
+      if (event == null) dart.nullFailed(I[0], 243, 34, "event");
+      let tracker = dart.nullCheck(this[_trackers][$_get](event.pointer));
+      if (events.PointerUpEvent.is(event)) {
+        if (this[_firstTap] == null)
+          this[_registerFirstTap](tracker);
+        else
+          this[_registerSecondTap](tracker);
+      } else if (events.PointerMoveEvent.is(event)) {
+        if (!dart.test(tracker.isWithinGlobalTolerance(event, 18))) this[_reject](tracker);
+      } else if (events.PointerCancelEvent.is(event)) {
+        this[_reject](tracker);
+      }
+    }
+    acceptGesture(pointer) {
+      if (pointer == null) dart.nullFailed(I[0], 259, 26, "pointer");
+    }
+    rejectGesture(pointer) {
+      if (pointer == null) dart.nullFailed(I[0], 262, 26, "pointer");
+      let tracker = this[_trackers][$_get](pointer);
+      if (tracker == null && this[_firstTap] != null && dart.nullCheck(this[_firstTap]).pointer == pointer) tracker = this[_firstTap];
+      if (tracker != null) this[_reject](tracker);
+    }
+    [_reject](tracker) {
+      if (tracker == null) dart.nullFailed(I[0], 274, 28, "tracker");
+      this[_trackers][$remove](tracker.pointer);
+      tracker.entry.resolve(arena.GestureDisposition.rejected);
+      this[_freezeTracker](tracker);
+      if (this[_firstTap] != null) {
+        if (dart.equals(tracker, this[_firstTap])) {
+          this[_reset]();
+        } else {
+          this[_checkCancel]();
+          if (dart.test(this[_trackers][$isEmpty])) this[_reset]();
+        }
+      }
     }
     dispose() {
-      let t1, t1$;
-      t1 = this[_imageStream];
-      t1 == null ? null : t1.removeListener(new image_stream.ImageStreamListener.new(dart.bind(this, _handleImage), {onError: this[_details$].onError}));
-      t1$ = this[_image];
-      t1$ == null ? null : t1$.dispose();
-      this[_image] = null;
+      this[_reset]();
+      super.dispose();
     }
-    toString() {
-      return dart.str(object.objectRuntimeType(this, "DecorationImagePainter")) + "(stream: " + dart.str(this[_imageStream]) + ", image: " + dart.str(this[_image]) + ") for " + dart.str(this[_details$]);
+    [_reset]() {
+      this[_stopDoubleTapTimer]();
+      if (this[_firstTap] != null) {
+        if (dart.test(this[_trackers][$isNotEmpty])) this[_checkCancel]();
+        let tracker = dart.nullCheck(this[_firstTap]);
+        this[_firstTap] = null;
+        this[_reject](tracker);
+        dart.nullCheck(binding.GestureBinding.instance).gestureArena.release(tracker.pointer);
+      }
+      this[_clearTrackers]();
+    }
+    [_registerFirstTap](tracker) {
+      if (tracker == null) dart.nullFailed(I[0], 310, 38, "tracker");
+      this[_startDoubleTapTimer]();
+      dart.nullCheck(binding.GestureBinding.instance).gestureArena.hold(tracker.pointer);
+      this[_freezeTracker](tracker);
+      this[_trackers][$remove](tracker.pointer);
+      this[_clearTrackers]();
+      this[_firstTap] = tracker;
+    }
+    [_registerSecondTap](tracker) {
+      if (tracker == null) dart.nullFailed(I[0], 321, 39, "tracker");
+      dart.nullCheck(this[_firstTap]).entry.resolve(arena.GestureDisposition.accepted);
+      tracker.entry.resolve(arena.GestureDisposition.accepted);
+      this[_freezeTracker](tracker);
+      this[_trackers][$remove](tracker.pointer);
+      this[_checkUp](tracker.initialButtons);
+      this[_reset]();
+    }
+    [_clearTrackers]() {
+      this[_trackers][$values][$toList]()[$forEach](dart.bind(this, _reject));
+      if (!dart.test(this[_trackers][$isEmpty])) dart.assertFailed(null, I[0], 332, 12, "_trackers.isEmpty");
+    }
+    [_freezeTracker](tracker) {
+      if (tracker == null) dart.nullFailed(I[0], 335, 35, "tracker");
+      tracker.stopTrackingPointer(dart.bind(this, _handleEvent));
+    }
+    [_startDoubleTapTimer]() {
+      this[_doubleTapTimer] == null ? this[_doubleTapTimer] = async.Timer.new(constants.kDoubleTapTimeout, dart.bind(this, _reset)) : null;
+    }
+    [_stopDoubleTapTimer]() {
+      if (this[_doubleTapTimer] != null) {
+        dart.nullCheck(this[_doubleTapTimer]).cancel();
+        this[_doubleTapTimer] = null;
+      }
+    }
+    [_checkUp](buttons) {
+      if (buttons == null) dart.nullFailed(I[0], 350, 21, "buttons");
+      if (!(buttons === 1)) dart.assertFailed(null, I[0], 351, 12, "buttons == kPrimaryButton");
+      if (this.onDoubleTap != null) this.invokeCallback(dart.void, "onDoubleTap", dart.nullCheck(this.onDoubleTap));
+    }
+    [_checkCancel]() {
+      if (this.onDoubleTapCancel != null) this.invokeCallback(dart.void, "onDoubleTapCancel", dart.nullCheck(this.onDoubleTapCancel));
+    }
+    get debugDescription() {
+      return "double tap";
     }
   };
-  (decoration_image.DecorationImagePainter.__ = function(_details, _onChanged) {
-    if (_details == null) dart.nullFailed(I[0], 209, 33, "_details");
-    if (_onChanged == null) dart.nullFailed(I[0], 209, 48, "_onChanged");
-    this[_imageStream] = null;
-    this[_image] = null;
-    this[_details$] = _details;
-    this[_onChanged$] = _onChanged;
-    if (!(_details != null)) dart.assertFailed(null, I[0], 209, 69, "_details != null");
+  (multitap.DoubleTapGestureRecognizer.new = function(opts) {
+    let debugOwner = opts && 'debugOwner' in opts ? opts.debugOwner : null;
+    let kind = opts && 'kind' in opts ? opts.kind : null;
+    this[onDoubleTapDown] = null;
+    this[onDoubleTap] = null;
+    this[onDoubleTapCancel] = null;
+    this[_doubleTapTimer] = null;
+    this[_firstTap] = null;
+    this[_trackers] = new (T.IdentityMapOfint$_TapTracker()).new();
+    multitap.DoubleTapGestureRecognizer.__proto__.new.call(this, {debugOwner: debugOwner, kind: kind});
     ;
-  }).prototype = decoration_image.DecorationImagePainter.prototype;
-  dart.addTypeTests(decoration_image.DecorationImagePainter);
-  dart.addTypeCaches(decoration_image.DecorationImagePainter);
-  dart.setMethodSignature(decoration_image.DecorationImagePainter, () => ({
-    __proto__: dart.getMethods(decoration_image.DecorationImagePainter.__proto__),
-    paint: dart.fnType(dart.void, [ui.Canvas, ui.Rect, dart.nullable(ui.Path), image_provider.ImageConfiguration]),
-    [_handleImage]: dart.fnType(dart.void, [image_stream.ImageInfo, core.bool]),
-    dispose: dart.fnType(dart.void, [])
+  }).prototype = multitap.DoubleTapGestureRecognizer.prototype;
+  dart.addTypeTests(multitap.DoubleTapGestureRecognizer);
+  dart.addTypeCaches(multitap.DoubleTapGestureRecognizer);
+  dart.setMethodSignature(multitap.DoubleTapGestureRecognizer, () => ({
+    __proto__: dart.getMethods(multitap.DoubleTapGestureRecognizer.__proto__),
+    [_trackTap]: dart.fnType(dart.void, [events.PointerDownEvent]),
+    [_handleEvent]: dart.fnType(dart.void, [events.PointerEvent]),
+    acceptGesture: dart.fnType(dart.void, [core.int]),
+    rejectGesture: dart.fnType(dart.void, [core.int]),
+    [_reject]: dart.fnType(dart.void, [multitap._TapTracker]),
+    [_reset]: dart.fnType(dart.void, []),
+    [_registerFirstTap]: dart.fnType(dart.void, [multitap._TapTracker]),
+    [_registerSecondTap]: dart.fnType(dart.void, [multitap._TapTracker]),
+    [_clearTrackers]: dart.fnType(dart.void, []),
+    [_freezeTracker]: dart.fnType(dart.void, [multitap._TapTracker]),
+    [_startDoubleTapTimer]: dart.fnType(dart.void, []),
+    [_stopDoubleTapTimer]: dart.fnType(dart.void, []),
+    [_checkUp]: dart.fnType(dart.void, [core.int]),
+    [_checkCancel]: dart.fnType(dart.void, [])
   }));
-  dart.setLibraryUri(decoration_image.DecorationImagePainter, I[1]);
-  dart.setFieldSignature(decoration_image.DecorationImagePainter, () => ({
-    __proto__: dart.getFields(decoration_image.DecorationImagePainter.__proto__),
-    [_details$]: dart.finalFieldType(decoration_image.DecorationImage),
-    [_onChanged$]: dart.finalFieldType(dart.fnType(dart.void, [])),
-    [_imageStream]: dart.fieldType(dart.nullable(image_stream.ImageStream)),
-    [_image]: dart.fieldType(dart.nullable(image_stream.ImageInfo))
+  dart.setGetterSignature(multitap.DoubleTapGestureRecognizer, () => ({
+    __proto__: dart.getGetters(multitap.DoubleTapGestureRecognizer.__proto__),
+    debugDescription: core.String
   }));
-  dart.defineExtensionMethods(decoration_image.DecorationImagePainter, ['toString']);
-  var _name = dart.privateName(ui, "_name");
-  var _CkMatrixColorFilter_matrix = dart.privateName(_engine, "_CkMatrixColorFilter.matrix");
-  decoration_image.debugFlushLastFrameImageSizeInfo = function debugFlushLastFrameImageSizeInfo() {
-    if (!dart.test(dart.fn(() => {
-      decoration_image._lastFrameImageSizeInfo = T.LinkedHashSetOfImageSizeInfo().new();
-      return true;
-    }, T.VoidTobool())())) dart.assertFailed(null, I[0], 343, 10, "() {\r\n    _lastFrameImageSizeInfo = <ImageSizeInfo>{};\r\n    return true;\r\n  }()");
-  };
-  decoration_image.paintImage = function paintImage(opts) {
-    let t1, t1$, t1$0, t1$1;
-    let canvas = opts && 'canvas' in opts ? opts.canvas : null;
-    if (canvas == null) dart.nullFailed(I[0], 418, 19, "canvas");
-    let rect = opts && 'rect' in opts ? opts.rect : null;
-    if (rect == null) dart.nullFailed(I[0], 419, 17, "rect");
-    let image = opts && 'image' in opts ? opts.image : null;
-    if (image == null) dart.nullFailed(I[0], 420, 21, "image");
-    let debugImageLabel = opts && 'debugImageLabel' in opts ? opts.debugImageLabel : null;
-    let scale = opts && 'scale' in opts ? opts.scale : 1;
-    if (scale == null) dart.nullFailed(I[0], 422, 10, "scale");
-    let colorFilter = opts && 'colorFilter' in opts ? opts.colorFilter : null;
-    let fit = opts && 'fit' in opts ? opts.fit : null;
-    let alignment = opts && 'alignment' in opts ? opts.alignment : C[5] || CT.C5;
-    if (alignment == null) dart.nullFailed(I[0], 425, 13, "alignment");
-    let centerSlice = opts && 'centerSlice' in opts ? opts.centerSlice : null;
-    let repeat = opts && 'repeat' in opts ? opts.repeat : C[3] || CT.C3;
-    if (repeat == null) dart.nullFailed(I[0], 427, 15, "repeat");
-    let flipHorizontally = opts && 'flipHorizontally' in opts ? opts.flipHorizontally : false;
-    if (flipHorizontally == null) dart.nullFailed(I[0], 428, 8, "flipHorizontally");
-    let invertColors = opts && 'invertColors' in opts ? opts.invertColors : false;
-    if (invertColors == null) dart.nullFailed(I[0], 429, 8, "invertColors");
-    let filterQuality = opts && 'filterQuality' in opts ? opts.filterQuality : C[6] || CT.C6;
-    if (filterQuality == null) dart.nullFailed(I[0], 430, 17, "filterQuality");
-    let isAntiAlias = opts && 'isAntiAlias' in opts ? opts.isAntiAlias : false;
-    if (isAntiAlias == null) dart.nullFailed(I[0], 431, 8, "isAntiAlias");
-    if (!(canvas != null)) dart.assertFailed(null, I[0], 433, 10, "canvas != null");
-    if (!(image != null)) dart.assertFailed(null, I[0], 434, 10, "image != null");
-    if (!(alignment != null)) dart.assertFailed(null, I[0], 435, 10, "alignment != null");
-    if (!(repeat != null)) dart.assertFailed(null, I[0], 436, 10, "repeat != null");
-    if (!(flipHorizontally != null)) dart.assertFailed(null, I[0], 437, 10, "flipHorizontally != null");
-    if (!(isAntiAlias != null)) dart.assertFailed(null, I[0], 438, 10, "isAntiAlias != null");
-    if (!dart.test((t1$ = (t1 = image.debugGetOpenHandleStackTraces(), t1 == null ? null : t1[$isNotEmpty]), t1$ == null ? true : t1$))) dart.assertFailed("Cannot paint an image that is disposed.\n" + "The caller of paintImage is expected to wait to dispose the image until " + "after painting has completed.", I[0], 440, 5, "image.debugGetOpenHandleStackTraces()?.isNotEmpty ?? true");
-    if (dart.test(rect.isEmpty)) return;
-    let outputSize = rect.size;
-    let inputSize = new ui.Size.new(image.width[$toDouble](), image.height[$toDouble]());
-    let sliceBorder = null;
-    if (centerSlice != null) {
-      sliceBorder = ui.Offset.as(inputSize['/'](scale)['-'](centerSlice.size));
-      outputSize = ui.Size.as(outputSize['-'](sliceBorder));
-      inputSize = ui.Size.as(inputSize['-'](sliceBorder['*'](scale)));
-    }
-    fit == null ? fit = centerSlice == null ? box_fit.BoxFit.scaleDown : box_fit.BoxFit.fill : null;
-    if (!(centerSlice == null || fit != box_fit.BoxFit.none && fit != box_fit.BoxFit.cover)) dart.assertFailed(null, I[0], 456, 10, "centerSlice == null || (fit != BoxFit.none && fit != BoxFit.cover)");
-    let fittedSizes = box_fit.applyBoxFit(fit, inputSize['/'](scale), outputSize);
-    let sourceSize = fittedSizes.source['*'](scale);
-    let destinationSize = fittedSizes.destination;
-    if (centerSlice != null) {
-      outputSize = outputSize['+'](dart.nullCheck(sliceBorder));
-      destinationSize = destinationSize['+'](sliceBorder);
-      if (!dart.equals(sourceSize, inputSize)) dart.assertFailed("centerSlice was used with a BoxFit that does not guarantee that the image is fully visible.", I[0], 465, 12, "sourceSize == inputSize");
-    }
-    if (repeat != decoration_image.ImageRepeat.noRepeat && dart.equals(destinationSize, outputSize)) {
-      repeat = decoration_image.ImageRepeat.noRepeat;
-    }
-    let paint = (t1$0 = ui.Paint.new(), (() => {
-      t1$0.isAntiAlias = isAntiAlias;
-      return t1$0;
-    })());
-    if (colorFilter != null) paint.colorFilter = colorFilter;
-    if (!dart.equals(sourceSize, destinationSize)) {
-      paint.filterQuality = filterQuality;
-    }
-    paint.invertColors = invertColors;
-    let halfWidthDelta = (dart.notNull(outputSize.width) - dart.notNull(destinationSize.width)) / 2.0;
-    let halfHeightDelta = (dart.notNull(outputSize.height) - dart.notNull(destinationSize.height)) / 2.0;
-    let dx = halfWidthDelta + dart.notNull(dart.test(flipHorizontally) ? -dart.notNull(alignment.x) : alignment.x) * halfWidthDelta;
-    let dy = halfHeightDelta + dart.notNull(alignment.y) * halfHeightDelta;
-    let destinationPosition = rect.topLeft.translate(dx, dy);
-    let destinationRect = destinationPosition['&'](destinationSize);
-    let invertedCanvas = false;
-    if (!false) {
-      let sizeInfo = new debug.ImageSizeInfo.new({source: (t1$1 = debugImageLabel, t1$1 == null ? "<Unknown Image(" + dart.str(image.width) + "×" + dart.str(image.height) + ")>" : t1$1), imageSize: new ui.Size.new(image.width[$toDouble](), image.height[$toDouble]()), displaySize: outputSize});
-      if (!dart.test(dart.fn(() => {
-        let t1;
-        if (dart.test(debug.debugInvertOversizedImages) && dart.notNull(sizeInfo.decodedSizeInBytes) > dart.notNull(sizeInfo.displaySizeInBytes) + dart.notNull(debug.debugImageOverheadAllowance)) {
-          let overheadInKilobytes = ((dart.notNull(sizeInfo.decodedSizeInBytes) - dart.notNull(sizeInfo.displaySizeInBytes)) / 1024)[$truncate]();
-          let outputWidth = outputSize.width[$toInt]();
-          let outputHeight = outputSize.height[$toInt]();
-          assertions.FlutterError.reportError(new assertions.FlutterErrorDetails.new({exception: "Image " + dart.str(debugImageLabel) + " has a display size of " + dart.str(outputWidth) + "×" + dart.str(outputHeight) + " but a decode size of " + dart.str(image.width) + "×" + dart.str(image.height) + ", which uses an additional " + dart.str(overheadInKilobytes) + "kb.\n\n" + "Consider resizing the asset ahead of time, supplying a cacheWidth " + "parameter of " + dart.str(outputWidth) + ", a cacheHeight parameter of " + dart.str(outputHeight) + ", or using a ResizeImage.", library: "painting library", context: new assertions.ErrorDescription.new("while painting an image")}));
-          canvas.saveLayer(destinationRect, (t1 = ui.Paint.new(), (() => {
-            t1.colorFilter = C[7] || CT.C7;
-            return t1;
-          })()));
-          let dy = -(dart.notNull(rect.top) + dart.notNull(rect.height) / 2.0);
-          canvas.translate(0.0, -dy);
-          canvas.scale(1.0, -1.0);
-          canvas.translate(0.0, dy);
-          invertedCanvas = true;
-        }
-        return true;
-      }, T.VoidTobool())())) dart.assertFailed(null, I[0], 497, 12, "() {\r\n      if (debugInvertOversizedImages &&\r\n          sizeInfo.decodedSizeInBytes > sizeInfo.displaySizeInBytes + debugImageOverheadAllowance) {\r\n        final int overheadInKilobytes = (sizeInfo.decodedSizeInBytes - sizeInfo.displaySizeInBytes) ~/ 1024;\r\n        final int outputWidth = outputSize.width.toInt();\r\n        final int outputHeight = outputSize.height.toInt();\r\n        FlutterError.reportError(FlutterErrorDetails(\r\n          exception: 'Image $debugImageLabel has a display size of '\r\n            '$outputWidth×$outputHeight but a decode size of '\r\n            '${image.width}×${image.height}, which uses an additional '\r\n            '${overheadInKilobytes}kb.\\n\\n'\r\n            'Consider resizing the asset ahead of time, supplying a cacheWidth '\r\n            'parameter of $outputWidth, a cacheHeight parameter of '\r\n            '$outputHeight, or using a ResizeImage.',\r\n          library: 'painting library',\r\n          context: ErrorDescription('while painting an image'),\r\n        ));\r\n        // Invert the colors of the canvas.\r\n        canvas.saveLayer(\r\n          destinationRect,\r\n          Paint()..colorFilter = const ColorFilter.matrix(<double>[\r\n            -1,  0,  0, 0, 255,\r\n             0, -1,  0, 0, 255,\r\n             0,  0, -1, 0, 255,\r\n             0,  0,  0, 1,   0,\r\n          ]),\r\n        );\r\n        // Flip the canvas vertically.\r\n        final double dy = -(rect.top + rect.height / 2.0);\r\n        canvas.translate(0.0, -dy);\r\n        canvas.scale(1.0, -1.0);\r\n        canvas.translate(0.0, dy);\r\n        invertedCanvas = true;\r\n      }\r\n      return true;\r\n    }()");
-      if (!dart.test(decoration_image._lastFrameImageSizeInfo.contains(sizeInfo))) {
-        let existingSizeInfo = decoration_image._pendingImageSizeInfo[$_get](sizeInfo.source);
-        if (existingSizeInfo == null || dart.notNull(existingSizeInfo.displaySizeInBytes) < dart.notNull(sizeInfo.displaySizeInBytes)) {
-          decoration_image._pendingImageSizeInfo[$_set](dart.nullCheck(sizeInfo.source), sizeInfo);
-        }
-        if (debug.debugOnPaintImage != null) {
-          dart.nullCheck(debug.debugOnPaintImage)(sizeInfo);
-        }
-        dart.nullCheck(binding.SchedulerBinding.instance).addPostFrameCallback(dart.fn(timeStamp => {
-          if (timeStamp == null) dart.nullFailed(I[0], 542, 65, "timeStamp");
-          decoration_image._lastFrameImageSizeInfo = decoration_image._pendingImageSizeInfo[$values][$toSet]();
-          if (dart.test(decoration_image._pendingImageSizeInfo[$isEmpty])) {
-            return;
-          }
-          developer.postEvent("Flutter.ImageSizesForFrame", (() => {
-            let t1 = new (T.IdentityMapOfString$Object()).new();
-            for (let imageSizeInfo of decoration_image._pendingImageSizeInfo[$values])
-              t1[$_set](dart.nullCheck(imageSizeInfo.source), imageSizeInfo.toJson());
-            return t1;
-          })());
-          decoration_image._pendingImageSizeInfo = new (T.IdentityMapOfString$ImageSizeInfo()).new();
-        }, T.DurationTovoid()));
+  dart.setLibraryUri(multitap.DoubleTapGestureRecognizer, I[1]);
+  dart.setFieldSignature(multitap.DoubleTapGestureRecognizer, () => ({
+    __proto__: dart.getFields(multitap.DoubleTapGestureRecognizer.__proto__),
+    onDoubleTapDown: dart.fieldType(dart.nullable(dart.fnType(dart.void, [tap.TapDownDetails]))),
+    onDoubleTap: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onDoubleTapCancel: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+    [_doubleTapTimer]: dart.fieldType(dart.nullable(async.Timer)),
+    [_firstTap]: dart.fieldType(dart.nullable(multitap._TapTracker)),
+    [_trackers]: dart.finalFieldType(core.Map$(core.int, multitap._TapTracker))
+  }));
+  var _wonArena = dart.privateName(multitap, "_wonArena");
+  var _timer = dart.privateName(multitap, "_timer");
+  var _finalPosition = dart.privateName(multitap, "_finalPosition");
+  var _lastPosition = dart.privateName(multitap, "_lastPosition");
+  var _dispatchLongTap = dart.privateName(multitap, "_dispatchLongTap");
+  var _check = dart.privateName(multitap, "_check");
+  var _dispatchCancel = dart.privateName(multitap, "_dispatchCancel");
+  var _dispatchTap = dart.privateName(multitap, "_dispatchTap");
+  multitap._TapGesture = class _TapGesture extends multitap._TapTracker {
+    handleEvent(event) {
+      if (event == null) dart.nullFailed(I[0], 397, 33, "event");
+      if (!(event.pointer == this.pointer)) dart.assertFailed(null, I[0], 398, 12, "event.pointer == pointer");
+      if (events.PointerMoveEvent.is(event)) {
+        if (!dart.test(this.isWithinGlobalTolerance(event, events.computeHitSlop(event.kind))))
+          this.cancel();
+        else
+          this[_lastPosition] = recognizer.OffsetPair.fromEventPosition(event);
+      } else if (events.PointerCancelEvent.is(event)) {
+        this.cancel();
+      } else if (events.PointerUpEvent.is(event)) {
+        this.stopTrackingPointer(dart.bind(this, 'handleEvent'));
+        this[_finalPosition] = recognizer.OffsetPair.fromEventPosition(event);
+        this[_check]();
       }
     }
-    let needSave = centerSlice != null || repeat != decoration_image.ImageRepeat.noRepeat || dart.test(flipHorizontally);
-    if (needSave) canvas.save();
-    if (repeat != decoration_image.ImageRepeat.noRepeat) canvas.clipRect(rect);
-    if (dart.test(flipHorizontally)) {
-      let dx = -(dart.notNull(rect.left) + dart.notNull(rect.width) / 2.0);
-      canvas.translate(-dx, 0.0);
-      canvas.scale(-1.0, 1.0);
-      canvas.translate(dx, 0.0);
+    stopTrackingPointer(route) {
+      let t0;
+      if (route == null) dart.nullFailed(I[0], 414, 41, "route");
+      t0 = this[_timer];
+      t0 == null ? null : t0.cancel();
+      this[_timer] = null;
+      super.stopTrackingPointer(route);
     }
-    if (centerSlice == null) {
-      let sourceRect = alignment.inscribe(sourceSize, ui.Offset.zero['&'](inputSize));
-      if (repeat == decoration_image.ImageRepeat.noRepeat) {
-        canvas.drawImageRect(image, sourceRect, destinationRect, paint);
-      } else {
-        for (let tileRect of decoration_image._generateImageTileRects(rect, destinationRect, repeat))
-          canvas.drawImageRect(image, sourceRect, tileRect, paint);
-      }
-    } else {
-      canvas.scale(1 / dart.notNull(scale));
-      if (repeat == decoration_image.ImageRepeat.noRepeat) {
-        canvas.drawImageNine(image, decoration_image._scaleRect(centerSlice, scale), decoration_image._scaleRect(destinationRect, scale), paint);
-      } else {
-        for (let tileRect of decoration_image._generateImageTileRects(rect, destinationRect, repeat))
-          canvas.drawImageNine(image, decoration_image._scaleRect(centerSlice, scale), decoration_image._scaleRect(tileRect, scale), paint);
-      }
+    accept() {
+      this[_wonArena] = true;
+      this[_check]();
     }
-    if (needSave) canvas.restore();
-    if (invertedCanvas) {
-      canvas.restore();
+    reject() {
+      this.stopTrackingPointer(dart.bind(this, 'handleEvent'));
+      this.gestureRecognizer[_dispatchCancel](this.pointer);
+    }
+    cancel() {
+      if (dart.test(this[_wonArena]))
+        this.reject();
+      else
+        this.entry.resolve(arena.GestureDisposition.rejected);
+    }
+    [_check]() {
+      if (dart.test(this[_wonArena]) && this[_finalPosition] != null) this.gestureRecognizer[_dispatchTap](this.pointer, dart.nullCheck(this[_finalPosition]));
     }
   };
-  decoration_image._generateImageTileRects = function _generateImageTileRects(outputRect, fundamentalRect, repeat) {
-    if (outputRect == null) dart.nullFailed(I[0], 597, 45, "outputRect");
-    if (fundamentalRect == null) dart.nullFailed(I[0], 597, 62, "fundamentalRect");
-    if (repeat == null) dart.nullFailed(I[0], 597, 91, "repeat");
-    return new (T.SyncIterableOfRect()).new(function* _generateImageTileRects() {
-      let startX = 0;
-      let startY = 0;
-      let stopX = 0;
-      let stopY = 0;
-      let strideX = fundamentalRect.width;
-      let strideY = fundamentalRect.height;
-      if (repeat == decoration_image.ImageRepeat.repeat || repeat == decoration_image.ImageRepeat.repeatX) {
-        startX = ((dart.notNull(outputRect.left) - dart.notNull(fundamentalRect.left)) / dart.notNull(strideX))[$floor]();
-        stopX = ((dart.notNull(outputRect.right) - dart.notNull(fundamentalRect.right)) / dart.notNull(strideX))[$ceil]();
-      }
-      if (repeat == decoration_image.ImageRepeat.repeat || repeat == decoration_image.ImageRepeat.repeatY) {
-        startY = ((dart.notNull(outputRect.top) - dart.notNull(fundamentalRect.top)) / dart.notNull(strideY))[$floor]();
-        stopY = ((dart.notNull(outputRect.bottom) - dart.notNull(fundamentalRect.bottom)) / dart.notNull(strideY))[$ceil]();
-      }
-      for (let i = startX; i <= stopX; i = i + 1) {
-        for (let j = startY; j <= stopY; j = j + 1)
-          yield fundamentalRect.shift(new ui.Offset.new(i * dart.notNull(strideX), j * dart.notNull(strideY)));
-      }
-    });
+  (multitap._TapGesture.new = function(opts) {
+    let gestureRecognizer = opts && 'gestureRecognizer' in opts ? opts.gestureRecognizer : null;
+    if (gestureRecognizer == null) dart.nullFailed(I[0], 371, 19, "gestureRecognizer");
+    let event = opts && 'event' in opts ? opts.event : null;
+    if (event == null) dart.nullFailed(I[0], 372, 27, "event");
+    let longTapDelay = opts && 'longTapDelay' in opts ? opts.longTapDelay : null;
+    if (longTapDelay == null) dart.nullFailed(I[0], 373, 23, "longTapDelay");
+    this[_wonArena] = false;
+    this[_timer] = null;
+    this[_finalPosition] = null;
+    this.gestureRecognizer = gestureRecognizer;
+    this[_lastPosition] = recognizer.OffsetPair.fromEventPosition(event);
+    multitap._TapGesture.__proto__.new.call(this, {event: events.PointerDownEvent.as(event), entry: dart.nullCheck(binding.GestureBinding.instance).gestureArena.add(event.pointer, gestureRecognizer), doubleTapMinTime: constants.kDoubleTapMinTime});
+    this.startTrackingPointer(dart.bind(this, 'handleEvent'), event.transform);
+    if (dart.test(longTapDelay['>'](core.Duration.zero))) {
+      this[_timer] = async.Timer.new(longTapDelay, dart.fn(() => {
+        this[_timer] = null;
+        this.gestureRecognizer[_dispatchLongTap](event.pointer, this[_lastPosition]);
+      }, T.VoidTovoid()));
+    }
+  }).prototype = multitap._TapGesture.prototype;
+  dart.addTypeTests(multitap._TapGesture);
+  dart.addTypeCaches(multitap._TapGesture);
+  dart.setMethodSignature(multitap._TapGesture, () => ({
+    __proto__: dart.getMethods(multitap._TapGesture.__proto__),
+    handleEvent: dart.fnType(dart.void, [events.PointerEvent]),
+    accept: dart.fnType(dart.void, []),
+    reject: dart.fnType(dart.void, []),
+    cancel: dart.fnType(dart.void, []),
+    [_check]: dart.fnType(dart.void, [])
+  }));
+  dart.setLibraryUri(multitap._TapGesture, I[1]);
+  dart.setFieldSignature(multitap._TapGesture, () => ({
+    __proto__: dart.getFields(multitap._TapGesture.__proto__),
+    gestureRecognizer: dart.finalFieldType(multitap.MultiTapGestureRecognizer),
+    [_wonArena]: dart.fieldType(core.bool),
+    [_timer]: dart.fieldType(dart.nullable(async.Timer)),
+    [_lastPosition]: dart.fieldType(recognizer.OffsetPair),
+    [_finalPosition]: dart.fieldType(dart.nullable(recognizer.OffsetPair))
+  }));
+  var onTapDown = dart.privateName(multitap, "MultiTapGestureRecognizer.onTapDown");
+  var onTapUp = dart.privateName(multitap, "MultiTapGestureRecognizer.onTapUp");
+  var onTap = dart.privateName(multitap, "MultiTapGestureRecognizer.onTap");
+  var onTapCancel = dart.privateName(multitap, "MultiTapGestureRecognizer.onTapCancel");
+  var longTapDelay$ = dart.privateName(multitap, "MultiTapGestureRecognizer.longTapDelay");
+  var onLongTapDown = dart.privateName(multitap, "MultiTapGestureRecognizer.onLongTapDown");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  var _gestureMap = dart.privateName(multitap, "_gestureMap");
+  multitap.MultiTapGestureRecognizer = class MultiTapGestureRecognizer extends recognizer.GestureRecognizer {
+    get onTapDown() {
+      return this[onTapDown];
+    }
+    set onTapDown(value) {
+      this[onTapDown] = value;
+    }
+    get onTapUp() {
+      return this[onTapUp];
+    }
+    set onTapUp(value) {
+      this[onTapUp] = value;
+    }
+    get onTap() {
+      return this[onTap];
+    }
+    set onTap(value) {
+      this[onTap] = value;
+    }
+    get onTapCancel() {
+      return this[onTapCancel];
+    }
+    set onTapCancel(value) {
+      this[onTapCancel] = value;
+    }
+    get longTapDelay() {
+      return this[longTapDelay$];
+    }
+    set longTapDelay(value) {
+      this[longTapDelay$] = value;
+    }
+    get onLongTapDown() {
+      return this[onLongTapDown];
+    }
+    set onLongTapDown(value) {
+      this[onLongTapDown] = value;
+    }
+    addAllowedPointer(event) {
+      if (event == null) dart.nullFailed(I[0], 490, 39, "event");
+      if (!!dart.test(this[_gestureMap][$containsKey](event.pointer))) dart.assertFailed(null, I[0], 491, 12, "!_gestureMap.containsKey(event.pointer)");
+      this[_gestureMap][$_set](event.pointer, new multitap._TapGesture.new({gestureRecognizer: this, event: event, longTapDelay: this.longTapDelay}));
+      if (this.onTapDown != null) this.invokeCallback(dart.void, "onTapDown", dart.fn(() => {
+        dart.nullCheck(this.onTapDown)(event.pointer, new tap.TapDownDetails.new({globalPosition: event.position, localPosition: event.localPosition, kind: event.kind}));
+      }, T.VoidTovoid()));
+    }
+    acceptGesture(pointer) {
+      if (pointer == null) dart.nullFailed(I[0], 508, 26, "pointer");
+      if (!dart.test(this[_gestureMap][$containsKey](pointer))) dart.assertFailed(null, I[0], 509, 12, "_gestureMap.containsKey(pointer)");
+      dart.nullCheck(this[_gestureMap][$_get](pointer)).accept();
+    }
+    rejectGesture(pointer) {
+      if (pointer == null) dart.nullFailed(I[0], 514, 26, "pointer");
+      if (!dart.test(this[_gestureMap][$containsKey](pointer))) dart.assertFailed(null, I[0], 515, 12, "_gestureMap.containsKey(pointer)");
+      dart.nullCheck(this[_gestureMap][$_get](pointer)).reject();
+      if (!!dart.test(this[_gestureMap][$containsKey](pointer))) dart.assertFailed(null, I[0], 517, 12, "!_gestureMap.containsKey(pointer)");
+    }
+    [_dispatchCancel](pointer) {
+      if (pointer == null) dart.nullFailed(I[0], 520, 28, "pointer");
+      if (!dart.test(this[_gestureMap][$containsKey](pointer))) dart.assertFailed(null, I[0], 521, 12, "_gestureMap.containsKey(pointer)");
+      this[_gestureMap][$remove](pointer);
+      if (this.onTapCancel != null) this.invokeCallback(dart.void, "onTapCancel", dart.fn(() => dart.nullCheck(this.onTapCancel)(pointer), T.VoidTovoid()));
+    }
+    [_dispatchTap](pointer, position) {
+      if (pointer == null) dart.nullFailed(I[0], 527, 25, "pointer");
+      if (position == null) dart.nullFailed(I[0], 527, 45, "position");
+      if (!dart.test(this[_gestureMap][$containsKey](pointer))) dart.assertFailed(null, I[0], 528, 12, "_gestureMap.containsKey(pointer)");
+      this[_gestureMap][$remove](pointer);
+      if (this.onTapUp != null) this.invokeCallback(dart.void, "onTapUp", dart.fn(() => {
+        dart.nullCheck(this.onTapUp)(pointer, new tap.TapUpDetails.new({kind: this.getKindForPointer(pointer), localPosition: position.local, globalPosition: position.global}));
+      }, T.VoidTovoid()));
+      if (this.onTap != null) this.invokeCallback(dart.void, "onTap", dart.fn(() => dart.nullCheck(this.onTap)(pointer), T.VoidTovoid()));
+    }
+    [_dispatchLongTap](pointer, lastPosition) {
+      if (pointer == null) dart.nullFailed(I[0], 542, 29, "pointer");
+      if (lastPosition == null) dart.nullFailed(I[0], 542, 49, "lastPosition");
+      if (!dart.test(this[_gestureMap][$containsKey](pointer))) dart.assertFailed(null, I[0], 543, 12, "_gestureMap.containsKey(pointer)");
+      if (this.onLongTapDown != null) this.invokeCallback(dart.void, "onLongTapDown", dart.fn(() => {
+        dart.nullCheck(this.onLongTapDown)(pointer, new tap.TapDownDetails.new({globalPosition: lastPosition.global, localPosition: lastPosition.local, kind: this.getKindForPointer(pointer)}));
+      }, T.VoidTovoid()));
+    }
+    dispose() {
+      let localGestures = T.ListOf_TapGesture().from(this[_gestureMap][$values]);
+      for (let gesture of localGestures)
+        gesture.cancel();
+      if (!dart.test(this[_gestureMap][$isEmpty])) dart.assertFailed(null, I[0], 563, 12, "_gestureMap.isEmpty");
+      super.dispose();
+    }
+    get debugDescription() {
+      return "multitap";
+    }
   };
-  decoration_image._scaleRect = function _scaleRect(rect, scale) {
-    if (rect == null) dart.nullFailed(I[0], 621, 22, "rect");
-    if (scale == null) dart.nullFailed(I[0], 621, 35, "scale");
-    return new ui.Rect.fromLTRB(dart.notNull(rect.left) * dart.notNull(scale), dart.notNull(rect.top) * dart.notNull(scale), dart.notNull(rect.right) * dart.notNull(scale), dart.notNull(rect.bottom) * dart.notNull(scale));
-  };
-  dart.defineLazy(decoration_image, {
-    /*decoration_image._pendingImageSizeInfo*/get _pendingImageSizeInfo() {
-      return new (T.IdentityMapOfString$ImageSizeInfo()).new();
-    },
-    set _pendingImageSizeInfo(_) {},
-    /*decoration_image._lastFrameImageSizeInfo*/get _lastFrameImageSizeInfo() {
-      return T.LinkedHashSetOfImageSizeInfo().new();
-    },
-    set _lastFrameImageSizeInfo(_) {}
-  }, false);
-  dart.trackLibraries("packages/flutter/src/painting/decoration_image.dart", {
-    "package:flutter/src/painting/decoration_image.dart": decoration_image
+  (multitap.MultiTapGestureRecognizer.new = function(opts) {
+    let longTapDelay = opts && 'longTapDelay' in opts ? opts.longTapDelay : C[0] || CT.C0;
+    if (longTapDelay == null) dart.nullFailed(I[0], 460, 10, "longTapDelay");
+    let debugOwner = opts && 'debugOwner' in opts ? opts.debugOwner : null;
+    let kind = opts && 'kind' in opts ? opts.kind : null;
+    this[onTapDown] = null;
+    this[onTapUp] = null;
+    this[onTap] = null;
+    this[onTapCancel] = null;
+    this[onLongTapDown] = null;
+    this[_gestureMap] = new (T.IdentityMapOfint$_TapGesture()).new();
+    this[longTapDelay$] = longTapDelay;
+    multitap.MultiTapGestureRecognizer.__proto__.new.call(this, {debugOwner: debugOwner, kind: kind});
+    ;
+  }).prototype = multitap.MultiTapGestureRecognizer.prototype;
+  dart.addTypeTests(multitap.MultiTapGestureRecognizer);
+  dart.addTypeCaches(multitap.MultiTapGestureRecognizer);
+  dart.setMethodSignature(multitap.MultiTapGestureRecognizer, () => ({
+    __proto__: dart.getMethods(multitap.MultiTapGestureRecognizer.__proto__),
+    addAllowedPointer: dart.fnType(dart.void, [events.PointerEvent]),
+    acceptGesture: dart.fnType(dart.void, [core.int]),
+    rejectGesture: dart.fnType(dart.void, [core.int]),
+    [_dispatchCancel]: dart.fnType(dart.void, [core.int]),
+    [_dispatchTap]: dart.fnType(dart.void, [core.int, recognizer.OffsetPair]),
+    [_dispatchLongTap]: dart.fnType(dart.void, [core.int, recognizer.OffsetPair])
+  }));
+  dart.setGetterSignature(multitap.MultiTapGestureRecognizer, () => ({
+    __proto__: dart.getGetters(multitap.MultiTapGestureRecognizer.__proto__),
+    debugDescription: core.String
+  }));
+  dart.setLibraryUri(multitap.MultiTapGestureRecognizer, I[1]);
+  dart.setFieldSignature(multitap.MultiTapGestureRecognizer, () => ({
+    __proto__: dart.getFields(multitap.MultiTapGestureRecognizer.__proto__),
+    onTapDown: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.int, tap.TapDownDetails]))),
+    onTapUp: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.int, tap.TapUpDetails]))),
+    onTap: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.int]))),
+    onTapCancel: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.int]))),
+    longTapDelay: dart.fieldType(core.Duration),
+    onLongTapDown: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.int, tap.TapDownDetails]))),
+    [_gestureMap]: dart.finalFieldType(core.Map$(core.int, multitap._TapGesture))
+  }));
+  dart.trackLibraries("packages/flutter/src/gestures/multitap.dart", {
+    "package:flutter/src/gestures/multitap.dart": multitap
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["decoration_image.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAgCA;;;QAZK;;;;;EAYL;;;;;;;;;;;;;;;;;;;;;;;;;;;IAgCsB;;;;;;IAGM;;;;;;IAGP;;;;;;IAQL;;;;;;IA2BU;;;;;;IAiBZ;;;;;;IAIM;;;;;;IASP;;;;;;IAME;;;;;;;UAOqC;AAChD,YAAO,AAAU,SAAD;AAChB,YAA8B,gDAAE,MAAM,SAAS;IACjD;;UAGwB;AACtB,UAAI,AAAU,SAAM,KAAK,EACvB,MAAO;AACT,UAAsB,aAAZ,iBAAN,KAAK,GAAgB,qBACvB,MAAO;AACT,YAAa,AAQT,qCARG,KAAK,KACO,YAAZ,AAAM,KAAD,QAAU,eACG,YAAlB,AAAM,KAAD,cAAgB,qBACrB,AAAM,AAAI,KAAL,QAAQ,YACG,YAAhB,AAAM,KAAD,YAAc,mBACD,YAAlB,AAAM,KAAD,cAAgB,qBACrB,AAAM,AAAO,KAAR,WAAW,eAChB,AAAM,AAAmB,KAApB,uBAAuB,2BAC5B,AAAM,AAAM,KAAP,UAAU;IACxB;;AAGoB,2BAAW,YAAO,kBAAa,UAAK,gBAAW,kBAAa,aAAQ,yBAAoB;IAAM;;AAI7F,uBAAqB;yCAC9B,SAAN;AACF,YAAI,AAAY,0BACA,kBAAZ;AACJ,YAAI,AAAI,sBACF,AAAI,YAAU,uBAAQ,AAAY,+BAClC,AAAI,YAAU,4BAAa,AAAY,2BACrC,kBAAJ;AACQ,0BAAV;AACF,YAAI,AAAY,0BACa,SAA3B,2BAAe;AACjB,YAAI,AAAO,eAAe,uCACf,kBAAP;AACJ,sBAAI,0BACF;AAEJ,iBADE,qBAAS;;;AAEX,YAAgF,UAAtE,yBAAkB,MAAM,sBAAmB,eAAG,AAAW,UAAD,QAAM,SAAM;IAChF;;;QApJgB;;QACT;QACA;QACA;QACA;;QACA;QACA;;QACA;;QACA;;IARS;IACT;IACA;IACA;IACA;IACA;IACA;IACA;IACA;UACK,AAAM,KAAD;UACL,AAAU,SAAD;UACT,AAAO,MAAD;UACN,AAAmB,kBAAD;UAClB,AAAM,KAAD;;EAAS;;;;;;;;;;;;;;;;;;;;;;;;;;;;UA4KR,QAAa,MAAY,UAA6B;;UAAtD;UAAa;UAAyC;AACtE,YAAO,AAAO,MAAD;AACb,YAAO,AAAK,IAAD;AACX,YAAO,AAAc,aAAD;AAEf,6BAAmB;AACxB,oBAAI,AAAS;AACX,uBAAO,AAeN;AAZC,cAAI,AAAc,AAAc,aAAf;AASb,YARF,WAAmB,sCAA2B,iCAC5C,gCAAa,2FACb,oCAAgB,AACd,0FACA,+CAEF,mDAAqC,2BAA2B,yBAAsC,kDACtG,sDAAwC,8BAA8B,aAAa,UAA8B;;AAGrH,gBAAO;;AAET,YAAI,AAAc,AAAc,aAAf,kBAAgC,sBAC/C,AAAuB,mBAAJ;;AAGL,2BAAiB,AAAS,AAAM,8BAAQ,aAAa;AACvE,UAAuB,aAAnB,AAAe,cAAD,6CAAQ,OAAc;AACZ,uBAAW,mDACnC,+BACS,AAAS;AAEkB,cAAtC;6BAAc,mBAAe,QAAQ;AACR,QAA7B,qBAAe,cAAc;AACM,QAAvB,AAAE,eAAd,gCAA0B,QAAQ;;AAEpC,UAAI,AAAO,sBACT;AAEF,UAAI,AAAS,QAAD;AACG,QAAb,AAAO,MAAD;AACmB,QAAzB,AAAO,MAAD,UAAU,QAAQ;;AAgBzB,MAbD,qCACU,MAAM,QACR,IAAI,SACG,AAAE,eAAR,sCACgB,AAAE,eAAR,iCACK,aAAf,AAAS,sCAAc,AAAE,eAAR,mCACX,AAAS,kCACjB,AAAS,gCACH,AAAS,AAAU,kCAAQ,AAAc,aAAD,8BACtC,AAAS,qCACd,AAAS,0CACC,gBAAgB,iBACL;AAG/B,UAAI,AAAS,QAAD,UACV,AAAO,AAAS,MAAV;IACV;mBAE4B,OAAY;;UAAZ;UAAY;AACtC,UAAW,YAAP,cAAU,KAAK,GACjB;AACF,UAAI,AAAO,kCAAiB,AAAE,eAAR,wBAAkB,KAAK;AAC5B,QAAf,AAAM,KAAD;AACL;;AAEe,WAAjB;0BAAQ;AACM,MAAd,eAAS,KAAK;AACd,YAAO,AAAW;AAClB,qBAAK,eAAe,GAClB,AAAU,AAAE;IAChB;;;AAYI,WAHF;0BAAc,kBAAe,mDAC3B,+BACS,AAAS;AAEH,YAAjB;2BAAQ;AACK,MAAb,eAAS;IACX;;AAIE,YAAkH,UAAxG,yBAAkB,MAAM,6BAA0B,uBAAU,sBAAY,uBAAU,gBAAM,oBAAO;IAC3G;;yDAtH8B,UAAe;QAAf;QAAe;IAKhC;IACF;IANmB;IAAe;UAAqB,AAAS,QAAD;;EAAS;;;;;;;;;;;;;;;;;;;;;AAsInF,mBAAO,AAGN;AAF4C,MAA3C,2CAAyC;AACzC,YAAO;;EAEX;;;QAuEkB;;QACF;;QACI;;QACV;QACD;;QACM;QACL;QACE;;QACJ;QACM;;QACP;;QACA;;QACS;;QACT;;AAEL,UAAO,AAAO,MAAD;AACb,UAAO,AAAM,KAAD;AACZ,UAAO,AAAU,SAAD;AAChB,UAAO,AAAO,MAAD;AACb,UAAO,AAAiB,gBAAD;AACvB,UAAO,AAAY,WAAD;AAClB,oBACoD,YAAlD,AAAM,KAAD,+CAAC,OAAiC,kBAAjC,cAA+C,gCAAI,AACzD,8CACA,6EACA;AAEF,kBAAI,AAAK,IAAD,WACN;AACG,qBAAa,AAAK,IAAD;AACjB,oBAAY,gBAAK,AAAM,AAAM,KAAP,qBAAmB,AAAM,AAAO,KAAR;AAC3C;AACR,QAAI,AAAY,WAAD;AAC+C,MAA5D,cAAmD,aAArC,AAAU,AAAQ,SAAT,MAAG,KAAK,OAAG,AAAY,WAAD;AACA,MAA7C,aAAsC,WAAzB,AAAW,UAAD,MAAG,WAAW;AACc,MAAnD,YAA4C,WAAhC,AAAU,SAAD,MAAG,AAAY,WAAD,MAAG,KAAK;;AAEe,IAA5D,AAAI,GAAD,WAAH,MAAQ,AAAY,WAAD,WAAkB,2BAAmB,sBAApD;AACJ,UAAO,AAAY,AAAQ,WAAT,YAAa,AAAI,GAAD,IAAW,uBAAQ,AAAI,GAAD,IAAW;AACjD,sBAAc,oBAAY,GAAG,EAAE,AAAU,SAAD,MAAG,KAAK,GAAE,UAAU;AACnE,qBAAa,AAAY,AAAO,WAAR,aAAU,KAAK;AAC7C,0BAAkB,AAAY,WAAD;AAClC,QAAI,AAAY,WAAD;AACa,MAA1B,aAAA,AAAW,UAAD,MAAe,eAAX,WAAW;AACK,MAA9B,kBAAA,AAAgB,eAAD,MAAI,WAAW;AAG9B,WAAkB,YAAX,UAAU,EAAI,SAAS,qBAAE;;AAGlC,QAAI,AAAO,MAAD,IAAgB,yCAA4B,YAAhB,eAAe,EAAI,UAAU;AAGpC,MAA7B,SAAqB;;AAEX,wCAAQ;AAAS,yBAAc,WAAW;;;AACtD,QAAI,AAAY,WAAD,UACb,AAAM,AAAyB,KAA1B,eAAe,WAAW;AACjC,QAAe,aAAX,UAAU,EAAI,eAAe;AACI,MAAnC,AAAM,KAAD,iBAAiB,aAAa;;AAEJ,IAAjC,AAAM,KAAD,gBAAgB,YAAY;AACpB,yBAA4D,CAAzB,aAAjB,AAAW,UAAD,uBAAS,AAAgB,eAAD,WAAU;AAC9D,0BAA+D,CAA1B,aAAlB,AAAW,UAAD,wBAAU,AAAgB,eAAD,YAAW;AACjE,aAAK,AAAe,cAAD,GAAmD,uBAA/C,gBAAgB,IAAG,cAAC,AAAU,SAAD,MAAK,AAAU,SAAD,MAAM,cAAc;AACtF,aAAK,AAAgB,eAAD,GAAe,aAAZ,AAAU,SAAD,MAAK,eAAe;AACpD,8BAAsB,AAAK,AAAQ,IAAT,mBAAmB,EAAE,EAAE,EAAE;AACrD,0BAAkB,AAAoB,mBAAD,MAAG,eAAe;AAG7D,yBAAiB;AAEtB;AACsB,qBAAW,sCAEL,OAAhB,eAAe,EAAf,eAAmB,AAAiD,6BAA/B,AAAM,KAAD,UAAO,eAAG,AAAM,KAAD,WAAQ,yBAC9D,gBAAK,AAAM,AAAM,KAAP,qBAAmB,AAAM,AAAO,KAAR,oCAChC,UAAU;AAEzB,qBAAO,AAmCN;;AAlCC,sBAAI,qCAC4B,aAA5B,AAAS,QAAD,uBAAkD,aAA5B,AAAS,QAAD,oCAAsB;AACpD,oCAAkF,EAA/B,aAA5B,AAAS,QAAD,oCAAsB,AAAS,QAAD,wBAAwB;AACrF,4BAAc,AAAW,AAAM,UAAP;AACxB,6BAAe,AAAW,AAAO,UAAR;AAWjC,UAVW,oCAAY,mDACd,AAAE,oBAAQ,eAAe,yCAC9B,WAAW,mBAAE,YAAY,wCACxB,AAAM,KAAD,UAAO,eAAG,AAAM,KAAD,WAAQ,yCAC5B,mBAAmB,IAAC,YACvB,uEACA,2BAAe,WAAW,+CACxB,YAAY,0CACP,6BACA,oCAAiB;AAW3B,UARD,AAAO,MAAD,WACJ,eAAe,wBACf;AAAS;;;AAQE,mBAAK,EAAW,aAAT,AAAK,IAAD,QAAmB,aAAZ,AAAK,IAAD,WAAU;AACnB,UAA1B,AAAO,MAAD,WAAW,KAAK,CAAC,EAAE;AACF,UAAvB,AAAO,MAAD,OAAO,KAAK,CAAC;AACM,UAAzB,AAAO,MAAD,WAAW,KAAK,EAAE;AACH,UAArB,iBAAiB;;AAEnB,cAAO;;AAGT,qBAAK,AAAwB,kDAAS,QAAQ;AACvB,+BAAmB,AAAqB,8CAAC,AAAS,QAAD;AACtE,YAAI,AAAiB,gBAAD,YAAgD,aAApC,AAAiB,gBAAD,oCAAsB,AAAS,QAAD;AAC1B,UAAlD,AAAqB,8CAAgB,eAAf,AAAS,QAAD,UAAY,QAAQ;;AAEpD,YAAI,AAAkB;AACQ,UAAX,AAAC,eAAlB,yBAAmB,QAAQ;;AAe3B,QAbuB,AAAE,eAAV,wDAA+B;cAAU;AACM,UAA9D,2CAA0B,AAAsB,AAAO;AACvD,wBAAI,AAAsB;AACxB;;AAQD,UAND,oBACE,8BACgB;;AACd,qBAAmB,gBAAiB,AAAsB;AACnC,wBAAD,eAApB,AAAc,aAAD,UAAU,AAAc,aAAD;;;AAGO,UAAjD,yCAA+C;;;;AAK1C,mBAAW,AAAY,AAA0C,WAA3C,YAAY,AAAO,MAAD,IAAgB,mDAAY,gBAAgB;AAC/F,QAAI,QAAQ,EACV,AAAO,AAAM,MAAP;AACR,QAAI,AAAO,MAAD,IAAgB,uCACxB,AAAO,AAAc,MAAf,UAAU,IAAI;AACtB,kBAAI,gBAAgB;AACL,eAAK,EAAY,aAAV,AAAK,IAAD,SAAmB,aAAX,AAAK,IAAD,UAAS;AACnB,MAA1B,AAAO,MAAD,WAAW,CAAC,EAAE,EAAE;AACC,MAAvB,AAAO,MAAD,OAAO,CAAC,KAAK;AACM,MAAzB,AAAO,MAAD,WAAW,EAAE,EAAE;;AAEvB,QAAI,AAAY,WAAD;AACF,uBAAa,AAAU,SAAD,UAC/B,UAAU,EAAS,AAAK,oBAAE,SAAS;AAErC,UAAI,AAAO,MAAD,IAAgB;AACuC,QAA/D,AAAO,MAAD,eAAe,KAAK,EAAE,UAAU,EAAE,eAAe,EAAE,KAAK;;AAE9D,iBAAgB,WAAY,0CAAwB,IAAI,EAAE,eAAe,EAAE,MAAM;AACvB,UAAxD,AAAO,MAAD,eAAe,KAAK,EAAE,UAAU,EAAE,QAAQ,EAAE,KAAK;;;AAGpC,MAAvB,AAAO,MAAD,OAAO,AAAE,iBAAE,KAAK;AACtB,UAAI,AAAO,MAAD,IAAgB;AAC8E,QAAtG,AAAO,MAAD,eAAe,KAAK,EAAE,4BAAW,WAAW,EAAE,KAAK,GAAG,4BAAW,eAAe,EAAE,KAAK,GAAG,KAAK;;AAErG,iBAAgB,WAAY,0CAAwB,IAAI,EAAE,eAAe,EAAE,MAAM;AACgB,UAA/F,AAAO,MAAD,eAAe,KAAK,EAAE,4BAAW,WAAW,EAAE,KAAK,GAAG,4BAAW,QAAQ,EAAE,KAAK,GAAG,KAAK;;;AAGpG,QAAI,QAAQ,EACV,AAAO,AAAS,MAAV;AAER,QAAI,cAAc;AACA,MAAhB,AAAO,MAAD;;EAEV;8EAE4C,YAAiB,iBAA6B;QAA9C;QAAiB;QAA6B;AAApD;AAChC,mBAAS;AACT,mBAAS;AACT,kBAAQ;AACR,kBAAQ;AACC,oBAAU,AAAgB,eAAD;AACzB,oBAAU,AAAgB,eAAD;AAEtC,UAAI,AAAO,MAAD,IAAgB,uCAAU,AAAO,MAAD,IAAgB;AACa,QAArE,SAA8D,CAAX,CAAxB,aAAhB,AAAW,UAAD,sBAAQ,AAAgB,eAAD,uBAAS,OAAO;AACS,QAArE,QAA+D,CAAX,CAAzB,aAAjB,AAAW,UAAD,uBAAS,AAAgB,eAAD,wBAAU,OAAO;;AAG/D,UAAI,AAAO,MAAD,IAAgB,uCAAU,AAAO,MAAD,IAAgB;AACW,QAAnE,SAA4D,CAAX,CAAvB,aAAf,AAAW,UAAD,qBAAO,AAAgB,eAAD,sBAAQ,OAAO;AACa,QAAvE,QAAiE,CAAX,CAA1B,aAAlB,AAAW,UAAD,wBAAU,AAAgB,eAAD,yBAAW,OAAO;;AAGjE,eAAS,IAAI,MAAM,EAAE,AAAE,CAAD,IAAI,KAAK,EAAI,IAAF,AAAE,CAAC,GAAH;AAC/B,iBAAS,IAAI,MAAM,EAAE,AAAE,CAAD,IAAI,KAAK,EAAI,IAAF,AAAE,CAAC,GAAH;AAC/B,gBAAM,AAAgB,eAAD,OAAO,kBAAO,AAAE,CAAD,gBAAG,OAAO,GAAE,AAAE,CAAD,gBAAG,OAAO;;IAEjE;;oDAEqB,MAAa;QAAb;QAAa;AAAU,UAAK,sBAAmB,aAAV,AAAK,IAAD,sBAAQ,KAAK,GAAW,aAAT,AAAK,IAAD,qBAAO,KAAK,GAAa,aAAX,AAAK,IAAD,uBAAS,KAAK,GAAc,aAAZ,AAAK,IAAD,wBAAU,KAAK;EAAC;;MAlS5G,sCAAqB;YAA0B;;;MAKvD,wCAAuB;YAAkB","file":"../../../../../../../../E:/packages/flutter/src/painting/decoration_image.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["multitap.dart"],"names":[],"mappings":"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","file":"../../../../../../../../E:/packages/flutter/src/gestures/multitap.dart.lib.js"}');
   // Exports:
   return {
-    src__painting__decoration_image: decoration_image
+    src__gestures__multitap: multitap
   };
 }));
 
-//# sourceMappingURL=decoration_image.dart.lib.js.map
+//# sourceMappingURL=multitap.dart.lib.js.map

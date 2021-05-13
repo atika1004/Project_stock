@@ -5,6 +5,7 @@ class TentangScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: stockBackground,
       appBar: AppBar(
         title: Text(
           "Tentang",
