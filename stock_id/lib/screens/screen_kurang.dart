@@ -50,7 +50,7 @@ class KurangScreen extends StatelessWidget {
                       child: Row(
                         children: [
                           IconButton(onPressed: () {},
-                                     icon:Icon(Icons.do_disturb_on_outlined), onPressed: () {})
+                                     icon:Icon(Icons.do_disturb_on_outlined),)
                           ]
                         ),
                       )
