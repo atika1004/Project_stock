@@ -8,6 +8,10 @@
         "source": "E:\\Unila\\KULIAH\\Sem6\\Mobile_Lanjut\\Project_Stock\\stock_id\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
+        "merged": "E:\\Unila\\KULIAH\\Sem6\\Mobile_Lanjut\\Project_Stock\\stock_id\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-hdpi_logo_stock_circle.png.flat",
+        "source": "E:\\Unila\\KULIAH\\Sem6\\Mobile_Lanjut\\Project_Stock\\stock_id\\android\\app\\src\\main\\res\\mipmap-hdpi\\logo_stock_circle.png"
+    },
+    {
         "merged": "E:\\Unila\\KULIAH\\Sem6\\Mobile_Lanjut\\Project_Stock\\stock_id\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
         "source": "E:\\Unila\\KULIAH\\Sem6\\Mobile_Lanjut\\Project_Stock\\stock_id\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },

@@ -31,16 +31,16 @@ dependencies:
   flutter_svg: ^0.17.4
 
 dev_dependencies:
-  flutter_launcher_icons:
+  # flutter_launcher_icons:
   flutter_test:
     sdk: flutter
   
 
-flutter_icons:
-  ios: true
-  android: true
-  image_path_ios: "assets/images/logo_stock_circle.png"
-  image_path_android: "assets/images/logo_stock_circle.png"
+# flutter_icons:
+#   ios: true
+#   android: true
+#   image_path_ios: "assets/images/logo_stock_circle.png"
+#   image_path_android: "assets/images/logo_stock_circle.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

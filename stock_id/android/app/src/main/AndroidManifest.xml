@@ -2,7 +2,7 @@
     package="com.example.stock_id">
    <application
         android:label="stock_id"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/logo_stock_circle">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

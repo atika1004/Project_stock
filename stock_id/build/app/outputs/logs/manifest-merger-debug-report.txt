@@ -46,7 +46,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\us
 	android:label
 		ADDED from E:\Unila\KULIAH\Sem6\Mobile_Lanjut\Project_Stock\stock_id\android\app\src\main\AndroidManifest.xml:4:9-33
 	android:icon
-		ADDED from E:\Unila\KULIAH\Sem6\Mobile_Lanjut\Project_Stock\stock_id\android\app\src\main\AndroidManifest.xml:5:9-43
+		ADDED from E:\Unila\KULIAH\Sem6\Mobile_Lanjut\Project_Stock\stock_id\android\app\src\main\AndroidManifest.xml:5:9-49
 activity#com.example.stock_id.MainActivity
 ADDED from E:\Unila\KULIAH\Sem6\Mobile_Lanjut\Project_Stock\stock_id\android\app\src\main\AndroidManifest.xml:6:9-34:20
 	android:launchMode
