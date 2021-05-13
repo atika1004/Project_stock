@@ -57,7 +57,7 @@ class _BarangScreenState extends State<BarangScreen> {
                       Container(
                         width: 55.0,
                         height: 55.0,
-                        color: Colors.blue,
+                        color: stockPrimary,
                         child: Icon(
                           Icons.inventory,
                         ),
