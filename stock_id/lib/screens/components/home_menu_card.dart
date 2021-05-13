@@ -39,12 +39,13 @@ class HomeMenu extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   Spacer(),
-                  Icon(iconSrc, size: 60,),
+                  Icon(iconSrc, size: 50,),
                   Spacer(),
                   Text(
                     title,
                     textAlign: TextAlign.center,
                     style: TextStyle(
+                      color: stockText,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
