@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:stock_id/screens/home/home_screen.dart';
+// import 'package:stock_id/screens/home/home_screen.dart';
 import 'package:stock_id/Auth/register.dart';
+import 'package:stock_id/auth_services.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -8,6 +9,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  TextEditingController emailController = TextEditingController(text: "");
+  TextEditingController passwordController = TextEditingController(text: "");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,6 +45,7 @@ class _LoginState extends State<Login> {
               height: 20,
             ),
             TextFormField(
+              controller: emailController,
               decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   focusedBorder: OutlineInputBorder(
@@ -50,15 +54,16 @@ class _LoginState extends State<Login> {
                     Icons.person,
                     size: 40,
                   ),
-                  hintText: "Masukkan Username",
+                  hintText: "Masukkan Email",
                   hintStyle: TextStyle(color: Colors.black87),
-                  labelText: "Username",
+                  labelText: "Email",
                   labelStyle: TextStyle(color: Colors.black87)),
             ),
             SizedBox(
               height: 20,
             ),
             TextFormField(
+              controller: passwordController,
               obscureText: true,
               decoration: InputDecoration(
                   border: OutlineInputBorder(),
@@ -76,30 +81,12 @@ class _LoginState extends State<Login> {
             SizedBox(
               height: 20,
             ),
-            Card(
-              color: Colors.black87,
-              elevation: 5,
-              child: Container(
-                height: 50,
-                child: InkWell(
-                  splashColor: Colors.white,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()),
-                    );
-                  },
-                  child: Center(
-                    child: Text(
-                      "Masuk",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+            RaisedButton(
+              child: Text("Masuk"),
+              onPressed: () async {
+                await AuthServices.signIn(
+                    emailController.text, passwordController.text);
+              },
             ),
             Text("Belum punya akun ?"),
             Container(

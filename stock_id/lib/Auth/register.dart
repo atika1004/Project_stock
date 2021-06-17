@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:stock_id/Auth/login.dart';
+// import 'package:stock_id/Auth/login.dart';
+import 'package:stock_id/auth_services.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -7,6 +8,8 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  TextEditingController emailController = TextEditingController(text: "");
+  TextEditingController passwordController = TextEditingController(text: "");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,6 +44,7 @@ class _RegisterState extends State<Register> {
               height: 20,
             ),
             TextFormField(
+              controller: emailController,
               decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   focusedBorder: OutlineInputBorder(
@@ -52,23 +56,6 @@ class _RegisterState extends State<Register> {
                   hintText: "Masukkan Email",
                   hintStyle: TextStyle(color: Colors.black87),
                   labelText: "Email",
-                  labelStyle: TextStyle(color: Colors.black87)),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            TextFormField(
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black87)),
-                  prefixIcon: Icon(
-                    Icons.person,
-                    size: 40,
-                  ),
-                  hintText: "Masukkan Username",
-                  hintStyle: TextStyle(color: Colors.black87),
-                  labelText: "Username",
                   labelStyle: TextStyle(color: Colors.black87)),
             ),
             SizedBox(
@@ -93,6 +80,7 @@ class _RegisterState extends State<Register> {
               height: 20,
             ),
             TextFormField(
+              controller: passwordController,
               obscureText: true,
               decoration: InputDecoration(
                   border: OutlineInputBorder(),
@@ -110,30 +98,12 @@ class _RegisterState extends State<Register> {
             SizedBox(
               height: 20,
             ),
-            Card(
-              color: Colors.black87,
-              elevation: 5,
-              child: Container(
-                height: 50,
-                child: InkWell(
-                  splashColor: Colors.white,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Login()),
-                    );
-                  },
-                  child: Center(
-                    child: Text(
-                      "Daftar",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+            RaisedButton(
+              child: Text("Daftar"),
+              onPressed: () async {
+                await AuthServices.signUp(
+                    emailController.text, passwordController.text);
+              },
             ),
           ],
         ),
