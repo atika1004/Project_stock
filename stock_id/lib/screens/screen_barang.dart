@@ -15,6 +15,14 @@ class _BarangScreenState extends State<BarangScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(
+          Icons.add,
+          color: Colors.white70,
+        ),
+        backgroundColor: Colors.grey[700],
+      ),
       backgroundColor: stockBackground,
       appBar: AppBar(
         title: Text(

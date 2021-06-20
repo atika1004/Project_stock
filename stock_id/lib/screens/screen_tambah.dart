@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:stock_id/constants.dart';
 import 'package:stock_id/screens/screen_barang.dart';
 
-class TambahScreen extends StatelessWidget {
+class AddStock extends StatefulWidget {
+  @override
+  _AddStockState createState() => _AddStockState();
+}
+
+class _AddStockState extends State<AddStock> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

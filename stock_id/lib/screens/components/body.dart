@@ -29,7 +29,7 @@ class Body extends StatelessWidget {
                         press: () {
                           Navigator.push(
                             context, 
-                            MaterialPageRoute(builder: (context) => TambahScreen()),
+                            MaterialPageRoute(builder: (context) => AddStock()),
                           );
                         },
                       ),
