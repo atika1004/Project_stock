@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:stock_id/constants.dart';
 import 'package:stock_id/screens/screen_barang.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class AddStock extends StatefulWidget {
   @override
@@ -138,4 +140,13 @@ class _AddStockState extends State<AddStock> {
       ), //Column
     ); //Scaffold
   }
+
+  // void add() {
+  //   //save to db
+  //   CollectionReference ref = Firestore.instance
+  //     .collection('users')
+  //     .document(FirebaseUser.instance.currentUser.uid)
+  //     .collection('stock');
+  // }
+
 }
